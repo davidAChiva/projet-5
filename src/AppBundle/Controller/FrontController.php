@@ -11,6 +11,6 @@ class FrontController extends Controller
 
     public function indexAction(Request $request)
     {
-        return $this->render('base.html.twig');
+        return $this->render('front/layout.html.twig');
     }
 }
