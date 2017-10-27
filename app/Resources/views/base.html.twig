@@ -1,13 +1,20 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}ODélices voyage{% endblock %}</title>
+    {% block stylesheets %}
+        <script src="https//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    {% endblock %}
+</head>
+
+<body>
+<div class="container">
+    <header class="col-md-12">
+        <div> <img src="{{ asset('images/hamburger-header.jpg')  }}" alt="Hamburger" /> </div>
+    </header>
+</div>
+
+</body>
 </html>
