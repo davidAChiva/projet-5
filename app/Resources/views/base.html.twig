@@ -7,20 +7,40 @@
         {% block stylesheets %}
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
             <link rel="stylesheet" href="{{ asset('css/general.css') }}" />
+            <script type="text/javascript" src="https://use.fontawesome.com/f520e036a2.js"></script>
         {% endblock %}
     </head>
 
     <body>
     <div class="container">
+
         <header class="row">
            {% block header %}
            <h1 class="col-lg-4">ODELICES VOYAGES</h1>
            {% endblock %}
         </header>
+
         <nav class="row">
             {% block nav %}
             {% endblock %}
         </nav>
+
+        {% block body %}
+        {% endblock %}
+
+        <footer class="row">
+            {% block footer %}
+                <div id="footer-social" class="col-md-12">
+                    <a href=""><i class="fa fa-facebook fa-2x icone_fontawesome col-md-2" aria-hidden="true"></i></a>
+                    <a href=""><i class="fa fa-twitter-square fa-2x icone_fontawesome col-md-2" aria-hidden="true"></i></a>
+                    <a href=""><i class="fa fa-google-plus-square fa-2x icone_fontawesome col-md-2" aria-hidden="true"></i></a>
+                    <a href=""><i class="fa fa-instagram icone_fontawesome fa-2x col-md-2" aria-hidden="true"></i></a>
+                </div>
+                <div class="col-md-12">
+                    <p class="col-md-12">Copyright David Alfaro Chiva</p>
+                </div>
+            {% endblock %}
+        </footer>
     </div>
 
     </body>

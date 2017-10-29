@@ -1,6 +1,5 @@
 .container
 {
-    width: 1170px;
     margin: auto;
 }
 header
@@ -11,4 +10,30 @@ header
     height: 500px;
     color: white;
 }
-
+nav
+{
+    font-size: 0.9em;
+    text-align: center;
+    margin: auto;
+}
+footer
+{
+    text-align: center;
+    margin: auto;
+    height: 220px;
+    background-color: #ebebeb;
+}
+footer p
+{
+    text-align: center;
+}
+.icone_fontawesome
+{
+    padding: 10px;
+    background-color: #898989;
+    color: white;
+}
+.footer_social
+{
+    text-align: center;
+}
