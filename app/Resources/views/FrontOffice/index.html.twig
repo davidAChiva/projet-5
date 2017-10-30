@@ -1,5 +1,14 @@
 {% extends "FrontOffice/layout.html.twig" %}
 
 {% block title %}
-Accueil | {{ parent() }}
+    Accueil | {{ parent() }}
+{% endblock %}
+
+{% block body %}
+    <section class="row">
+    <h2 class="col-md-12">RECETTES PAR INGREDIENT</h2>
+    {% for ingredientCategory in ingredientCategories %}
+        <img class="col-md-3" src="{{ asset(ingredientCategory.image.url) }}" />
+    {% endfor %}
+    </section>
 {% endblock %}

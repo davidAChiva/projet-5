@@ -1,5 +1,10 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}
+{{ parent() }}
+<link rel="stylesheet" href="{{ asset('css/frontOffice.css') }}" />
+{% endblock %}
+
 {% block nav %}
     {{ parent() }}
     <div class="col-md-12">
