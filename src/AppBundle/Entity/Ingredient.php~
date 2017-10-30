@@ -34,7 +34,7 @@ class Ingredient
     private $image;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Ingredient_category")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\IngredientCategory")
      */
     private $category;
     
@@ -94,5 +94,29 @@ class Ingredient
     public function getImage()
     {
         return $this->image;
+    }
+
+    /**
+     * Set category
+     *
+     * @param \AppBundle\Entity\IngredientCategory $category
+     *
+     * @return Ingredient
+     */
+    public function setCategory(\AppBundle\Entity\IngredientCategory $category = null)
+    {
+        $this->category = $category;
+
+        return $this;
+    }
+
+    /**
+     * Get category
+     *
+     * @return \AppBundle\Entity\IngredientCategory
+     */
+    public function getCategory()
+    {
+        return $this->category;
     }
 }

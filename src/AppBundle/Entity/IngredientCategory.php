@@ -5,12 +5,12 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Ingredient_category
+ * IngredientCategory
  *
  * @ORM\Table(name="ingredient_category")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\Ingredient_categoryRepository")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\IngredientCategoryRepository")
  */
-class Ingredient_category
+class IngredientCategory
 {
     /**
      * @var int
@@ -49,7 +49,7 @@ class Ingredient_category
      *
      * @param string $name
      *
-     * @return Ingredient_category
+     * @return IngredientCategory
      */
     public function setName($name)
     {
@@ -73,7 +73,7 @@ class Ingredient_category
      *
      * @param \AppBundle\Entity\Image $image
      *
-     * @return Ingredient_category
+     * @return IngredientCategory
      */
     public function setImage(\AppBundle\Entity\Image $image = null)
     {
