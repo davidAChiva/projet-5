@@ -15,6 +15,7 @@ class FrontOfficeController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $ingredientCategories = $em->getRepository('AppBundle:IngredientCategory')->findAll();
+
         return $this->render('FrontOffice/index.html.twig', array(
             'ingredientCategories' => $ingredientCategories
         ));
