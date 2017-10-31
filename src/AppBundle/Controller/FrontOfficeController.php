@@ -18,9 +18,23 @@ class FrontOfficeController extends Controller
 
         $partsOfMenu = $em->getRepository('AppBundle:PartOfMenu')->findAll();
 
+        $specialtiesCountries = $em->getRepository('AppBundle:SpecialtyCountry')->findAll();
+
         return $this->render('FrontOffice/index.html.twig', array(
             'ingredientCategories' => $ingredientCategories,
-            'partsOfMenu' => $partsOfMenu
+            'partsOfMenu' => $partsOfMenu,
+            'specialtiesCountries' => $specialtiesCountries
+        ));
+    }
+
+    public function CategoryIngredientAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $ingredients = $em->getRepository('AppBundle:IngredientCategory')->findBy($id);
+
+        return $this->render('FrontOffice/ingredientCategory.html.twig', array(
+            'ingredients' => $ingredients
         ));
     }
 }
