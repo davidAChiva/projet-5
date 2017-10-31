@@ -18,4 +18,12 @@
             <img class="col-md-3" src="{{ asset(partOfMenu.image.url) }}" />
         {% endfor %}
     </section>
+
+    <section class="row">
+        <h2 class="col-md-12">RECETTES PAR PAYS</h2>
+        {% for specialtyCountry in specialtiesCountries %}
+            <img class="col-md-3" src="{{ asset(specialtyCountry.image.url) }}" />
+        {% endfor %}
+
+    </section>
 {% endblock %}
