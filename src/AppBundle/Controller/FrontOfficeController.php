@@ -16,8 +16,11 @@ class FrontOfficeController extends Controller
 
         $ingredientCategories = $em->getRepository('AppBundle:IngredientCategory')->findAll();
 
+        $partsOfMenu = $em->getRepository('AppBundle:PartOfMenu')->findAll();
+
         return $this->render('FrontOffice/index.html.twig', array(
-            'ingredientCategories' => $ingredientCategories
+            'ingredientCategories' => $ingredientCategories,
+            'partsOfMenu' => $partsOfMenu
         ));
     }
 }

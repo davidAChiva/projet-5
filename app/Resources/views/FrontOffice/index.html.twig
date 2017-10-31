@@ -6,9 +6,16 @@
 
 {% block body %}
     <section class="row">
-    <h2 class="col-md-12">RECETTES PAR INGREDIENT</h2>
-    {% for ingredientCategory in ingredientCategories %}
-        <img class="col-md-3" src="{{ asset(ingredientCategory.image.url) }}" />
-    {% endfor %}
+        <h2 class="col-md-12">RECETTES PAR INGREDIENT</h2>
+        {% for ingredientCategory in ingredientCategories %}
+            <img class="col-md-3" src="{{ asset(ingredientCategory.image.url) }}" />
+        {% endfor %}
+    </section>
+
+    <section class="row">
+        <h2 class="col-md-12">RECETTES PAR TYPE</h2>
+        {% for partOfMenu in partsOfMenu %}
+            <img class="col-md-3" src="{{ asset(partOfMenu.image.url) }}" />
+        {% endfor %}
     </section>
 {% endblock %}
