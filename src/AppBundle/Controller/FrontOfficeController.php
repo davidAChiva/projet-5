@@ -47,7 +47,7 @@ class FrontOfficeController extends Controller
         $specialtyCountry = $em->getRepository('AppBundle:SpecialtyCountry')->find($id);
 
         return $this->render('FrontOffice/countrySpecialty.html.twig', array(
-            'specialtyCountry' => $specialtyCountry
+                'specialtyCountry' => $specialtyCountry
         ));
     }
 }
