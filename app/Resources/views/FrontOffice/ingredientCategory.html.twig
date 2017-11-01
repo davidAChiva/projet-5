@@ -1,13 +1,15 @@
 {% extends "FrontOffice/layout.html.twig" %}
 
 {% block title %}
-    Catégorie ingrédient | {{ parent() }}
+    Catégorie {{ category.name }} | {{ parent() }}
 {% endblock %}
 
 {% block body %}
     <section class="row">
+        <h2 class="col-md-12">CATEGORIE {{ category.name | upper }}</h2>
+        <p class="col-md-12">Recherchez une recette avec un  {{ category.name | lower }} comme base</p>
         {% for ingredient in ingredients %}
-            <p>{{ ingredient.id }}</p>
+            <img class="col-md-3" src="{{ asset(ingredient.image.url) }}" alt="{{ ingredient.image.alt }}"/>
         {% endfor %}
     </section>
 {% endblock %}

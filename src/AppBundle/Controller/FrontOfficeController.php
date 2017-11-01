@@ -33,8 +33,11 @@ class FrontOfficeController extends Controller
 
         $ingredients = $em->getRepository('AppBundle:Ingredient')->getIngredientsOfCategory($id);
 
+        $category = $em->getRepository('AppBundle:IngredientCategory')->find($id);
+
         return $this->render('FrontOffice/ingredientCategory.html.twig', array(
-            'ingredients' => $ingredients
+            'ingredients' => $ingredients,
+            'category'    => $category
         ));
     }
 }
