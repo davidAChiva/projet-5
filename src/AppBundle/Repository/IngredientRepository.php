@@ -2,6 +2,7 @@
 
 namespace AppBundle\Repository;
 
+use Doctrine\ORM\QueryBuilder;
 /**
  * IngredientRepository
  *
@@ -10,4 +11,16 @@ namespace AppBundle\Repository;
  */
 class IngredientRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function getIngredientsOfCategory($idCategory)
+    {
+        $qb = $this->createQueryBuilder('i')
+            ->innerJoin('i.category','c')
+            ->addSelect('c');
+
+        $qb->where('c.id = :idCategory')
+            ->setParameter('idCategory',$idCategory);
+
+
+        return $qb->getQuery()->getResult();
+    }
 }

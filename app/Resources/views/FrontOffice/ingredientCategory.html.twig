@@ -1,0 +1,13 @@
+{% extends "FrontOffice/layout.html.twig" %}
+
+{% block title %}
+    Catégorie ingrédient | {{ parent() }}
+{% endblock %}
+
+{% block body %}
+    <section class="row">
+        {% for ingredient in ingredients %}
+            <p>{{ ingredient.id }}</p>
+        {% endfor %}
+    </section>
+{% endblock %}

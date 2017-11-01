@@ -27,11 +27,11 @@ class FrontOfficeController extends Controller
         ));
     }
 
-    public function CategoryIngredientAction($id)
+    public function categoryIngredientAction($id)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $ingredients = $em->getRepository('AppBundle:IngredientCategory')->findBy($id);
+        $ingredients = $em->getRepository('AppBundle:Ingredient')->getIngredientsOfCategory($id);
 
         return $this->render('FrontOffice/ingredientCategory.html.twig', array(
             'ingredients' => $ingredients
