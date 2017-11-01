@@ -2,8 +2,14 @@ front_index:
     path:       /
     defaults:   { _controller: AppBundle:FrontOffice:index }
 
-front-ingredient:
+front_ingredient:
     path:       /categorie-ingredient/{id}
     defaults:   { _controller: AppBundle:FrontOffice:categoryIngredient }
+    requirements:
+        id:     \d+
+
+front_country_specialty:
+    path:       /recette-pays/{id}
+    defaults:   { _controller: AppBundle:FrontOffice:countrySpecialty}
     requirements:
         id:     \d+

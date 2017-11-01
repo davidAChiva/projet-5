@@ -40,4 +40,14 @@ class FrontOfficeController extends Controller
             'category'    => $category
         ));
     }
+
+    public function countrySpecialtyAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $specialtyCountry = $em->getRepository('AppBundle:SpecialtyCountry')->find($id);
+
+        return $this->render('FrontOffice/countrySpecialty.html.twig', array(
+            'specialtyCountry' => $specialtyCountry
+        ));
+    }
 }
