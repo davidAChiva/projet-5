@@ -50,4 +50,9 @@ class FrontOfficeController extends Controller
                 'specialtyCountry' => $specialtyCountry
         ));
     }
+
+    public function addRecipeAction()
+    {
+        return $this->render('FrontOffice/addRecipe.html.twig');
+    }
 }

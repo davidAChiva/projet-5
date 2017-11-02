@@ -10,6 +10,10 @@ front_ingredient:
 
 front_country_specialty:
     path:       /recette-pays/{id}
-    defaults:   { _controller: AppBundle:FrontOffice:countrySpecialty}
+    defaults:   { _controller: AppBundle:FrontOffice:countrySpecialty }
     requirements:
         id:     \d+
+
+front_add_recipe:
+    path:       /ajouter-recette/
+    defaults:   { _controller: AppBundle:FrontOffice:addRecipe }
