@@ -61,7 +61,7 @@ class CookingRecipe
      *
      * @ORM\Column(name="published", type="boolean")
      */
-    private $published;
+    private $published = true;
 
     /**
      * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Ingredient", cascade={"persist"})

@@ -5,6 +5,8 @@ namespace AppBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use AppBundle\Entity\CookingRecipe;
+use AppBundle\Form\CookingRecipeType;
 
 
 class FrontOfficeController extends Controller
@@ -51,8 +53,24 @@ class FrontOfficeController extends Controller
         ));
     }
 
-    public function addRecipeAction()
+    public function addRecipeAction(Request $request)
     {
-        return $this->render('FrontOffice/addRecipe.html.twig');
+        $cookingRecipe = new CookingRecipe();
+
+        $form = $this->get('form.factory')->create(CookingRecipeType::class,$cookingRecipe);
+        $form->handleRequest($request);
+
+        if ($form->isValid() && $form->isSubmitted())
+        {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($cookingRecipe);
+            $em->flush();
+
+            return $this->redirectToRoute('front_index');
+        }
+
+        return $this->render('FrontOffice/addRecipe.html.twig', array(
+                'form'  => $form->createView(),
+        ));
     }
 }
