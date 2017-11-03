@@ -80,6 +80,21 @@ class CookingRecipe
     private $partOfMenu;
 
     /**
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Image", cascade={"persist", "remove"})
+     */
+    private $image;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->dateCreation = new \DateTime();
+        $this->ingredients = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+
+    /**
      * Get id
      *
      * @return int
@@ -232,13 +247,6 @@ class CookingRecipe
     {
         return $this->published;
     }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->ingredients = new \Doctrine\Common\Collections\ArrayCollection();
-    }
 
     /**
      * Add ingredient
@@ -320,5 +328,29 @@ class CookingRecipe
     public function getPartOfMenu()
     {
         return $this->partOfMenu;
+    }
+
+    /**
+     * Set image
+     *
+     * @param \AppBundle\Entity\Image $image
+     *
+     * @return CookingRecipe
+     */
+    public function setImage(\AppBundle\Entity\Image $image = null)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Get image
+     *
+     * @return \AppBundle\Entity\Image
+     */
+    public function getImage()
+    {
+        return $this->image;
     }
 }

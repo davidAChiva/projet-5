@@ -2,6 +2,7 @@
 
 namespace AppBundle\Form;
 
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -31,7 +32,9 @@ class CookingRecipeType extends AbstractType
             ->add('partOfMenu',            EntityType::class, array(
                 'class'        =>       'AppBundle:PartOfMenu',
                 'choice_label' =>       'type',
-                'multiple'     =>       'true',
+            ))
+            ->add('image',                  FileType::class, array (
+                'required'     =>       'false',
             ))
             ->add('save',                   SubmitType::class, array('label' => 'Valider'))
 

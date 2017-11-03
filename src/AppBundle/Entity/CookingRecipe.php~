@@ -61,7 +61,7 @@ class CookingRecipe
      *
      * @ORM\Column(name="published", type="boolean")
      */
-    private $published;
+    private $published = true;
 
     /**
      * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Ingredient", cascade={"persist"})
@@ -78,6 +78,21 @@ class CookingRecipe
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\PartOfMenu")
      */
     private $partOfMenu;
+
+    /**
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Image", cascade={"persist", "remove"})
+     */
+    private $image;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->dateCreation = new \DateTime();
+        $this->ingredients = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
 
     /**
      * Get id
@@ -232,5 +247,86 @@ class CookingRecipe
     {
         return $this->published;
     }
-}
 
+    /**
+     * Add ingredient
+     *
+     * @param \AppBundle\Entity\Ingredient $ingredient
+     *
+     * @return CookingRecipe
+     */
+    public function addIngredient(\AppBundle\Entity\Ingredient $ingredient)
+    {
+        $this->ingredients[] = $ingredient;
+
+        return $this;
+    }
+
+    /**
+     * Remove ingredient
+     *
+     * @param \AppBundle\Entity\Ingredient $ingredient
+     */
+    public function removeIngredient(\AppBundle\Entity\Ingredient $ingredient)
+    {
+        $this->ingredients->removeElement($ingredient);
+    }
+
+    /**
+     * Get ingredients
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getIngredients()
+    {
+        return $this->ingredients;
+    }
+
+    /**
+     * Set specialtyCountry
+     *
+     * @param \AppBundle\Entity\SpecialtyCountry $specialtyCountry
+     *
+     * @return CookingRecipe
+     */
+    public function setSpecialtyCountry(\AppBundle\Entity\SpecialtyCountry $specialtyCountry = null)
+    {
+        $this->specialtyCountry = $specialtyCountry;
+
+        return $this;
+    }
+
+    /**
+     * Get specialtyCountry
+     *
+     * @return \AppBundle\Entity\SpecialtyCountry
+     */
+    public function getSpecialtyCountry()
+    {
+        return $this->specialtyCountry;
+    }
+
+    /**
+     * Set partOfMenu
+     *
+     * @param \AppBundle\Entity\PartOfMenu $partOfMenu
+     *
+     * @return CookingRecipe
+     */
+    public function setPartOfMenu(\AppBundle\Entity\PartOfMenu $partOfMenu = null)
+    {
+        $this->partOfMenu = $partOfMenu;
+
+        return $this;
+    }
+
+    /**
+     * Get partOfMenu
+     *
+     * @return \AppBundle\Entity\PartOfMenu
+     */
+    public function getPartOfMenu()
+    {
+        return $this->partOfMenu;
+    }
+}
