@@ -2,6 +2,7 @@
 
 namespace AppBundle\Form;
 
+use AppBundle\Entity\Image;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -10,6 +11,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class CookingRecipeType extends AbstractType
 {
@@ -33,11 +35,18 @@ class CookingRecipeType extends AbstractType
                 'class'        =>       'AppBundle:PartOfMenu',
                 'choice_label' =>       'type',
             ))
-            ->add('image',                  FileType::class, array (
+            ->add('image',                  ImageType::class, array (
                 'required'     =>       'false',
             ))
             ->add('save',                   SubmitType::class, array('label' => 'Valider'))
 
         ;
+    }
+
+    public function configureOptions(OptionsResolver $resolver)
+    {
+        $resolver->setDefaults(array(
+            'data_class' => 'AppBundle\Entity\CookingRecipe'
+        ));
     }
 }

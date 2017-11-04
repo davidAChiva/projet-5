@@ -1,51 +1,49 @@
 <div class="well">
-{{ form_start(form) }}
+    {{ form_start(form) }}
 
-{# Gestion des erreurs générales#}
-{{ form_errors(form) }}
+    {# Gestion des erreurs générales#}
+    {{ form_errors(form) }}
 
-{# Champ name #}
-{{ form_label(form.name,"Nom de la recette", {'label_attr': {'class': 'control-label'}}) }}
-{{ form_errors(form.name) }}
-{{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
+    {# Champ name #}
+    {{ form_label(form.name,"Nom de la recette", {'label_attr': {'class': 'control-label'}}) }}
+    {{ form_errors(form.name) }}
+    {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
 
-{# Champ preparationTime #}
-{{ form_label(form.preparationTime,"Temps de préparation", {'label_attr': {'class': 'control-label'}}) }}
-{{ form_errors(form.preparationTime) }}
-{{ form_widget(form.preparationTime, {'attr': {'class': 'form-control'}}) }}
+    {# Champ preparationTime #}
+    {{ form_label(form.preparationTime,"Temps de préparation", {'label_attr': {'class': 'control-label'}}) }}
+    {{ form_errors(form.preparationTime) }}
+    {{ form_widget(form.preparationTime, {'attr': {'class': 'form-control'}}) }}
 
-{# Champ cookingTime #}
-{{ form_label(form.cookingTime,"Temps de cuisson", {'label_attr': {'class': 'control-label'}}) }}
-{{ form_errors(form.cookingTime) }}
-{{ form_widget(form.cookingTime, {'attr': {'class': 'form-control'}}) }}
+    {# Champ cookingTime #}
+    {{ form_label(form.cookingTime,"Temps de cuisson", {'label_attr': {'class': 'control-label'}}) }}
+    {{ form_errors(form.cookingTime) }}
+    {{ form_widget(form.cookingTime, {'attr': {'class': 'form-control'}}) }}
 
-{# Champ Content #}
-{{ form_label(form.content,"Description", {'label_attr': {'class': 'control-label'}}) }}
-{{ form_errors(form.content) }}
-{{ form_widget(form.content, {'attr': {'class': 'form-control'}}) }}
+    {# Champ Content #}
+    {{ form_label(form.content,"Description", {'label_attr': {'class': 'control-label'}}) }}
+    {{ form_errors(form.content) }}
+    {{ form_widget(form.content, {'attr': {'class': 'form-control'}}) }}
 
-{# Champ Ingredients#}
-{{ form_label(form.ingredients,"Liste des ingrédients", {'label_attr': {'class': 'control-label'}}) }}
-{{ form_errors(form.ingredients) }}
-{{ form_widget(form.ingredients, {'attr': {'class': 'form-control'}}) }}
+    {# Champ Ingredients#}
+    {{ form_label(form.ingredients,"Liste des ingrédients", {'label_attr': {'class': 'control-label'}}) }}
+    {{ form_errors(form.ingredients) }}
+    {{ form_widget(form.ingredients, {'attr': {'class': 'form-control'}}) }}
 
-{# Champ specialtyCountry #}
-{{ form_label(form.specialtyCountry,"Spécialité du pays", {'label_attr': {'class': 'control-label'}}) }}
-{{ form_errors(form.specialtyCountry) }}
-{{ form_widget(form.specialtyCountry, {'attr': {'class': 'form-control'}}) }}
+    {# Champ specialtyCountry #}
+    {{ form_label(form.specialtyCountry,"Spécialité du pays", {'label_attr': {'class': 'control-label'}}) }}
+    {{ form_errors(form.specialtyCountry) }}
+    {{ form_widget(form.specialtyCountry, {'attr': {'class': 'form-control'}}) }}
 
-{# Champ partOfMenu #}
-{{ form_label(form.partOfMenu,"Type du menu", {'label_attr': {'class': 'control-label'}}) }}
-{{ form_errors(form.partOfMenu) }}
-{{ form_widget(form.partOfMenu, {'attr': {'class': 'form-control'}}) }}
+    {# Champ partOfMenu #}
+    {{ form_label(form.partOfMenu,"Type du menu", {'label_attr': {'class': 'control-label'}}) }}
+    {{ form_errors(form.partOfMenu) }}
+    {{ form_widget(form.partOfMenu, {'attr': {'class': 'form-control'}}) }}
 
-{# Champ image#}
-{{ form_label(form.image,"Image de la recette", {'label_attr': {'class': 'control-label'}}) }}
-{{ form_errors(form.image) }}
-{{ form_widget(form.image, {'attr': {'class': 'form-control'}}) }}
+    {# Champ image#}
+    {{ form_label(form.image,"Image de la recette", {'label_attr': {'class': 'control-label'}}) }}
+    {{ form_errors(form.image) }}
+    {{ form_widget(form.image, {'attr': {'class': 'form-control'}}) }}
 
-{{ form_widget(form.save, {'attr': {'class': 'btn btn-primary'}}) }}
-
-
-{{ form_end(form) }}
+    {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary button_form_recipe'}}) }}
+    {{ form_end(form) }}
 </div>
