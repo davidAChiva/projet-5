@@ -17,3 +17,9 @@ front_country_specialty:
 front_add_recipe:
     path:       /ajouter-recette/
     defaults:   { _controller: AppBundle:FrontOffice:addRecipe }
+
+front_recipe:
+    path:       /recette/{id}
+    defaults:   { _controller: AppBundle:FrontOffice:recipe }
+    requirements:
+        id:     \d+

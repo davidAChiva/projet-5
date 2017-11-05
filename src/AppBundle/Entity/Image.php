@@ -109,19 +109,19 @@ class Image
 
     public function getUploadDir()
     {
-        return 'upload/images';
+        return 'images/upload/images';
     }
 
 
     protected function getUploadRootDir()
 
     {
-        return __DIR__.'/../../../../web/'.$this->getUploadDir();
+        return __DIR__.'/../../../web'.$this->getUploadDir();
     }
 
     public function getWebPath()
     {
-        return $this->getUploadRootDir().'/'.$this->getId().'.'.$this->getUrl();
+        return $this->getUploadDir().'/'.$this->getId().'.'.$this->getUrl();
     }
     /**
      * Get id

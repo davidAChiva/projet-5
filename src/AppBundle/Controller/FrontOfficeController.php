@@ -76,6 +76,11 @@ class FrontOfficeController extends Controller
 
     public function recipeAction($id)
     {
-        return $this->render('FrontOffice/recipe.html.twig');
+        $em = $this->getDoctrine()->getManager();
+        $cookingRecipe = $em->getRepository('AppBundle:CookingRecipe')->find($id);
+
+        return $this->render('FrontOffice/recipe.html.twig',array (
+            'cookingRecipe' => $cookingRecipe,
+        ));
     }
 }
