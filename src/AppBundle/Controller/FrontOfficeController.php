@@ -73,4 +73,9 @@ class FrontOfficeController extends Controller
                 'form'  => $form->createView(),
         ));
     }
+
+    public function recipeAction($id)
+    {
+        return $this->render('FrontOffice/recipe.html.twig');
+    }
 }
