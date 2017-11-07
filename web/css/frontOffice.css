@@ -3,3 +3,25 @@ section img
     margin-top: 10px;
     height: 200px;
 }
+figcaption
+{
+    margin-top: -190px;
+    color:white;
+    height: 170px;
+    background-color: rgba(0,0,0,0.8);
+    opacity: 0;
+    transition-property: opacity;
+    transition-duration: 3s;
+}
+figcaption:hover
+{
+    opacity: 1;
+}
+figure
+{
+    text-align: center;
+}
+figure p
+{
+    font-size: 1.2em;
+}

@@ -7,9 +7,49 @@
 
 {% block nav %}
     {{ parent() }}
-    <a class="col-md-2" href="{{ path('front_index') }}">Accueil</a>
-    <a class="col-md-2" href="">Recettes du monde</a>
-    <a class="col-md-2" href="">Recettes par ingrèdient</a>
-    <a class="col-md-2" href="">Ajouter une recette</a>
-    <a class="col-md-2" href="">Contact</a>
+    <div class="navbar-header"><a class="navbar-brand" href="{{ path('front_index') }}">Odelices Voyage</a>
+        <a class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </a>
+    </div>
+    <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+            <li class="active" >
+                <a href="{{ path('front_index') }}"><span class="fa fa-home icone_fontawesome_header" aria-hidden="true"></span>Accueil</a>
+            </li>
+            <li>
+                <a href="{{ path('front_index') }}"><span class="fa fa-plus icone_fontawesome_header" aria-hidden="true"></span>Ajouter une recette</a>
+            </li>
+            <li  class=>
+                <a href=""><span class="fa fa-envelope-o icone_fontawesome_header" aria-hidden="true"></span>Newsletter</a>
+            </li>
+            <li>
+                <a href="{{ path('front_index') }}"><span class="fa fa-info icone_fontawesome_header" aria-hidden="true"></span>Contact</a>
+            </li>
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                <a href="{{ path('front_index') }}"><span class="fa fa-user-circle icone_fontawesome_header" aria-hidden="true"></span>Connexion</a>
+            </li>
+            <li>
+                <a href="{{ path('front_index') }}">Créer un compte</a>
+            </li>
+        </ul>
+    </div>
+
 {% endblock %}
+
+{% block nav_vertical %}
+    <div class="btn-group btn-group-vertical col-md-3 nav_vertical">
+        <button class="btn btn-default">Recettes les plus populaires</button>
+        <button class="btn btn-default">Recettes les mieux notés</button>
+        <button class="btn btn-default">Recettes par ingrédient</button>
+        <button class="btn btn-default">Recettes par type</button>
+        <button class="btn btn-default">Recettes par pays</button>
+        <button class="btn btn-default">Voir toutes les recettes</button>
+    </div>
+{% endblock %}
+

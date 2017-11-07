@@ -5,25 +5,92 @@
 {% endblock %}
 
 {% block body %}
+    {{ parent() }}
+
+    {# section -> les plus populaires#}
+    <section class="row">
+        <h2 class="col-md-12">RECETTES LES PLUS POPULAIRES</h2>
+        {% for specialtyCountry in specialtiesCountries %}
+            <figure class="col-md-4">
+                <h3 class="col-md-12">Nom de la recette</h3>
+                <img class="col-md-12" src="{{ asset(specialtyCountry.image.url) }}" />
+                <figcaption class="col-md-10 col-md-offset-1">
+                    <p class="col-md-12"> Pays : Nom du pays</p>
+                    <p class="col-md-12">Type : plat</p>
+                    <button class="col-md-6 col-md-offset-3 btn btn-info">Voir la recette</button>
+                </figcaption>
+            </figure>
+
+        {% endfor %}
+    </section>
+
+    <div class="row">
+        <button class="col-md-3 col-md-offset-5 btn btn-info">Plus de recettes</button>
+    </div>
+
+    {# Section -> Les mieux notées#}
+    <section class="row">
+        <h2 class="col-md-12">RECETTE LES MIEUX NOTEES</h2>
+        {% for specialtyCountry in specialtiesCountries %}
+        <figure class="col-md-4">
+            <h3 class="col-md-12">Nom de la recette</h3>
+            <img class="col-md-12" src="{{ asset(specialtyCountry.image.url) }}" />
+            <figcaption class="col-md-10 col-md-offset-1">
+                <p class="col-md-12"> Pays : Nom du pays</p>
+                <p class="col-md-12">Type : plat</p>
+                <button class="col-md-6 col-md-offset-3 btn btn-info">Voir la recette</button>
+            </figcaption>
+        </figure>
+        {% endfor %}
+    </section>
+
+    <div class="row">
+        <button class="col-md-3 col-md-offset-5 btn btn-info">Plus de recettes</button>
+    </div>
+
+    {# Section -> Par ingrédient#}
     <section class="row">
         <h2 class="col-md-12">RECETTES PAR INGREDIENT</h2>
         {% for ingredientCategory in ingredientCategories %}
-            <img class="col-md-3" src="{{ asset(ingredientCategory.image.url) }}" />
+            <figure class="col-md-4">
+                <h3 class="col-md-12">{{ ingredientCategory.name }}</h3>
+                <img class="col-md-12" src="{{ asset(ingredientCategory.image.url) }}" />
+                <figcaption class="col-md-10 col-md-offset-1">
+                    <p class="col-md-12">Liste de la catégorie : {{ ingredientCategory.name }}</p>
+                    <button class="col-md-6 col-md-offset-3 btn btn-info">Voir les ingrédients</button>
+                </figcaption>
+            </figure>
         {% endfor %}
     </section>
 
     <section class="row">
         <h2 class="col-md-12">RECETTES PAR TYPE</h2>
         {% for partOfMenu in partsOfMenu %}
-            <img class="col-md-3" src="{{ asset(partOfMenu.image.url) }}" />
+            <figure class="col-md-4">
+                <h3 class="col-md-12">{{ partOfMenu.type }}</h3>
+                <img class="col-md-12" src="{{ asset(partOfMenu.image.url) }}" />
+                <figcaption class="col-md-10 col-md-offset-1">
+
+                    <button class="col-md-6 col-md-offset-3 btn btn-info">Voir les {{partOfMenu.type|lower}}s</button>
+                </figcaption>
+            </figure>
         {% endfor %}
     </section>
 
     <section class="row">
         <h2 class="col-md-12">RECETTES PAR PAYS</h2>
-        {% for specialtyCountry in specialtiesCountries %}
-            <img class="col-md-3" src="{{ asset(specialtyCountry.image.url) }}" />
+        {% for specialtyCountry in specialtiesCountries%}
+        <figure class="col-md-4">
+            <h3 class="col-md-12">{{ specialtyCountry.country }}</h3>
+            <img class="col-md-12" src="{{ asset(specialtyCountry.image.url) }}" />
+            <figcaption class="col-md-10 col-md-offset-1">
+                <p>Spécialité {{ specialtyCountry.country }}</p>
+                <button class="col-md-6 col-md-offset-3 btn btn-info">Voir les recettes</button>
+            </figcaption>
+        </figure>
         {% endfor %}
-
     </section>
+    <div class="row">
+        <button class="col-md-3 col-md-offset-5 btn btn-info">Plus de pays</button>
+    </div>
 {% endblock %}
