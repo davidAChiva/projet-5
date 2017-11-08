@@ -26,7 +26,7 @@ class Image
     /**
      * @var string
      *
-     * @ORM\Column(name="url", type="string", length=255, unique=true)
+     * @ORM\Column(name="url", type="string", length=255)
      */
     private $url;
 
@@ -53,7 +53,7 @@ class Image
         }
 
         // Génération url et alt
-        $this->url = $this->file->guessExtension();
+        $this->url = $this->file->getClientOriginalName();
         $this->alt = $this->file->getClientOriginalName();
     }
 
@@ -72,7 +72,7 @@ class Image
         // Si il y avait un ancien fichier on le supprime
         if (null !== $this->tempFilename)
         {
-            $oldFile = $this->getUploadRootDir().'/'.$this->id.'.'.$this->tempFilename;
+            $oldFile = $this->getUploadRootDir().'/'.$this->tempFilename;
             if (file_exists($oldFile))
             {
                 unlink($oldFile);
@@ -82,7 +82,7 @@ class Image
         // Déplacement du fichier dans le répertoire
         $this->file->move(
             $this->getUploadRootDir(),
-            $this->id.'.'.$this->url
+            $this->id.'-'.$this->url
         );
 
     }
@@ -92,7 +92,7 @@ class Image
      */
     public function preRemoveUpload()
     {
-        $this->tempFilename = $this->getUploadRootDir().'/'.$this->id.'.'.$this->url;
+        $this->tempFilename = $this->url;
     }
     
     /**
@@ -109,7 +109,7 @@ class Image
 
     public function getUploadDir()
     {
-        return 'images/upload/images';
+        return 'images/';
     }
 
 
@@ -121,7 +121,7 @@ class Image
 
     public function getWebPath()
     {
-        return $this->getUploadDir().'/'.$this->getId().'.'.$this->getUrl();
+        return $this->getUploadDir().$this->getId().'-'.$this->getUrl();
     }
     /**
      * Get id
