@@ -13,7 +13,7 @@
         {% for specialtyCountry in specialtiesCountries %}
             <figure class="col-md-4">
                 <h3 class="col-md-12">Nom de la recette</h3>
-                <img class="col-md-12" src="{{ asset(specialtyCountry.image.url) }}" />
+                <img class="col-md-12" src="{{ asset(specialtyCountry.image.webPath) }}" />
                 <figcaption class="col-md-10 col-md-offset-1">
                     <p class="col-md-12"> Pays : Nom du pays</p>
                     <p class="col-md-12">Type : plat</p>
@@ -34,7 +34,7 @@
         {% for specialtyCountry in specialtiesCountries %}
         <figure class="col-md-4">
             <h3 class="col-md-12">Nom de la recette</h3>
-            <img class="col-md-12" src="{{ asset(specialtyCountry.image.url) }}" />
+            <img class="col-md-12" src="{{ asset(specialtyCountry.image.webPath) }}" />
             <figcaption class="col-md-10 col-md-offset-1">
                 <p class="col-md-12"> Pays : Nom du pays</p>
                 <p class="col-md-12">Type : plat</p>
@@ -54,10 +54,10 @@
         {% for ingredientCategory in ingredientCategories %}
             <figure class="col-md-4">
                 <h3 class="col-md-12">{{ ingredientCategory.name }}</h3>
-                <img class="col-md-12" src="{{ asset(ingredientCategory.image.url) }}" />
+                <img class="col-md-12" src="{{ asset(ingredientCategory.image.webPath) }}" />
                 <figcaption class="col-md-10 col-md-offset-1">
                     <p class="col-md-12">Liste de la catégorie : {{ ingredientCategory.name }}</p>
-                    <button class="col-md-6 col-md-offset-3 btn btn-info">Voir les ingrédients</button>
+                    <a href="{{ path('front_ingredient',{'id': ingredientCategory.id }) }}" class="col-md-6 col-md-offset-3 btn btn-info">Voir les ingrédients</a>
                 </figcaption>
             </figure>
         {% endfor %}
@@ -68,7 +68,7 @@
         {% for partOfMenu in partsOfMenu %}
             <figure class="col-md-4">
                 <h3 class="col-md-12">{{ partOfMenu.type }}</h3>
-                <img class="col-md-12" src="{{ asset(partOfMenu.image.url) }}" />
+                <img class="col-md-12" src="{{ asset(partOfMenu.image.webPath) }}" />
                 <figcaption class="col-md-10 col-md-offset-1">
 
                     <button class="col-md-6 col-md-offset-3 btn btn-info">Voir les {{partOfMenu.type|lower}}s</button>
@@ -82,7 +82,7 @@
         {% for specialtyCountry in specialtiesCountries%}
         <figure class="col-md-4">
             <h3 class="col-md-12">{{ specialtyCountry.country }}</h3>
-            <img class="col-md-12" src="{{ asset(specialtyCountry.image.url) }}" />
+            <img class="col-md-12" src="{{ asset(specialtyCountry.image.webPath) }}" />
             <figcaption class="col-md-10 col-md-offset-1">
                 <p>Spécialité {{ specialtyCountry.country }}</p>
                 <button class="col-md-6 col-md-offset-3 btn btn-info">Voir les recettes</button>
