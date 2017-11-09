@@ -2,9 +2,15 @@ front_index:
     path:       /
     defaults:   { _controller: AppBundle:FrontOffice:index }
 
-front_ingredient:
+front_ingredient_category:
     path:       /categorie-ingredient/{id}
     defaults:   { _controller: AppBundle:FrontOffice:categoryIngredient }
+    requirements:
+        id:     \d+
+
+front_ingredient:
+    path:       /ingredient/{id}
+    defaults:   { _controller: AppBundle:FrontOffice:ingredient}
     requirements:
         id:     \d+
 

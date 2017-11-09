@@ -23,4 +23,16 @@ class CookingRecipeRepository extends \Doctrine\ORM\EntityRepository
         return $qb->getQuery()->getResult();
     }
 
+    public function getRecipesOfIngredient($idIngredient)
+    {
+        $qb = $this->createQueryBuilder('c')
+            ->innerJoin('c.ingredients','i')
+            ->addSelect('i');
+
+        $qb ->where('i.id = :idIngredient')
+            ->setParameter('idIngredient', $idIngredient);
+
+        return $qb->getQuery()->getResult();
+    }
+
 }

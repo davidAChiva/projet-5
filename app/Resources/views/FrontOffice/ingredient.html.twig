@@ -1,0 +1,19 @@
+{% extends "FrontOffice/layout.html.twig" %}
+
+{% block title %}
+    Ingredient | {{ parent() }}
+{% endblock %}
+
+{% block body %}
+    {{ parent() }}
+    <h2>LES RECETTES CONTENANT DES {{ ingredient.name | upper }}S</h2>
+
+    {% for recipe in recipes %}
+        <figure class="col-md-4">
+        <h3 class="col-md-12">{{ recipe.name | upper}}</h3>
+        <img class="col-md-12" src="{{ asset(recipe.image.webPath) }}" alt="{{ recipe.image.alt }}" />
+        <figcaption class="col-md-10 col-md-offset-1">
+            <a class="col-md-6 col-md-offset-3 btn btn-info" href="{{ path('front_recipe',{'id': recipe.id }) }}">Voir la recette</a>
+        </figcaption>
+    {% endfor %}
+{% endblock %}

@@ -46,6 +46,20 @@ class FrontOfficeController extends Controller
         ));
     }
 
+    public function ingredientAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $ingredient = $em->getRepository('AppBundle:Ingredient')->find($id);
+
+        $recipes = $em->getRepository('AppBundle:CookingRecipe')->getRecipesOfIngredient($id);
+
+        return $this->render('FrontOffice/ingredient.html.twig', array (
+            'ingredient'       => $ingredient,
+            'recipes'          => $recipes
+        ));
+    }
+
     public function countrySpecialtyAction($id)
     {
         $em = $this->getDoctrine()->getManager();
