@@ -10,4 +10,17 @@ namespace AppBundle\Repository;
  */
 class CookingRecipeRepository extends \Doctrine\ORM\EntityRepository
 {
+
+    public function getRecipesOfCategoryIngredient($idCategory)
+    {
+        $qb = $this->createQueryBuilder('c')
+            ->innerJoin('c.ingredients','i')
+            ->addSelect('i');
+
+        $qb ->where('i.category = :idCategory')
+            ->setParameter('idCategory',$idCategory);
+
+        return $qb->getQuery()->getResult();
+    }
+
 }
