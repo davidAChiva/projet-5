@@ -14,6 +14,12 @@ front_ingredient:
     requirements:
         id:     \d+
 
+front_part_menu:
+    path:       /part-menu/{id}
+    defaults:   { _controller: AppBundle:FrontOffice:partMenu }
+    requirements:
+        id:     \d+
+
 front_country_specialty:
     path:       /recette-pays/{id}
     defaults:   { _controller: AppBundle:FrontOffice:countrySpecialty }

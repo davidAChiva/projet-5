@@ -60,6 +60,20 @@ class FrontOfficeController extends Controller
         ));
     }
 
+    public function partMenuAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $partOfMenu = $em->getRepository('AppBundle:PartOfMenu')->find($id);
+
+        $recipes = $em->getRepository('AppBundle:CookingRecipe')-> getRecipesOfTypeMenu($id);
+
+        return $this->render('FrontOffice/partMenu.html.twig', array(
+            'partOfMenu'        =>  $partOfMenu,
+            'recipes'           =>  $recipes
+        ));
+    }
+
     public function countrySpecialtyAction($id)
     {
         $em = $this->getDoctrine()->getManager();
