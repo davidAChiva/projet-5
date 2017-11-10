@@ -139,4 +139,11 @@ class FrontOfficeController extends Controller
             'form'          => $form->createView(),
         ));
     }
+
+    public function contactAction(Request $request)
+    {
+        return $this->render('FrontOffice/contact.html.twig');
+
+    }
+
 }

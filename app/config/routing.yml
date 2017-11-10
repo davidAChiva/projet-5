@@ -39,3 +39,7 @@ front_recipe:
 front_newsletter_inscription:
     path:      /newsletter-inscription/
     defaults:  { _controller: AppBundle:FrontOffice:newsletterInscription }
+
+front_contact:
+    path:     /contact
+    defaults:  { _controller: AppBundle:FrontOffice:contact}
