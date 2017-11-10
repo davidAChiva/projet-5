@@ -3,12 +3,15 @@
 namespace AppBundle\Controller;
 
 
+
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Entity\NewsletterInscription;
 use AppBundle\Form\NewsletterInscriptionType;
 use AppBundle\Entity\CookingRecipe;
 use AppBundle\Form\CookingRecipeType;
+use AppBundle\Entity\Contact;
+use AppBundle\Form\ContactType;
 
 
 class FrontOfficeController extends Controller
@@ -142,7 +145,22 @@ class FrontOfficeController extends Controller
 
     public function contactAction(Request $request)
     {
-        return $this->render('FrontOffice/contact.html.twig');
+        $contact = new Contact();
+        $form = $this->get('form.factory')->create(ContactType::class,$contact);
+        $form->handleRequest($request);
+
+        if ($form->isValid() && $form->isSubmitted())
+        {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($contact);
+            $em->flush();
+
+            return $this->redirectToRoute('front_index');
+        }
+
+        return $this->render('FrontOffice/contact.html.twig', array(
+            'form'          => $form->createView()
+        ));
 
     }
 
