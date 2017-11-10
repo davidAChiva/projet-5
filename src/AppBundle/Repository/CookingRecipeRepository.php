@@ -35,4 +35,27 @@ class CookingRecipeRepository extends \Doctrine\ORM\EntityRepository
         return $qb->getQuery()->getResult();
     }
 
+    public function getRecipesOfTypeMenu($idPartOfMenu)
+    {
+        $qb = $this->createQueryBuilder('c')
+            ->innerJoin('c.partOfMenu', 'p')
+            ->addSelect('p');
+
+        $qb ->where('p.id = :idPartOfMenu')
+            ->setParameter('idPartOfMenu', $idPartOfMenu);
+
+        return $qb->getQuery()->getResult();
+    }
+
+    public function getRecipesOfCountry($idCountry)
+    {
+        $qb = $this->createQueryBuilder('c')
+            ->innerJoin('c.specialtyCountry','s')
+            ->addSelect('s');
+
+        $qb ->where('s.id = :idCountry')
+            ->setParameter('idCountry', $idCountry);
+
+        return $qb->getQuery()->getResult();
+    }
 }

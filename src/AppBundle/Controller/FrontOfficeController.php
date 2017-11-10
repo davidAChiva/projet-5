@@ -66,7 +66,7 @@ class FrontOfficeController extends Controller
 
         $partOfMenu = $em->getRepository('AppBundle:PartOfMenu')->find($id);
 
-        $recipes = $em->getRepository('AppBundle:CookingRecipe')-> getRecipesOfTypeMenu($id);
+        $recipes = $em->getRepository('AppBundle:CookingRecipe')->getRecipesOfTypeMenu($id);
 
         return $this->render('FrontOffice/partMenu.html.twig', array(
             'partOfMenu'        =>  $partOfMenu,
@@ -77,10 +77,14 @@ class FrontOfficeController extends Controller
     public function countrySpecialtyAction($id)
     {
         $em = $this->getDoctrine()->getManager();
+
         $specialtyCountry = $em->getRepository('AppBundle:SpecialtyCountry')->find($id);
 
+        $recipes = $em->getRepository('AppBundle:CookingRecipe')->getRecipesOfCountry($id);
+
         return $this->render('FrontOffice/countrySpecialty.html.twig', array(
-                'specialtyCountry' => $specialtyCountry
+                'specialtyCountry' => $specialtyCountry,
+                'recipes'          => $recipes
         ));
     }
 
