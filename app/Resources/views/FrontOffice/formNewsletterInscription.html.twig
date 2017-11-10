@@ -1,0 +1,15 @@
+<div class="well">
+    {{ form_start(form) }}
+
+    {# Gestion des erreurs générales#}
+    {{ form_errors(form) }}
+
+    {# Champ email #}
+    {{ form_label(form.mail,"Adresse e-mail", {'label_attr': {'class': 'control-label'}}) }}
+    {{ form_errors(form.mail) }}
+    {{ form_widget(form.mail, {'attr': {'class': 'form-control'}}) }}
+
+    {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary button_form_recipe'}}) }}
+
+    {{ form_end(form) }}
+</div>

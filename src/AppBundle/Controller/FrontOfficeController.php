@@ -5,6 +5,8 @@ namespace AppBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use AppBundle\Entity\NewsletterInscription;
+use AppBundle\Form\NewsletterInscriptionType;
 use AppBundle\Entity\CookingRecipe;
 use AppBundle\Form\CookingRecipeType;
 
@@ -119,8 +121,22 @@ class FrontOfficeController extends Controller
         ));
     }
 
-    public function newsletterAction()
+    public function newsletterInscriptionAction(Request $request)
     {
-        return $this->render('FrontOffice/newsletter.html.twig');
+        $newsletterInscription = new NewsletterInscription();
+        $form = $this->get('form.factory')->create(NewsletterInscriptionType::class,$newsletterInscription);
+        $form->handleRequest($request);
+
+        if ($form->isValid() && $form->isSubmitted())
+        {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($newsletterInscription);
+            $em->flush();
+
+            return $this->redirectToRoute('front_index');
+        }
+        return $this->render('FrontOffice/newsletterInscription.html.twig',array(
+            'form'          => $form->createView(),
+        ));
     }
 }
