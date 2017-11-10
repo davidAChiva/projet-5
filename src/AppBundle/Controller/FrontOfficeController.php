@@ -118,4 +118,9 @@ class FrontOfficeController extends Controller
             'cookingRecipe' => $cookingRecipe,
         ));
     }
+
+    public function newsletterAction()
+    {
+        return $this->render('FrontOffice/newsletter.html.twig');
+    }
 }

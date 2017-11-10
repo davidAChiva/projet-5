@@ -1,3 +1,5 @@
+# ROUTES POUR LE FRONT OFFICE
+
 front_index:
     path:       /
     defaults:   { _controller: AppBundle:FrontOffice:index }
@@ -35,3 +37,9 @@ front_recipe:
     defaults:   { _controller: AppBundle:FrontOffice:recipe }
     requirements:
         id:     \d+
+
+front_newsletter:
+    path:      /newsletter/
+    defaults:  { _controller: AppBundle:FrontOffice:newsletter }
+
+#ROUTE POUR LE BACK-OFFICE
