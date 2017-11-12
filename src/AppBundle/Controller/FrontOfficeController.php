@@ -4,6 +4,7 @@ namespace AppBundle\Controller;
 
 
 
+use AppBundle\Entity\CommentRecipe;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Entity\NewsletterInscription;
@@ -114,13 +115,26 @@ class FrontOfficeController extends Controller
         ));
     }
 
-    public function recipeAction($id)
+    public function recipeAction($id,Request $request)
     {
         $em = $this->getDoctrine()->getManager();
         $cookingRecipe = $em->getRepository('AppBundle:CookingRecipe')->find($id);
 
+        $commentRecipe = new CommentRecipe();
+        $form = $this->get('form.factory')->create(CookingRecipeType::class,$commentRecipe);
+        $form->handleRequest($request);
+
+        if ($form->isValid() && $form->isSubmitted())
+        {
+            $commentRecipe->setCookingRecipe($id);
+            $em->persist($commentRecipe);
+            $em->flush();
+
+            return $this->redirectToRoute('front_index');
+        }
         return $this->render('FrontOffice/recipe.html.twig',array (
             'cookingRecipe' => $cookingRecipe,
+            'form'          => $form->createView()
         ));
     }
 

@@ -98,28 +98,4 @@ class CommentRecipe
         return $this->content;
     }
 
-
-    /**
-     * Set cookingRecipe
-     *
-     * @param \AppBundle\Entity\CookingRecipe $cookingRecipe
-     *
-     * @return CommentRecipe
-     */
-    public function setCookingRecipe(\AppBundle\Entity\CookingRecipe $cookingRecipe = null)
-    {
-        $this->cookingRecipe = $cookingRecipe;
-
-        return $this;
-    }
-
-    /**
-     * Get cookingRecipe
-     *
-     * @return \AppBundle\Entity\CookingRecipe
-     */
-    public function getCookingRecipe()
-    {
-        return $this->cookingRecipe;
-    }
 }
