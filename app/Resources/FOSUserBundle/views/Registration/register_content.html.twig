@@ -1,0 +1,29 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+<h2>CREER UN COMPTE</h2>
+
+{{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
+
+{{ form_errors(form) }}
+
+    {# Champ username #}
+    {{ form_label(form.username,form.username, {'label_attr': {'class': 'control-label'}}) }}
+    {{ form_widget(form.username, {'attr': {'class': 'form-control'}}) }}
+
+    {# Champ email #}
+    {{ form_label(form.email,form.email, {'label_attr': {'class': 'control-label'}}) }}
+    {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
+
+    {# Champ password first#}
+    {{ form_label(form.plainPassword.first,form.plainPassword.first, {'label_attr': {'class': 'control-label'}}) }}
+    {{ form_widget(form.plainPassword.first, {'attr': {'class': 'form-control'}}) }}
+
+    {# Champ password second#}
+    {{ form_label(form.plainPassword.second,form.plainPassword.second, {'label_attr': {'class': 'control-label'}}) }}
+    {{ form_widget(form.plainPassword.second, {'attr': {'class': 'form-control'}}) }}
+
+    <div class="row">
+        <input class="btn btn-primary" type="submit" value="{{ 'registration.submit'|trans }}" />
+    </div>
+    {{ form_rest(form) }}
+{{ form_end(form) }}
