@@ -43,3 +43,6 @@ front_newsletter_inscription:
 front_contact:
     path:     /contact
     defaults:  { _controller: AppBundle:FrontOffice:contact}
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
