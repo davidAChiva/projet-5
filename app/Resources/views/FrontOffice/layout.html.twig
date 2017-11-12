@@ -23,19 +23,19 @@
                 <a href="{{ path('front_add_recipe') }}"><span class="fa fa-plus icone_fontawesome_header" aria-hidden="true"></span>Ajouter une recette</a>
             </li>
             <li  class=>
-                <a href=""><span class="fa fa-envelope-o icone_fontawesome_header" aria-hidden="true"></span>Newsletter</a>
+                <a href="{{ path('front_newsletter_inscription') }}"><span class="fa fa-envelope-o icone_fontawesome_header" aria-hidden="true"></span>Newsletter</a>
             </li>
             <li>
-                <a href="{{ path('front_index') }}"><span class="fa fa-info icone_fontawesome_header" aria-hidden="true"></span>Contact</a>
+                <a href="{{ path('front_contact') }}"><span class="fa fa-info icone_fontawesome_header" aria-hidden="true"></span>Contact</a>
             </li>
         </ul>
 
         <ul class="nav navbar-nav navbar-right">
             <li>
-                <a href="{{ path('front_index') }}"><span class="fa fa-user-circle icone_fontawesome_header" aria-hidden="true"></span>Connexion</a>
+                <a href="{{ path('fos_user_security_login') }}"><span class="fa fa-user-circle icone_fontawesome_header" aria-hidden="true"></span>Connexion</a>
             </li>
             <li>
-                <a href="{{ path('front_index') }}">Créer un compte</a>
+                <a href="{{ path('fos_user_registration_register') }}">Créer un compte</a>
             </li>
         </ul>
     </div>
