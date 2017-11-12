@@ -22,6 +22,13 @@ class CommentRecipe
     private $id;
 
     /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date", type="datetime")
+     */
+    private $date;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="author", type="string", length=255)
@@ -37,8 +44,17 @@ class CommentRecipe
 
     /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\CookingRecipe")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $cookingRecipe;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->date = new \DateTime();
+    }
 
     /**
      * Get id
@@ -106,7 +122,7 @@ class CommentRecipe
      *
      * @return CommentRecipe
      */
-    public function setCookingRecipe(\AppBundle\Entity\CookingRecipe $cookingRecipe = null)
+    public function setCookingRecipe(CookingRecipe $cookingRecipe)
     {
         $this->cookingRecipe = $cookingRecipe;
 
@@ -121,5 +137,29 @@ class CommentRecipe
     public function getCookingRecipe()
     {
         return $this->cookingRecipe;
+    }
+
+    /**
+     * Set date
+     *
+     * @param \DateTime $date
+     *
+     * @return CommentRecipe
+     */
+    public function setDate($date)
+    {
+        $this->date = $date;
+
+        return $this;
+    }
+
+    /**
+     * Get date
+     *
+     * @return \DateTime
+     */
+    public function getDate()
+    {
+        return $this->date;
     }
 }

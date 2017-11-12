@@ -4,7 +4,7 @@ namespace AppBundle\Controller;
 
 
 
-use AppBundle\Entity\CommentRecipe;
+
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Entity\NewsletterInscription;
@@ -13,6 +13,8 @@ use AppBundle\Entity\CookingRecipe;
 use AppBundle\Form\CookingRecipeType;
 use AppBundle\Entity\Contact;
 use AppBundle\Form\ContactType;
+use AppBundle\Entity\CommentRecipe;
+use AppBundle\Form\CommentRecipeType;
 
 
 class FrontOfficeController extends Controller
@@ -121,12 +123,12 @@ class FrontOfficeController extends Controller
         $cookingRecipe = $em->getRepository('AppBundle:CookingRecipe')->find($id);
 
         $commentRecipe = new CommentRecipe();
-        $form = $this->get('form.factory')->create(CookingRecipeType::class,$commentRecipe);
+        $form = $this->get('form.factory')->create(CommentRecipeType::class,$commentRecipe);
         $form->handleRequest($request);
 
         if ($form->isValid() && $form->isSubmitted())
         {
-            $commentRecipe->setCookingRecipe($id);
+            $commentRecipe->setCookingRecipe($cookingRecipe);
             $em->persist($commentRecipe);
             $em->flush();
 

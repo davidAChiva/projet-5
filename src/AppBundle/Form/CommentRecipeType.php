@@ -19,7 +19,7 @@ class CommentRecipeType extends AbstractType
         $builder
             ->add('author',                TextType::class)
             ->add('content',               TextareaType::class)
-            ->add('save',                  SubmitType::class)
+            ->add('save',                  SubmitType::class, array('label' => 'Envoyer le commentaire'))
         ;
     }
     
