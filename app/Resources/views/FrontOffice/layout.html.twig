@@ -30,12 +30,21 @@
             </li>
         </ul>
 
+        {# Les liens varient si un user est connecté #}
         <ul class="nav navbar-nav navbar-right">
             <li>
-                <a href="{{ path('fos_user_security_login') }}"><span class="fa fa-user-circle icone_fontawesome_header" aria-hidden="true"></span>Connexion</a>
+                {% if is_granted('ROLE_USER') %}
+                    <a href="{{ path('fos_user_security_logout') }}"><span class="fa fa-sign-out icone_fontawesome_header" aria-hidden="true"></span>Déconnexion</a>
+                {% else %}
+                    <a href="{{ path('fos_user_security_login') }}"><span class="fa fa-user-circle icone_fontawesome_header" aria-hidden="true"></span>Connexion</a>
+                {% endif %}
             </li>
             <li>
-                <a href="{{ path('fos_user_registration_register') }}">Créer un compte</a>
+                {% if is_granted('ROLE_USER') %}
+                    <a href="{{ path('fos_user_profile_edit') }}"><span class="fa fa-user-circle icone_fontawesome_header" aria-hidden="true"></span>Mon compte</a>
+                {% else %}
+                    <a href="{{ path('fos_user_registration_register') }}">Créer un compte</a>
+                {% endif %}
             </li>
         </ul>
     </div>
