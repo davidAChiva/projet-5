@@ -109,7 +109,7 @@ class FrontOfficeController extends Controller
             $em->persist($cookingRecipe);
             $em->flush();
 
-            return $this->redirectToRoute('front_index');
+            return $this->redirectToRoute('front_office_index');
         }
 
         return $this->render('FrontOffice/addRecipe.html.twig', array(
@@ -132,7 +132,7 @@ class FrontOfficeController extends Controller
             $em->persist($commentRecipe);
             $em->flush();
 
-            return $this->redirectToRoute('front_index');
+            return $this->redirectToRoute('front_office_index');
         }
         return $this->render('FrontOffice/recipe.html.twig',array (
             'cookingRecipe' => $cookingRecipe,
@@ -152,7 +152,7 @@ class FrontOfficeController extends Controller
             $em->persist($newsletterInscription);
             $em->flush();
 
-            return $this->redirectToRoute('front_index');
+            return $this->redirectToRoute('front_office_index');
         }
         return $this->render('FrontOffice/newsletterInscription.html.twig',array(
             'form'          => $form->createView(),
@@ -171,7 +171,7 @@ class FrontOfficeController extends Controller
             $em->persist($contact);
             $em->flush();
 
-            return $this->redirectToRoute('front_index');
+            return $this->redirectToRoute('front_office_index');
         }
 
         return $this->render('FrontOffice/contact.html.twig', array(
