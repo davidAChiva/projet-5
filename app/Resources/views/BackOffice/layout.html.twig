@@ -2,12 +2,16 @@
 
 {% block stylesheets %}
 {{ parent() }}
-<link rel="stylesheet" href="{{ asset('css/frontOffice.css') }}" />
+<link rel="stylesheet" href="{{ asset('css/backOffice.css') }}" />
+
+{% endblock %}
+{% block title %}
+   - Administration | {{ parent() }}
 {% endblock %}
 
 {% block nav %}
     {{ parent() }}
-    <div class="navbar-header"><a class="navbar-brand" href="{{ path('front_office_index') }}">Odelices Voyage</a>
+    <div class="navbar-header"><a class="navbar-brand" href="{{ path('back_office_index') }}">Odelices Voyage</a>
         <a class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -48,7 +52,7 @@
 {% block nav_vertical %}
     <div class="btn-group btn-group-vertical col-md-3 nav_vertical">
         <h3>GESTION DES CATEGORIES</h3>
-        <a href="" class="btn btn-default">Spécialité pays</a>
+        <a href="{{ path('manage_specialty_country_index') }}" class="btn btn-default">Spécialité pays</a>
         <a href="" class="btn btn-default">Type de menu</a>
         <a href="" class="btn btn-default">Ingrédients</a>
     </div>

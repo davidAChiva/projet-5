@@ -1,0 +1,14 @@
+section img
+{
+    margin-top: 10px;
+    height: 200px;
+}
+
+figure
+{
+    text-align: center;
+}
+figure p
+{
+    font-size: 1.2em;
+}

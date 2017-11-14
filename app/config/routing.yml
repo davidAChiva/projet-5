@@ -4,8 +4,8 @@ app_bundle_front_office:
 app_bundle_back_office:
     resource: "@AppBundle/config/routing/back_office.yml"
 
-app_bundle_manage_category:
-    resource: "@AppBundle/config/routing/manage_category.yml"
+app_bundle_manage_specialty_country:
+    resource: "@AppBundle/config/routing/manage_specialty_country.yml"
 
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"

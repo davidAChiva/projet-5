@@ -1,0 +1,3 @@
+manage_specialty_country_index:
+    path:       /admin0081/specialite-pays
+    defaults:   { _controller: AppBundle:ManageSpecialtyCountry:index }
