@@ -62,6 +62,7 @@
         {% endfor %}
     </section>
 
+    {# Section -> Par type de menu #}
     <section class="row">
         <h2 class="col-md-12">RECETTES PAR TYPE</h2>
         {% for partOfMenu in partsOfMenu %}
@@ -69,13 +70,13 @@
                 <h3 class="col-md-12">{{ partOfMenu.type }}</h3>
                 <img class="col-md-12" src="{{ asset(partOfMenu.image.webPath) }}" />
                 <figcaption class="col-md-10 col-md-offset-1">
-
-                    <button class="col-md-6 col-md-offset-3 btn btn-info">Voir les {{partOfMenu.type|lower}}s</button>
+                    <a href="{{ path('front_part_menu',{'id': partOfMenu.id }) }}" class="col-md-6 col-md-offset-3 btn btn-info">Voir les recettes</a>
                 </figcaption>
             </figure>
         {% endfor %}
     </section>
 
+    {# Section -> Par spécialité #}
     <section class="row">
         <h2 class="col-md-12">RECETTES PAR PAYS</h2>
         {% for specialtyCountry in specialtiesCountries%}
@@ -84,7 +85,7 @@
             <img class="col-md-12" src="{{ asset(specialtyCountry.image.webPath) }}" />
             <figcaption class="col-md-10 col-md-offset-1">
                 <p>Spécialité {{ specialtyCountry.country }}</p>
-                <button class="col-md-6 col-md-offset-3 btn btn-info">Voir les recettes</button>
+                <a href="{{ path('front_country_specialty',{'id':specialtyCountry.id }) }}" class="col-md-6 col-md-offset-3 btn btn-info">Voir les recettes</a>
             </figcaption>
         </figure>
         {% endfor %}
