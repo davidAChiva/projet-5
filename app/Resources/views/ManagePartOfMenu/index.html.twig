@@ -1,0 +1,29 @@
+{% extends "BackOffice/layout.html.twig" %}
+
+{% block title %}
+    Types de menu{{ parent() }}
+{% endblock %}
+
+{% block body %}
+    <section class="row">
+        <h2 class="col-md-12">AJOUTER UN NOUVEAU TYPE DE MENU</h2>
+        <a class="col-md-2 btn btn-secondary btn-lg">Ajouter un nouveau type</a>
+    </section>
+
+    <section class="row">
+        <h2 class="col-md-12">LISTE DES TYPES DE MENU</h2>
+        {% for partOfMenu in partsOfMenu %}
+            <figure class="col-md-4">
+                <h3 class="col-md-12">{{ partOfMenu.type }}</h3>
+                <img class="col-md-12" src="{{ asset(partOfMenu.image.webPath) }}" />
+                <figcaption class="col-md-12">
+                    <h4 class="col-md-12">Gérer la spécialité: {{ partOfMenu.type }}</h4>
+                    <a class="col-md-5 col-md-offset-1 btn btn-primary">Modifier</a>
+                    <a class="col-md-5 col-md-offset-1 btn btn-danger">Supprimer</a>
+                </figcaption>
+            </figure>
+
+        {% endfor %}
+    </section>
+
+{% endblock %}
