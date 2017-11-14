@@ -58,4 +58,16 @@ class CookingRecipeRepository extends \Doctrine\ORM\EntityRepository
 
         return $qb->getQuery()->getResult();
     }
+
+    public function getLastRecipes($limit)
+    {
+        $limit = (int)$limit;
+        $qb = $this->createQueryBuilder('c')
+            ->orderBy('c.id', 'DESC')
+            ->setFirstResult(0)
+            ->setMaxResults($limit);
+
+
+        return $qb->getQuery()->getResult();
+    }
 }

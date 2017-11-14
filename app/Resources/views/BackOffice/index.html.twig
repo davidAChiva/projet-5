@@ -1,0 +1,25 @@
+{% extends "BackOffice/layout.html.twig" %}
+
+{% block title %}
+    Accueil administration | {{ parent() }}
+{% endblock %}
+
+{% block body %}
+    <p>Bienvenue {{ app.user.username }}</p>
+
+    <section class="row">
+        <h2 class="col-md-12">LES DERNIERES RECETTES</h2>
+        {% for lastRecipe in lastRecipes %}
+            <figure class="col-md-4">
+                <h3 class="col-md-12">{{ lastRecipe.name }}</h3>
+                <img class="col-md-12" src="{{ asset(lastRecipe.image.webPath) }}" />
+                <figcaption class="col-md-10 col-md-offset-1">
+                    <p class="col-md-12"> Pays : Nom du pays</p>
+                    <p class="col-md-12">Type : plat</p>
+                    <button class="col-md-6 col-md-offset-3 btn btn-info">Voir la recette</button>
+                </figcaption>
+            </figure>
+
+        {% endfor %}
+    </section>
+{% endblock %}
