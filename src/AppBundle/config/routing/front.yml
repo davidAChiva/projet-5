@@ -1,0 +1,45 @@
+front_index:
+    path:       /
+    defaults:   { _controller: AppBundle:FrontOffice:index }
+
+front_ingredient_category:
+    path:       /categorie-ingredient/{id}
+    defaults:   { _controller: AppBundle:FrontOffice:categoryIngredient }
+    requirements:
+        id:     \d+
+
+front_ingredient:
+    path:       /ingredient/{id}
+    defaults:   { _controller: AppBundle:FrontOffice:ingredient}
+    requirements:
+        id:     \d+
+
+front_part_menu:
+    path:       /part-menu/{id}
+    defaults:   { _controller: AppBundle:FrontOffice:partMenu }
+    requirements:
+        id:     \d+
+
+front_country_specialty:
+    path:       /recette-pays/{id}
+    defaults:   { _controller: AppBundle:FrontOffice:countrySpecialty }
+    requirements:
+        id:     \d+
+
+front_add_recipe:
+    path:       /ajouter-recette/
+    defaults:   { _controller: AppBundle:FrontOffice:addRecipe }
+
+front_recipe:
+    path:       /recette/{id}
+    defaults:   { _controller: AppBundle:FrontOffice:recipe }
+    requirements:
+        id:     \d+
+
+front_newsletter_inscription:
+    path:      /newsletter-inscription/
+    defaults:  { _controller: AppBundle:FrontOffice:newsletterInscription }
+
+front_contact:
+    path:     /contact
+    defaults:  { _controller: AppBundle:FrontOffice:contact }
