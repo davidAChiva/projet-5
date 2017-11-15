@@ -19,5 +19,8 @@ app_bundle_manage_ingredient:
 app_bundle_manage_cooking_recipe:
     resource: "@AppBundle/config/routing/manage_cooking_recipe.yml"
 
+app_bundle_manage_account:
+    resource: "@AppBundle/config/routing/manage_account.yml"
+
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"

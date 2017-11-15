@@ -1,0 +1,20 @@
+{% extends "BackOffice/layout.html.twig" %}
+
+{% block title %}
+    Compte admin{{ parent() }}
+{% endblock %}
+
+{% block body %}
+    <section class="row">
+        <h2 class="col-md-12">Ajouter nouveau administrateur</h2>
+        <a class="col-md-2 btn btn-secondary btn-lg">Ajouter un administrateur</a>
+    </section>
+
+    <section class="row">
+        <h2 class="col-md-12">LISTE DES ADMINISTRATEURS</h2>
+        {% for admin in admins %}
+            <p>{{ admin.username }}</p>
+        {% endfor %}
+    </section>
+
+{% endblock %}

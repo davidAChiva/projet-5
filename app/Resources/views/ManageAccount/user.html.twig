@@ -1,0 +1,20 @@
+{% extends "BackOffice/layout.html.twig" %}
+
+{% block title %}
+   Compte utilisateur{{ parent() }}
+{% endblock %}
+
+{% block body %}
+    <section class="row">
+        <h2 class="col-md-12">Ajouter nouveau utilisateur</h2>
+        <a class="col-md-2 btn btn-secondary btn-lg">Ajouter un utilisateur</a>
+    </section>
+
+    <section class="row">
+        <h2 class="col-md-12">LISTE DES UTILISATEURS</h2>
+        {% for user in users %}
+            <p>{{ user.username }}</p>
+        {% endfor %}
+    </section>
+
+{% endblock %}
