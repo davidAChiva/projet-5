@@ -10,5 +10,14 @@ app_bundle_manage_specialty_country:
 app_bundle_manage_part_of_menu:
     resource: "@AppBundle/config/routing/manage_part_of_menu.yml"
 
+app_bundle_manage_ingredient_category:
+    resource: "@AppBundle/config/routing/manage_ingredient_category.yml"
+
+app_bundle_manage_ingredient:
+    resource: "@AppBundle/config/routing/manage_ingredient.yml"
+
+app_bundle_manage_cooking_recipe:
+    resource: "@AppBundle/config/routing/manage_cooking_recipe.yml"
+
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"

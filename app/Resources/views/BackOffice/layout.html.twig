@@ -54,7 +54,10 @@
         <h3>GESTION DES CATEGORIES</h3>
         <a href="{{ path('manage_specialty_country_index') }}" class="btn btn-default">Spécialité pays</a>
         <a href="{{ path('manage_part_of_menu_index') }}" class="btn btn-default">Type de menu</a>
-        <a href="" class="btn btn-default">Ingrédients</a>
+        <a href="{{ path('manage_ingredient_category_index') }}" class="btn btn-default">Catégorie ingrédients</a>
+        <h3>GESTION DES INGREDIENTS ET RECETTES</h3>
+        <a href="{{ path('manage_ingredient_index') }}" class="btn btn-default">Ingrédients</a>
+        <a href="{{ path('manage_cooking_recipe_index') }}" class="btn btn-default">Recettes</a>
     </div>
 {% endblock %}
 

@@ -1,0 +1,3 @@
+manage_cooking_recipe_index:
+    path:       /admin0081/cooking_recipe
+    defaults:   { _controller: AppBundle:ManageCookingRecipe:index }

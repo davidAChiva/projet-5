@@ -1,0 +1,29 @@
+{% extends "BackOffice/layout.html.twig" %}
+
+{% block title %}
+    Ingrédient{{ parent() }}
+{% endblock %}
+
+{% block body %}
+    <section class="row">
+        <h2 class="col-md-12">Ajouter un ingrédient</h2>
+        <a class="col-md-2 btn btn-secondary btn-lg">Ajouter un ingrédient</a>
+    </section>
+
+    <section class="row">
+        <h2 class="col-md-12">LISTE DES INGREDIENTS</h2>
+        {% for ingredient in ingredients %}
+            <figure class="col-md-4">
+                <h3 class="col-md-12">{{ ingredient.name }}</h3>
+                <img class="col-md-12" src="{{ asset(ingredient.image.webPath) }}" />
+                <figcaption class="col-md-12">
+                    <h4 class="col-md-12">Gérer la spécialité: {{ ingredient.name }}</h4>
+                    <a class="col-md-5 col-md-offset-1 btn btn-primary">Modifier</a>
+                    <a class="col-md-5 col-md-offset-1 btn btn-danger">Supprimer</a>
+                </figcaption>
+            </figure>
+
+        {% endfor %}
+    </section>
+
+{% endblock %}
