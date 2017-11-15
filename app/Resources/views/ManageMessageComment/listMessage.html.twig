@@ -1,0 +1,18 @@
+{% extends "BackOffice/layout.html.twig" %}
+
+{% block title %}
+    Liste des messages{{ parent() }}
+{% endblock %}
+
+{% block body %}
+
+    <section class="row">
+        <h2 class="col-md-12">LISTE DES MESSAGES</h2>
+        {% for message in messages %}
+            <div class="col-md-12">
+                <p>{{ message.id }}</p>
+            </div>
+        {% endfor %}
+    </section>
+
+{% endblock %}
