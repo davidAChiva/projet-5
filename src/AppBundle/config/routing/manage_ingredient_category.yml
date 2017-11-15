@@ -1,0 +1,3 @@
+manage_ingredient_category_index:
+    path:       /admin0081/ingredient-category
+    defaults:   { _controller: AppBundle:ManageIngredientCategory:index }
