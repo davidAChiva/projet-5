@@ -1,0 +1,24 @@
+<div class="well">
+    {{ form_start(form) }}
+
+    {# Gestion des erreurs générales#}
+    {{ form_errors(form) }}
+
+    {# Champ country #}
+    {{ form_label(form.country,"Nom du pays", {'label_attr': {'class': 'control-label'}}) }}
+    {{ form_errors(form.country) }}
+    {{ form_widget(form.country, {'attr': {'class': 'form-control'}}) }}
+
+    {# Champ image#}
+    {{ form_label(form.image,"Image", {'label_attr': {'class': 'control-label'}}) }}
+    {{ form_errors(form.image) }}
+    {{ form_widget(form.image, {'attr': {'class': 'form-control'}}) }}
+
+
+    {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary button_form_recipe'}}) }}
+
+    {# Ajout des éventuels champs cachés + CRSF #}
+    {{ form_rest(form) }}
+
+    {{ form_end(form) }}
+</div>
