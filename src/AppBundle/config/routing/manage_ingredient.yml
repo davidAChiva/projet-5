@@ -1,3 +1,7 @@
 manage_ingredient_index:
     path:       /admin0081/ingredient
     defaults:   { _controller: AppBundle:ManageIngredient:index }
+
+manage_ingredient_add:
+    path:       /admin0081/ingredient/ajouter
+    defaults:   { _controller: AppBundle:ManageIngredient:add }

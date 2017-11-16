@@ -1,0 +1,12 @@
+{% extends "BackOffice/layout.html.twig" %}
+
+{% block title %}
+    Ajouter un ingrédient | {{ parent() }}
+{% endblock %}
+
+{% block body %}
+    <section class="row">
+        <h2 class="col-md-12">AJOUTER UN INGREDIENT</h2>
+        {{ include ('ManageIngredient/formIngredient.html.twig') }}
+    </section>
+{% endblock %}
