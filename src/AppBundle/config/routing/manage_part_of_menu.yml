@@ -1,3 +1,7 @@
 manage_part_of_menu_index:
     path:       /admin0081/part-menu
     defaults:   { _controller: AppBundle:ManagePartOfMenu:index }
+
+manage_part_of_menu_add:
+    path:       /admin0081/part-menu/ajouter
+    defaults:   { _controller: AppBundle:ManagePartOfMenu:add }

@@ -27,7 +27,7 @@ class ManageSpecialtyCountryController extends Controller
 
     public function addAction(Request $request)
     {
-        $specialtyCountry = new specialtyCountry();
+        $specialtyCountry = new SpecialtyCountry();
 
         $form = $this->get('form.factory')->create(SpecialtyCountryType::class,$specialtyCountry);
         $form->handleRequest($request);
