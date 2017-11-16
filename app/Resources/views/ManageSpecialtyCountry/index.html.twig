@@ -18,7 +18,7 @@
             <img class="col-md-12" src="{{ asset(country.image.webPath) }}" />
             <figcaption class="col-md-12">
                 <h4 class="col-md-12">Gérer la spécialité: {{ country.country }}</h4>
-                <a class="col-md-5 col-md-offset-1 btn btn-primary">Modifier</a>
+                <a href="{{ path('manage_specialty_country_edit', {'id' : country.id}) }}" class="col-md-5 col-md-offset-1 btn btn-primary">Modifier</a>
                 <a class="col-md-5 col-md-offset-1 btn btn-danger">Supprimer</a>
             </figcaption>
         </figure>

@@ -5,3 +5,7 @@ manage_specialty_country_index:
 manage_specialty_country_add:
     path:       /admin0081/specialite-pays/ajouter
     defaults:   { _controller: AppBundle:ManageSpecialtyCountry:add }
+
+manage_specialty_country_edit:
+    path:       /admin0081/specialite-pays/modifier/{id}
+    defaults:   { _controller: AppBundle:ManageSpecialtyCountry:edit }
