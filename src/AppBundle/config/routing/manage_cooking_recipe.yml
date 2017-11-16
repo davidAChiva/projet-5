@@ -1,3 +1,7 @@
 manage_cooking_recipe_index:
     path:       /admin0081/cooking_recipe
     defaults:   { _controller: AppBundle:ManageCookingRecipe:index }
+
+manage_cooking_recipe_add:
+    path:       /admin0081/cooking_recipe/ajouter
+    defaults:   { _controller: AppBundle:ManageCookingRecipe:add }

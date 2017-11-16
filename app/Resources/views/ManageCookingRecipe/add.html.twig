@@ -1,0 +1,12 @@
+{% extends "BackOffice/layout.html.twig" %}
+
+{% block title %}
+    Ajouter un pays | {{ parent() }}
+{% endblock %}
+
+{% block body %}
+    <section class="row">
+        <h2 class="col-md-12">AJOUTER UN NOUVEAU PAYS</h2>
+        {{ include ('FrontOffice/formAddRecipe.html.twig') }}
+    </section>
+{% endblock %}
