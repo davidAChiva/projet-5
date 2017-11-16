@@ -18,7 +18,7 @@
                 <img class="col-md-12" src="{{ asset(partOfMenu.image.webPath) }}" />
                 <figcaption class="col-md-12">
                     <h4 class="col-md-12">Gérer la spécialité: {{ partOfMenu.type }}</h4>
-                    <a class="col-md-5 col-md-offset-1 btn btn-primary">Modifier</a>
+                    <a href="{{ path('manage_part_of_menu_edit', {'id' : partOfMenu.id}) }}" class="col-md-5 col-md-offset-1 btn btn-primary">Modifier</a>
                     <a class="col-md-5 col-md-offset-1 btn btn-danger">Supprimer</a>
                 </figcaption>
             </figure>
