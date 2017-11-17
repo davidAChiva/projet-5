@@ -11,5 +11,5 @@ manage_part_of_menu_edit:
     defaults:   { _controller: AppBundle:ManagePartOfMenu:edit }
 
 manage_part_of_menu_delete:
-    path:       /admin0081/part-menu/delete/{id}
+    path:       /admin0081/part-menu/supprimer/{id}
     defaults:   { _controller: AppBundle:ManagePartOfMenu:delete }

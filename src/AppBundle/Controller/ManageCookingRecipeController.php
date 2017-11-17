@@ -75,4 +75,35 @@ class ManageCookingRecipeController extends Controller
             'form'   => $form->createView()
         ));
     }
+
+    public function deleteAction(Request $request, $id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $cookingRecipe = $em->getRepository('AppBundle:CookingRecipe')->find($id);
+
+        if (null === $cookingRecipe)
+        {
+            throw new NotFoundHttpException('La recette n\'existe pas !');
+        }
+
+        // Formulaire qui contient juste le champ crsf pour la sécurité
+        $form = $this->get('form.factory')->create();
+
+        $form->handleRequest($request);
+
+        if ($request->isMethod('POST'))
+        {
+            if ($form->isValid() && $form->isSubmitted())
+            {
+                $em->remove($cookingRecipe);
+                $em->flush();
+
+                return $this->redirectToRoute('manage_cooking_recipe_index');
+            }
+        }
+        return $this->render('ManageCookingRecipe/delete.html.twig', array(
+            'cookingRecipe' => $cookingRecipe,
+            'form'   => $form->createView(),
+        ));
+    }
 }

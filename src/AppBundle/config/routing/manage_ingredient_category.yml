@@ -11,5 +11,5 @@ manage_ingredient_category_edit:
     defaults:   { _controller: AppBundle:ManageIngredientCategory:edit }
 
 manage_ingredient_category_delete:
-    path:       /admin0081/ingredient-category/delete/{id}
+    path:       /admin0081/ingredient-category/supprimer/{id}
     defaults:   { _controller: AppBundle:ManageIngredientCategory:delete }

@@ -9,3 +9,7 @@ manage_cooking_recipe_add:
 manage_cooking_recipe_edit:
     path:       /admin0081/cooking_recipe/modifier/{id}
     defaults:   { _controller: AppBundle:ManageCookingRecipe:edit }
+
+manage_cooking_recipe_delete:
+    path:       /admin0081/cooking_recipe/supprimer/{id}
+    defaults:   { _controller: AppBundle:ManageCookingRecipe:delete }
