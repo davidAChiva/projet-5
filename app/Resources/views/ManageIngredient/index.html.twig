@@ -19,7 +19,7 @@
                 <figcaption class="col-md-12">
                     <h4 class="col-md-12">Gérer la spécialité: {{ ingredient.name }}</h4>
                     <a href="{{ path('manage_ingredient_edit', {'id' : ingredient.id}) }}" class="col-md-5 col-md-offset-1 btn btn-primary">Modifier</a>
-                    <a class="col-md-5 col-md-offset-1 btn btn-danger">Supprimer</a>
+                    <a href="{{ path('manage_ingredient_delete', {'id' : ingredient.id}) }}" class="col-md-5 col-md-offset-1 btn btn-danger">Supprimer</a>
                 </figcaption>
             </figure>
 

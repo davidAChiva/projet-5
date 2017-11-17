@@ -74,4 +74,35 @@ class ManageIngredientController extends Controller
             'form'   => $form->createView()
         ));
     }
+
+    public function deleteAction(Request $request, $id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $ingredient = $em->getRepository('AppBundle:Ingredient')->find($id);
+
+        if (null === $ingredient)
+        {
+            throw new NotFoundHttpException('L\'ingrédient n\'existe pas !');
+        }
+
+        // Formulaire qui contient juste le champ crsf pour la sécurité
+        $form = $this->get('form.factory')->create();
+
+        $form->handleRequest($request);
+
+        if ($request->isMethod('POST'))
+        {
+            if ($form->isValid() && $form->isSubmitted())
+            {
+                $em->remove($ingredient);
+                $em->flush();
+
+                return $this->redirectToRoute('manage_ingredient_index');
+            }
+        }
+        return $this->render('ManageIngredient/delete.html.twig', array(
+            'ingredient' => $ingredient,
+            'form'   => $form->createView(),
+        ));
+    }
 }
