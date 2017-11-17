@@ -2,6 +2,10 @@ manage_message_comment_list_message:
     path:       /admin0081/liste-message
     defaults:   { _controller: AppBundle:ManageMessageComment:listMessage }
 
+manage_message_comment_list_message_delete:
+    path:       /admin0081/liste-message/delete/{id}
+    defaults:   { _controller: AppBundle:ManageMessageComment:listMessageDelete }
+
 manage_message_comment_list_comment:
     path:       /admin0081/liste-commentaire
     defaults:   { _controller: AppBundle:ManageMessageComment:listComment }
