@@ -1,0 +1,12 @@
+{% extends "BackOffice/layout.html.twig" %}
+
+{% block title %}
+    Modifier un ingrédient | {{ parent() }}
+{% endblock %}
+
+{% block body %}
+    <section class="row">
+        <h2 class="col-md-12">MODIFIER L'INGREDIENT : {{ ingredientCategory.name }}</h2>
+        {{ include ('ManageIngredientCategory/formIngredientCategory.html.twig') }}
+    </section>
+{% endblock %}

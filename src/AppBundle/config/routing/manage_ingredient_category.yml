@@ -5,3 +5,7 @@ manage_ingredient_category_index:
 manage_ingredient_category_add:
     path:       /admin0081/ingredient-category/ajouter
     defaults:   { _controller: AppBundle:ManageIngredientCategory:add }
+
+manage_ingredient_category_edit:
+    path:       /admin0081/ingredient-category/modifier/{id}
+    defaults:   { _controller: AppBundle:ManageIngredientCategory:edit }
