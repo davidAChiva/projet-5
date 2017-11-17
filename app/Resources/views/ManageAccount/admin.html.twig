@@ -1,20 +1,39 @@
 {% extends "BackOffice/layout.html.twig" %}
 
 {% block title %}
-    Compte admin{{ parent() }}
+    Compte administrateur{{ parent() }}
 {% endblock %}
 
 {% block body %}
-    <section class="row">
-        <h2 class="col-md-12">Ajouter nouveau administrateur</h2>
-        <a class="col-md-2 btn btn-secondary btn-lg">Ajouter un administrateur</a>
-    </section>
 
     <section class="row">
         <h2 class="col-md-12">LISTE DES ADMINISTRATEURS</h2>
-        {% for admin in admins %}
-            <p>{{ admin.username }}</p>
-        {% endfor %}
+
+        <table class="table">
+            <thead class="thead-dark">
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Pseudo</th>
+                <th scope="col">Email</th>
+                <th scope="col">Derniére connexion</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for admin in admins %}
+                <tr>
+                    <th scope="row">{{ admin.id }}</th>
+                    <td>{{ admin.username }}</td>
+                    <td>{{ admin.email }}</td>
+                    {% if admin.lastLogin is not null %}
+                        <td>{{ admin.lastLogin | date('d/m/Y') }}</td>
+                    {% else %}
+                        <td>Aucune</td>
+                    {% endif %}
+                    <td><a href="" class="btn btn-danger">Supprimer</a></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
     </section>
 
 {% endblock %}

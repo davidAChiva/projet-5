@@ -5,16 +5,35 @@
 {% endblock %}
 
 {% block body %}
-    <section class="row">
-        <h2 class="col-md-12">Ajouter nouveau utilisateur</h2>
-        <a class="col-md-2 btn btn-secondary btn-lg">Ajouter un utilisateur</a>
-    </section>
 
     <section class="row">
         <h2 class="col-md-12">LISTE DES UTILISATEURS</h2>
-        {% for user in users %}
-            <p>{{ user.username }}</p>
-        {% endfor %}
+
+        <table class="table">
+            <thead class="thead-dark">
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Pseudo</th>
+                <th scope="col">Email</th>
+                <th scope="col">Derniére connexion</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for user in users %}
+            <tr>
+                <th scope="row">{{ user.id }}</th>
+                <td>{{ user.username }}</td>
+                <td>{{ user.email }}</td>
+                {% if user.lastLogin is not null %}
+                    <td>{{ user.lastLogin | date('d/m/Y') }}</td>
+                {% else %}
+                    <td>Aucune</td>
+                {% endif %}
+                <td><a href="" class="btn btn-danger">Supprimer</a></td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
     </section>
 
 {% endblock %}
