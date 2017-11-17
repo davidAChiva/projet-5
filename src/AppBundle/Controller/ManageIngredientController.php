@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Entity\Ingredient;
 use AppBundle\Form\IngredientType;
@@ -41,6 +42,36 @@ class ManageIngredientController extends Controller
         return $this->render('ManageIngredient/add.html.twig', array(
             'ingredient'            => $ingredient,
             'form'                  => $form->createView()
+        ));
+    }
+
+    public function editAction($id, Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $ingredient = $em->getRepository('AppBundle:Ingredient')->find($id);
+
+        if (null === $ingredient)
+        {
+            throw new NotFoundHttpException("L' ingrédient n'existe pas n'existe pas.");
+        }
+
+        $form = $this->get('form.factory')->create(IngredientType::class,$ingredient);
+        $form->handleRequest($request);
+
+        if ($request->isMethod('POST'))
+        {
+            if ($form->isValid() && $form->isSubmitted())
+            {
+                $em = $this->getDoctrine()->getManager();
+                $em->flush();
+
+                return $this->redirectToRoute('manage_ingredient_index');
+            }
+        }
+
+        return $this->render('ManageIngredient/edit.html.twig', array(
+            'ingredient' => $ingredient,
+            'form'   => $form->createView()
         ));
     }
 }

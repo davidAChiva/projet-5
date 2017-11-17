@@ -14,8 +14,14 @@
     {{ form_errors(form.category) }}
     {{ form_widget(form.category, {'attr': {'class': 'form-control'}}) }}
 
+    {% if form.image is defined %}
+        <div class="row">
+            <img class="col-md-4" src="{{asset(ingredient.image.webPath)}}" alt="{{ ingredient.image.alt }}" />
+        </div>
+    {% endif %}
+
     {# Champ image#}
-    {{ form_label(form.image,"Image", {'label_attr': {'class': 'control-label'}}) }}
+    {{ form_label(form.image,"Modifier l\'image", {'label_attr': {'class': 'control-label'}}) }}
     {{ form_errors(form.image) }}
     {{ form_widget(form.image, {'attr': {'class': 'form-control'}}) }}
 
