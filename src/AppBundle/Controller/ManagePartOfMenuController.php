@@ -77,4 +77,34 @@ class ManagePartOfMenuController extends Controller
         ));
     }
 
+    public function deleteAction(Request $request, $id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $partOfMenu = $em->getRepository('AppBundle:PartOfMenu')->find($id);
+
+        if (null === $partOfMenu)
+        {
+            throw new NotFoundHttpException('La spécialité de pays n\'existe pas !');
+        }
+
+        // Formulaire qui contient juste le champ crsf pour la sécurité
+        $form = $this->get('form.factory')->create();
+
+        $form->handleRequest($request);
+
+        if ($request->isMethod('POST'))
+        {
+            if ($form->isValid() && $form->isSubmitted())
+            {
+                $em->remove($partOfMenu);
+                $em->flush();
+
+                return $this->redirectToRoute('manage_part_of_menu_index');
+            }
+        }
+        return $this->render('ManagePartOfMenu/delete.html.twig', array(
+            'partOfMenu' => $partOfMenu,
+            'form'   => $form->createView(),
+        ));
+    }
 }

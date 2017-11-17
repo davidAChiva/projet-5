@@ -4,6 +4,10 @@ section img
     height: 200px;
 }
 
+.nav_vertical h3
+{
+    font-size: 1.2em;
+}
 figure
 {
     text-align: center;

@@ -9,3 +9,7 @@ manage_part_of_menu_add:
 manage_part_of_menu_edit:
     path:       /admin0081/part-menu/modifier/{id}
     defaults:   { _controller: AppBundle:ManagePartOfMenu:edit }
+
+manage_part_of_menu_delete:
+    path:       /admin0081/part-menu/delete/{id}
+    defaults:   { _controller: AppBundle:ManagePartOfMenu:delete }
