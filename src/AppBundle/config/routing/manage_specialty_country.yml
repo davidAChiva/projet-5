@@ -9,3 +9,7 @@ manage_specialty_country_add:
 manage_specialty_country_edit:
     path:       /admin0081/specialite-pays/modifier/{id}
     defaults:   { _controller: AppBundle:ManageSpecialtyCountry:edit }
+
+manage_specialty_country_delete:
+    path:       /admin0081/specialite-pays/supprimer/{id}
+    defaults:   { _controller: AppBundle:ManageSpecialtyCountry:delete }

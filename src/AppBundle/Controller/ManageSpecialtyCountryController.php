@@ -77,4 +77,35 @@ class ManageSpecialtyCountryController extends Controller
             'form'   => $form->createView()
         ));
     }
+
+    public function deleteAction(Request $request, $id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $specialtyCountry = $em->getRepository('AppBundle:SpecialtyCountry')->find($id);
+
+        if (null === $specialtyCountry)
+        {
+            throw new NotFoundHttpException('La spécialité de pays n\'existe pas !');
+        }
+
+        // Formulaire qui contient juste le champ crsf pour la sécurité
+        $form = $this->get('form.factory')->create();
+
+        $form->handleRequest($request);
+
+        if ($request->isMethod('POST'))
+        {
+            if ($form->isValid() && $form->isSubmitted())
+            {
+                $em->remove($specialtyCountry);
+                $em->flush();
+
+                return $this->redirectToRoute('manage_specialty_country_index');
+            }
+        }
+        return $this->render('ManageSpecialtyCountry/delete.html.twig', array(
+            'specialtyCountry' => $specialtyCountry,
+            'form'   => $form->createView(),
+        ));
+    }
 }
