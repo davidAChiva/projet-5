@@ -4,6 +4,7 @@ namespace AppBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use AppBundle\Entity\CookingRecipe;
 use AppBundle\Form\CookingRecipeType;
 
@@ -40,6 +41,38 @@ class ManageCookingRecipeController extends Controller
 
         return $this->render('ManageCookingRecipe/add.html.twig', array(
             'form'  => $form->createView(),
+        ));
+    }
+
+    public function editAction($id, Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $cookingRecipe = $em->getRepository('AppBundle:CookingRecipe')->find($id);
+
+        if (null === $cookingRecipe)
+        {
+            throw new NotFoundHttpException("La recette n'existe pas.");
+        }
+
+        $form = $this->get('form.factory')->create(CookingRecipeType::class,$cookingRecipe);
+
+        $form->handleRequest($request);
+
+
+        if ($request->isMethod('POST'))
+        {
+            if ($form->isValid() && $form->isSubmitted())
+            {
+                $em = $this->getDoctrine()->getManager();
+                $em->flush();
+
+                return $this->redirectToRoute('manage_cooking_recipe_index');
+            }
+        }
+
+        return $this->render('ManageCookingRecipe/edit.html.twig', array(
+            'cookingRecipe' => $cookingRecipe,
+            'form'   => $form->createView()
         ));
     }
 }

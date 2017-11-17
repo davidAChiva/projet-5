@@ -39,6 +39,12 @@
     {{ form_errors(form.partOfMenu) }}
     {{ form_widget(form.partOfMenu, {'attr': {'class': 'form-control'}}) }}
 
+    {% if form.image is defined %}
+        <div class="row">
+            <img class="col-md-4" src="{{asset(cookingRecipe.image.webPath)}}" alt="{{ cookingRecipe.image.alt }}" />
+        </div>
+    {% endif %}
+
     {# Champ image#}
     {{ form_label(form.image,"Image de la recette", {'label_attr': {'class': 'control-label'}}) }}
     {{ form_errors(form.image) }}

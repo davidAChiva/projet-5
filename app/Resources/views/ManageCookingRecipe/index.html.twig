@@ -18,7 +18,7 @@
                 <img class="col-md-12" src="{{ asset(cookingRecipe.image.webPath) }}" />
                 <figcaption class="col-md-12">
                     <h4 class="col-md-12">Gérer la recette: {{ cookingRecipe.name }}</h4>
-                    <a class="col-md-5 col-md-offset-1 btn btn-primary">Modifier</a>
+                    <a href="{{ path('manage_cooking_recipe_edit', {'id' : cookingRecipe.id}) }}" class="col-md-5 col-md-offset-1 btn btn-primary">Modifier</a>
                     <a class="col-md-5 col-md-offset-1 btn btn-danger">Supprimer</a>
                 </figcaption>
             </figure>

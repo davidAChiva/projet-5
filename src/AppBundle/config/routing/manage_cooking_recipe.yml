@@ -5,3 +5,7 @@ manage_cooking_recipe_index:
 manage_cooking_recipe_add:
     path:       /admin0081/cooking_recipe/ajouter
     defaults:   { _controller: AppBundle:ManageCookingRecipe:add }
+
+manage_cooking_recipe_edit:
+    path:       /admin0081/cooking_recipe/modifier/{id}
+    defaults:   { _controller: AppBundle:ManageCookingRecipe:edit }

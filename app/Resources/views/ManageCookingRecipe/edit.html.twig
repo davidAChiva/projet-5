@@ -1,0 +1,12 @@
+{% extends "BackOffice/layout.html.twig" %}
+
+{% block title %}
+    Modifier une recette | {{ parent() }}
+{% endblock %}
+
+{% block body %}
+    <section class="row">
+        <h2 class="col-md-12">MODIFIER LA RECETTE : {{ cookingRecipe.name }}</h2>
+        {{ include ('FrontOffice/formAddRecipe.html.twig') }}
+    </section>
+{% endblock %}
