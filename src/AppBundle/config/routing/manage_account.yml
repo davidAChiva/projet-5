@@ -2,8 +2,16 @@ manage_account_user:
     path:       /admin0081/user
     defaults:   { _controller: AppBundle:ManageAccount:user }
 
+manage_account_user_delete:
+    path:       /admin0081/user/delete/{id}
+    defaults:   { _controller: AppBundle:ManageAccount:userDelete }
+
 manage_account_admin:
     path:       /admin0081/Admin
     defaults:   { _controller: AppBundle:ManageAccount:admin }
+
+manage_account_admin_delete:
+    path:       /admin0081/Admin/delete/{id}
+    defaults:   { _controller: AppBundle:ManageAccount:adminDelete }
 
 
