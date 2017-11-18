@@ -9,9 +9,9 @@
         <h2>SUPPRIMER LE MESSAGE DE : {{ message.name }}</h2>
         <p>Voulez-vous confirmer la suppression du message de : {{ message.name }} ?</p>
         {# Formulaire pour supprimer la spécialité de pays #}
-        <form action="{{ path('manage_message_comment_list_message_delete', {'id': message.id}) }}" method="post">
+        <form action="{{ path('manage_contact_delete', {'id': message.id}) }}" method="post">
 
-            <a href="{{ path('manage_message_comment_list_message') }}" class="btn btn-primary">Annuler</a>
+            <a href="{{ path('manage_contact_index') }}" class="btn btn-primary">Annuler</a>
             <input type="submit" value="Supprimer" class="btn btn-danger" />
             {# Pour générer le champ CSRF #}
             {{ form_rest(form) }}

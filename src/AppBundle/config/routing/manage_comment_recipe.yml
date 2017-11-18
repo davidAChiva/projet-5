@@ -1,0 +1,3 @@
+manage_comment_recipe_index:
+    path:       /admin0081/comment-recipe
+    defaults:   { _controller: AppBundle:ManageCommentRecipe:index }

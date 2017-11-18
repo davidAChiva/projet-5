@@ -22,8 +22,11 @@ app_bundle_manage_cooking_recipe:
 app_bundle_manage_account:
     resource: "@AppBundle/config/routing/manage_account.yml"
 
-app_bundle_manage_message_comment:
-    resource: "@AppBundle/config/routing/manage_message_comment.yml"
+app_bundle_manage_contact:
+    resource: "@AppBundle/config/routing/manage_contact.yml"
+
+app_bundle_manage_comment_recipe:
+    resource: "@AppBundle/config/routing/manage_comment_recipe.yml"
 
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"

@@ -29,7 +29,7 @@
                     <td>{{ message.email }}</td>
                     <td>{{ message.subject }}</td>
                     <td>{{ message.message }}</td>
-                    <td><a href="{{ path('manage_message_comment_list_message_delete', { 'id' : message.id }) }}" class="btn btn-danger">Supprimer</a></td>
+                    <td><a href="{{ path('manage_contact_delete', { 'id' : message.id }) }}" class="btn btn-danger">Supprimer</a></td>
                 </tr>
             {% endfor %}
             </tbody>

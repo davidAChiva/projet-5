@@ -1,0 +1,7 @@
+manage_contact_index:
+    path:       /admin0081/contact
+    defaults:   { _controller: AppBundle:ManageContact:index }
+
+manage_contact_delete:
+    path:       /admin0081/contact/supprimer/{id}
+    defaults:   { _controller: AppBundle:ManageContact:delete }
