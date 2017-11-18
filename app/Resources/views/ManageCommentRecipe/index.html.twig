@@ -8,11 +8,30 @@
 
     <section class="row">
         <h2 class="col-md-12">LISTE DES COMMENTAIRES</h2>
-        {% for comment in comments %}
-            <div class="col-md-12">
-                <p>{{ comment.id }}</p>
-            </div>
-        {% endfor %}
+
+        <table class="table">
+            <thead class="thead-dark">
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Date</th>
+                <th scope="col">Auteur</th>
+                <th scope="col">Contenu</th>
+                <th scope="col">Recette</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for comment in comments %}
+                <tr>
+                    <th scope="row">{{comment.id }}</th>
+                    <td>{{ comment.date| date('d/m/Y') }}</td>
+                    <td>{{ comment.author }}</td>
+                    <td>{{ comment.content }}</td>
+                    <td>{{ comment.cookingRecipe.name }}</td>
+                    <td><a href="{{ path('manage_comment_recipe_delete', { 'id' : comment.id }) }}" class="btn btn-danger">Supprimer</a></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
     </section>
 
 {% endblock %}

@@ -1,3 +1,7 @@
 manage_comment_recipe_index:
     path:       /admin0081/comment-recipe
     defaults:   { _controller: AppBundle:ManageCommentRecipe:index }
+
+manage_comment_recipe_delete:
+    path:       /admin0081/comment-recipe/supprimer/{id}
+    defaults:   { _controller: AppBundle:ManageCommentRecipe:delete }
