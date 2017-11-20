@@ -3,7 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Symfony\Component\Validator\Constraints as Assert;
 /**
  * CommentRecipe
  *
@@ -25,6 +25,7 @@ class CommentRecipe
      * @var \DateTime
      *
      * @ORM\Column(name="date", type="datetime")
+     * @Assert\DateTime()
      */
     private $date;
 
@@ -32,6 +33,12 @@ class CommentRecipe
      * @var string
      *
      * @ORM\Column(name="author", type="string", length=255)
+     * @Assert\Length(
+     *      min = 3,
+     *      max = 15,
+     *      minMessage = "Votre pseudo doit contenir au moins {{ limit }} caractéres",
+     *      maxMessage = "Votre pseudo ne dois pas dépasser {{ limit }} caractéres"
+     * )
      */
     private $author;
 
@@ -39,6 +46,7 @@ class CommentRecipe
      * @var string
      *
      * @ORM\Column(name="content", type="text")
+     * @Assert\NotBlank()
      */
     private $content;
 
