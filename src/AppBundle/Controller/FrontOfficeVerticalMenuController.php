@@ -19,5 +19,13 @@ use AppBundle\Form\CommentRecipeType;
 class FrontOfficeVerticalMenuController extends Controller
 
 {
+    public function ingredientsAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $ingredients = $em->getRepository('AppBundle:Ingredient')->findAll();
 
+        return $this->render('ViewAllElement/ingredients.html.twig', array(
+            'ingredients'       => $ingredients,
+        ));
+    }
 }
