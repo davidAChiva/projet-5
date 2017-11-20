@@ -9,3 +9,7 @@ front_office_vertical_menu_parts_menu:
 front_office_vertical_menu_specialties_country:
     path:       /all/specialties-country
     defaults:   { _controller: AppBundle:FrontOfficeVerticalMenu:specialtiesCountry }
+
+front_office_vertical_menu_cooking_recipes:
+    path:       /all/cooking-recipes
+    defaults:   { _controller: AppBundle:FrontOfficeVerticalMenu:cookingRecipes }

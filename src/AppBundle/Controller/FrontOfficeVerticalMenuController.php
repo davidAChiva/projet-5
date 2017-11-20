@@ -48,4 +48,14 @@ class FrontOfficeVerticalMenuController extends Controller
             'specialtiesCountry'       => $specialtiesCountry
         ));
     }
+
+    public function cookingRecipesAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $cookingRecipes = $em->getRepository('AppBundle:CookingRecipe')->findAll();
+
+        return $this->render('ViewAllElement/cookingRecipes.html.twig', array(
+            'cookingRecipes'       => $cookingRecipes
+        ));
+    }
 }
