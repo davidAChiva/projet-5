@@ -43,3 +43,9 @@ front_office_newsletter_inscription:
 front_office_contact:
     path:     /contact
     defaults:  { _controller: AppBundle:FrontOffice:contact }
+
+front_office_recipe_json:
+    path:     /recipe-json
+    defaults:  { _controller: AppBundle:FrontOffice:recipeJson }
+    requirements:
+        _method: POST

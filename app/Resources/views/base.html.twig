@@ -6,9 +6,12 @@
         <title>{% block title %}ODélices voyage{% endblock %}</title>
         {% block stylesheets %}
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+            <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
             <link rel="stylesheet" href="{{ asset('css/general.css') }}" />
             <script type="text/javascript" src="https://use.fontawesome.com/f520e036a2.js"></script>
-            <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+            <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+            <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
         {% endblock %}
     </head>
 
@@ -23,10 +26,11 @@
         <header class="row">
            {% block header %}
                <div class="header_slider">
-                   <div class="form-group search_header col-md-12">
-                       <input type="search" class="col-md-6 col-md-offset-3" placeholder="Rechercher une recette" />
-                       <button type="submit" class="fa fa-search fa-2x" ></button>
-                   </div>
+                   <form class="ui-widget search_header col-md-12" id="search" action="{{ path('front_office_recipe_json') }}" method="post">
+                       <input type="text" id="motcle" class="col-md-6 col-md-offset-3" placeholder="Rechercher une recette" />
+                       <input type="submit" value="Rechercher" />
+                   </form>
+                   <div id="ResultSearch"></div>
                </div>
            {% endblock %}
         </header>
@@ -57,6 +61,6 @@
             </footer>
     </div>
     {# JAVASCRIPT INTERNE #}
-    <script src="{{ asset('js/verticalMenu.js') }}"></script>
+    <script src="{{ asset('js/search.js') }}"></script>
     </body>
 </html>

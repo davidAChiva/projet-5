@@ -70,4 +70,20 @@ class CookingRecipeRepository extends \Doctrine\ORM\EntityRepository
 
         return $qb->getQuery()->getResult();
     }
+
+    public function getRecipeResultSearch($term)
+    {
+        $qb = $this->createQueryBuilder('c')
+            ->select('c.name')
+            ->where('c.name LIKE :term')
+            ->setParameter('term', '%'.$term.'%');
+        $arrayAss = $qb->getQuery()->getArrayResult();
+
+        $array = array();
+        foreach($arrayAss as $data)
+        {
+            $array[] = $data['name'];
+        }
+        return $array;
+    }
 }

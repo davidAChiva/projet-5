@@ -7,6 +7,7 @@ namespace AppBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use AppBundle\Entity\NewsletterInscription;
 use AppBundle\Form\NewsletterInscriptionType;
 use AppBundle\Entity\CookingRecipe;
@@ -178,6 +179,22 @@ class FrontOfficeController extends Controller
             'form'          => $form->createView()
         ));
 
+    }
+
+    public function recipeJsonAction()
+    {
+        $request = $this->get('request');
+        if ($request->isXmlHttpRequest())
+        {
+            $term = $request->request->get('motcle');
+            echo $term;
+            $em = $this->getDoctrine()->getManager();
+            $array = $em->getRepository('AppBundle:CookingRecipe')->getRecipeResultSearch($term);
+
+            $response = new Response(json_encode($array));
+            $response->headers->set('Content-Type', 'application/json');
+            return $response;
+        }
     }
 
 }
