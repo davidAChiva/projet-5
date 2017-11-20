@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Contact
@@ -25,6 +26,12 @@ class Contact
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=255)
+     * @Assert\Length(
+     *      min = 3,
+     *      max = 35,
+     *      minMessage = "Votre nom doit contenir au moins {{ limit }} caractéres",
+     *      maxMessage = "Votre nom ne doit pas dépasser {{ limit }} caractéres"
+     * )
      */
     private $name;
 
@@ -32,6 +39,12 @@ class Contact
      * @var string
      *
      * @ORM\Column(name="firstName", type="string", length=255)
+     * @Assert\Length(
+     *      min = 3,
+     *      max = 35,
+     *      minMessage = "Votre prénom doit contenir au moins {{ limit }} caractéres",
+     *      maxMessage = "Votre prénom ne doit pas dépasser {{ limit }} caractéres"
+     * )
      */
     private $firstName;
 
@@ -39,6 +52,10 @@ class Contact
      * @var string
      *
      * @ORM\Column(name="email", type="string", length=255)
+     * @Assert\Email(
+     *     message = "L'email '{{ value }} ' n'est pas une adresse valide",
+     *     checkMX = true
+     * )
      */
     private $email;
 
@@ -46,6 +63,7 @@ class Contact
      * @var string
      *
      * @ORM\Column(name="subject", type="string", length=255)
+     * @Assert\NotBlank()
      */
     private $subject;
 
@@ -53,6 +71,7 @@ class Contact
      * @var string
      *
      * @ORM\Column(name="message", type="text")
+     * @Assert\NotBlank()
      */
     private $message;
 
