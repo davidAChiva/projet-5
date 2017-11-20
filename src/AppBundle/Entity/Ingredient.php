@@ -3,12 +3,15 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Ingredient
  *
  * @ORM\Table(name="ingredient")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\IngredientRepository")
+ * @UniqueEntity(fields="name", message="Le nom de l'ingrédient existe déjà")
  */
 class Ingredient
 {
@@ -25,16 +28,24 @@ class Ingredient
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=255, unique=true)
+     * @Assert\Length(
+     *      min = 3,
+     *      max = 35,
+     *      minMessage = "Le nom de l'ingrédient doit contenir au moins {{ limit }} caractéres",
+     *      maxMessage = "Le nom de l'ingrédient ne doit pas dépasser {{ limit }} caractéres"
+     * )
      */
     private $name;
 
     /**
      * @ORM\OneToOne(targetEntity="AppBundle\Entity\Image", cascade={"persist","remove"})
+     * @Assert\Valid()
      */
     private $image;
 
     /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\IngredientCategory")
+     * @Assert\Valid()
      */
     private $category;
     
