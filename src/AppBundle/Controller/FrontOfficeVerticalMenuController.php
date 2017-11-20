@@ -38,4 +38,14 @@ class FrontOfficeVerticalMenuController extends Controller
             'partsMenu'       => $partsMenu
         ));
     }
+
+    public function specialtiesCountryAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $specialtiesCountry = $em->getRepository('AppBundle:SpecialtyCountry')->findAll();
+
+        return $this->render('ViewAllElement/specialtiesCountry.html.twig', array(
+            'specialtiesCountry'       => $specialtiesCountry
+        ));
+    }
 }

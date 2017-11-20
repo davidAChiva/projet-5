@@ -5,3 +5,7 @@ front_office_vertical_menu_ingredients:
 front_office_vertical_menu_parts_menu:
     path:       /all/partsmenu
     defaults:   { _controller: AppBundle:FrontOfficeVerticalMenu:partsMenu }
+
+front_office_vertical_menu_specialties_country:
+    path:       /all/specialties-country
+    defaults:   { _controller: AppBundle:FrontOfficeVerticalMenu:specialtiesCountry }
