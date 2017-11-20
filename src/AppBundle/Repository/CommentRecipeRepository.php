@@ -10,4 +10,15 @@ namespace AppBundle\Repository;
  */
 class CommentRecipeRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function getCommentsOfRecipe($idRecipe)
+    {
+        $qb = $this->createQueryBuilder('co')
+            ->innerJoin('co.cookingRecipe', 'cr')
+            ->addSelect('cr');
+
+        $qb ->where('cr.id = :idRecipe')
+            ->setParameter('idRecipe', $idRecipe);
+
+        return $qb->getQuery()->getResult();
+    }
 }

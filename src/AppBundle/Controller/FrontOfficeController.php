@@ -123,6 +123,8 @@ class FrontOfficeController extends Controller
         $em = $this->getDoctrine()->getManager();
         $cookingRecipe = $em->getRepository('AppBundle:CookingRecipe')->find($id);
 
+        $comments = $em->getRepository('AppBundle:CommentRecipe')->getCommentsOfRecipe($id);
+
         $commentRecipe = new CommentRecipe();
         $form = $this->get('form.factory')->create(CommentRecipeType::class,$commentRecipe);
         $form->handleRequest($request);
@@ -137,6 +139,7 @@ class FrontOfficeController extends Controller
         }
         return $this->render('FrontOffice/recipe.html.twig',array (
             'cookingRecipe' => $cookingRecipe,
+            'comments'      => $comments,
             'form'          => $form->createView()
         ));
     }
