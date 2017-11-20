@@ -3,12 +3,15 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * CookingRecipe
  *
  * @ORM\Table(name="cooking_recipe")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\CookingRecipeRepository")
+ * @UniqueEntity(fields="name", message="Le nom de la recette existe déjà")
  */
 class CookingRecipe
 {
@@ -25,6 +28,12 @@ class CookingRecipe
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=255, unique=true)
+     * @Assert\Length(
+     *      min = 3,
+     *      max = 35,
+     *      minMessage = "Le nom de la recette doit contenir au moins {{ limit }} caractéres",
+     *      maxMessage = "Le nom de la recette doit pas dépasser {{ limit }} caractéres"
+     * )
      */
     private $name;
 
@@ -32,13 +41,21 @@ class CookingRecipe
      * @var int
      *
      * @ORM\Column(name="preparation_time", type="integer")
+     *     @Assert\Type(
+     *     type="integer",
+     *     message="La valeur {{ value }} doit être de type numérique"
+     * )
      */
     private $preparationTime;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="cooking_time", type="string", length=255)
+     * @ORM\Column(name="cooking_time", type="integer")
+     * @Assert\Type(
+     *     type="integer",
+     *     message="La valeur {{ value }} doit être de type numérique"
+     * )
      */
     private $cookingTime;
 
@@ -46,6 +63,7 @@ class CookingRecipe
      * @var string
      *
      * @ORM\Column(name="content", type="text")
+     * @Assert\NotBlank()
      */
     private $content;
 
@@ -53,6 +71,7 @@ class CookingRecipe
      * @var \DateTime
      *
      * @ORM\Column(name="date_creation", type="datetime")
+     * @Assert\DateTime()
      */
     private $dateCreation;
 
@@ -60,27 +79,35 @@ class CookingRecipe
      * @var bool
      *
      * @ORM\Column(name="published", type="boolean")
+     * @Assert\Type(
+     *     type="bool",
+     *     message="La valeur {{ value }} doit être vrai où faux"
+     * )
      */
     private $published = true;
 
     /**
      * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Ingredient", cascade={"persist"})
      * @ORM\JoinTable(name="cooking_recipe_ingredient")
+     * @Assert\Valid()
      */
     private $ingredients;
 
     /**
-     *@ORM\ManyToOne(targetEntity="AppBundle\Entity\SpecialtyCountry")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\SpecialtyCountry")
+     * @Assert\Valid()
      */
     private $specialtyCountry;
 
     /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\PartOfMenu")
+     * @Assert\Valid()
      */
     private $partOfMenu;
 
     /**
      * @ORM\OneToOne(targetEntity="AppBundle\Entity\Image", cascade={"persist", "remove"})
+     * @Assert\Valid()
      */
     private $image;
 
