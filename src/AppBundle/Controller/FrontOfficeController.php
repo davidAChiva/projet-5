@@ -187,7 +187,6 @@ class FrontOfficeController extends Controller
         if ($request->isXmlHttpRequest())
         {
             $term = $request->request->get('motcle');
-            echo $term;
             $em = $this->getDoctrine()->getManager();
             $array = $em->getRepository('AppBundle:CookingRecipe')->getRecipeResultSearch($term);
 

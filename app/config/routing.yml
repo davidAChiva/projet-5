@@ -4,6 +4,9 @@ app_bundle_front_office:
 app_bundle_back_office:
     resource: "@AppBundle/config/routing/back_office.yml"
 
+app_bundle_front_office_vertical_menu:
+    resource: "@AppBundle/config/routing/front_office_vertical_menu.yml"
+
 app_bundle_manage_specialty_country:
     resource: "@AppBundle/config/routing/manage_specialty_country.yml"
 
