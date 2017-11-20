@@ -1,3 +1,7 @@
 front_office_vertical_menu_ingredients:
     path:       /all/ingredients
     defaults:   { _controller: AppBundle:FrontOfficeVerticalMenu:ingredients }
+
+front_office_vertical_menu_parts_menu:
+    path:       /all/partsmenu
+    defaults:   { _controller: AppBundle:FrontOfficeVerticalMenu:partsMenu }

@@ -1,0 +1,23 @@
+{% extends "FrontOffice/layout.html.twig" %}
+
+{% block title %}
+    Liste des types de menu | {{ parent() }}
+{% endblock %}
+
+{% block body %}
+    <section class="row">
+        <h2 class="col-md-12">LISTE DES TYPES DE MENU</h2>
+
+        {% for partMenu in partsMenu %}
+            <figure class="col-md-4">
+                <h3 class="col-md-12">{{ partMenu.type }}</h3>
+                <img class="col-md-12" src="{{ asset(partMenu.image.webPath) }}" alt="{{ partMenu.image.alt }}"/>
+                <figcaption class="col-md-10 col-md-offset-1">
+                    <p class="col-md-12">{{ partMenu.type }}</p>
+                    <a href="{{ path('front_office_part_menu',{'id': partMenu.id }) }}" class="col-md-6 col-md-offset-3 btn btn-info">Voir les recettes</a>
+                </figcaption>
+            </figure>
+        {% endfor %}
+
+    </section>
+{% endblock %}

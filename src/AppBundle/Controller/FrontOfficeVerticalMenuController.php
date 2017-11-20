@@ -28,4 +28,14 @@ class FrontOfficeVerticalMenuController extends Controller
             'ingredients'       => $ingredients,
         ));
     }
+
+    public function partsMenuAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $partsMenu = $em->getRepository('AppBundle:PartOfMenu')->findAll();
+
+        return $this->render('ViewAllElement/partsMenu.html.twig', array(
+            'partsMenu'       => $partsMenu
+        ));
+    }
 }
