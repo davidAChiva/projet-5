@@ -3,12 +3,15 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * PartOfMenu
  *
  * @ORM\Table(name="part_of_menu")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\PartOfMenuRepository")
+ * @UniqueEntity(fields="type", message="Le type de menu existe déjà")
  */
 class PartOfMenu
 {
@@ -25,11 +28,18 @@ class PartOfMenu
      * @var string
      *
      * @ORM\Column(name="type", type="string", length=255, unique=true)
+     * @Assert\Length(
+     *      min = 3,
+     *      max = 35,
+     *      minMessage = "Le type de menu doit contenir au moins {{ limit }} caractéres",
+     *      maxMessage = "Le type de menu ne doit pas dépasser {{ limit }} caractéres"
+     * )
      */
     private $type;
 
     /**
      * @ORM\OneToOne(targetEntity="AppBundle\Entity\Image", cascade={"persist", "remove"})
+     * @Assert\Valid()
      */
     private $image;
     
