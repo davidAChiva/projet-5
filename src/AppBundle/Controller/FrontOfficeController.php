@@ -184,9 +184,8 @@ class FrontOfficeController extends Controller
 
     }
 
-    public function recipeJsonAction()
+    public function recipeJsonAction(Request $request)
     {
-        $request = $this->get('request');
         if ($request->isXmlHttpRequest())
         {
             $term = $request->request->get('motcle');

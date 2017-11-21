@@ -30,7 +30,7 @@ class NewsletterInscription
      * @ORM\Column(name="mail", type="string", length=255, unique=true)
      * @Assert\Email(
      *     message = "{{ value }} n'est pas une adresse email valide",
-     *     checkMx = true
+     *     checkMX = true
      * )
      */
     private $mail;
