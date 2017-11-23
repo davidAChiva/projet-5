@@ -11,5 +11,7 @@ front_office_vertical_menu_specialties_country:
     defaults:   { _controller: AppBundle:FrontOfficeVerticalMenu:specialtiesCountry }
 
 front_office_vertical_menu_cooking_recipes:
-    path:       /all/cooking-recipes
-    defaults:   { _controller: AppBundle:FrontOfficeVerticalMenu:cookingRecipes }
+    path:       /all/cooking-recipes/{page}
+    defaults:   { _controller: AppBundle:FrontOfficeVerticalMenu:cookingRecipes, page: 1 }
+    requirements:
+        page:       \d*

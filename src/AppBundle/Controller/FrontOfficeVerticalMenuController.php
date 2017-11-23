@@ -4,16 +4,7 @@ namespace AppBundle\Controller;
 
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
-use AppBundle\Entity\NewsletterInscription;
-use AppBundle\Form\NewsletterInscriptionType;
-use AppBundle\Entity\CookingRecipe;
-use AppBundle\Form\CookingRecipeType;
-use AppBundle\Entity\Contact;
-use AppBundle\Form\ContactType;
-use AppBundle\Entity\CommentRecipe;
-use AppBundle\Form\CommentRecipeType;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 
 class FrontOfficeVerticalMenuController extends Controller
@@ -49,13 +40,27 @@ class FrontOfficeVerticalMenuController extends Controller
         ));
     }
 
-    public function cookingRecipesAction()
+    public function cookingRecipesAction($page)
     {
-        $em = $this->getDoctrine()->getManager();
-        $cookingRecipes = $em->getRepository('AppBundle:CookingRecipe')->findAll();
+        if ($page < 1)
+        {
+            throw new NotFoundHttpException('Page "'.$page.'" inexistante.');
+        }
 
+        $nbPerPage = 5;
+
+        $em = $this->getDoctrine()->getManager();
+        $cookingRecipes = $em->getRepository('AppBundle:CookingRecipe')->getAllRecipes($page, $nbPerPage);
+
+        $nbPages = ceil(count($cookingRecipes) /$nbPerPage);
+        if ($page > $nbPages)
+        {
+            throw $this->createNotFoundException("La page ".$page." n'existe pas.");
+        }
         return $this->render('ViewAllElement/cookingRecipes.html.twig', array(
-            'cookingRecipes'       => $cookingRecipes
+            'cookingRecipes'       => $cookingRecipes,
+            'nbPages'              => $nbPages,
+            'page'                 => $page
         ));
     }
 }
