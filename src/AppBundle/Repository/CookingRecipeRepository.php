@@ -71,19 +71,29 @@ class CookingRecipeRepository extends \Doctrine\ORM\EntityRepository
         return $qb->getQuery()->getResult();
     }
 
-    public function getRecipeResultSearch($term)
+    public function getResultJsonRecipe($term)
     {
         $qb = $this->createQueryBuilder('c')
-            ->select('c.name')
+            ->select('c.name', 'c.id')
             ->where('c.name LIKE :term')
             ->setParameter('term', '%'.$term.'%');
-        $arrayAss = $qb->getQuery()->getArrayResult();
+        $recipes = $qb->getQuery()->getArrayResult();
 
-        $array = array();
-        foreach($arrayAss as $data)
+
+        foreach($recipes as $recipe)
         {
-            $array[] = $data['name'];
+           $results[] = array( 'label' => $recipe['name'],'value' => $recipe['name'], 'id' => $recipe['id']);
         }
-        return $array;
+        return $results;
+    }
+
+    public function getResultSearch($recipeName)
+    {
+        $qb = $this->createQueryBuilder('c')
+            ->where('c.name LIKE :term')
+            ->setParameter('term', '%'.$recipeName.'%');
+        $recipes = $qb->getQuery()->getResult();
+
+        return $recipes;
     }
 }

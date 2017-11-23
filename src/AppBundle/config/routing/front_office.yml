@@ -47,5 +47,7 @@ front_office_contact:
 front_office_recipe_json:
     path:     /recipe-json
     defaults:  { _controller: AppBundle:FrontOffice:recipeJson }
-    requirements:
-        _method: POST
+
+front_office_search_recipe:
+    path:     /search
+    defaults:  { _controller: AppBundle:FrontOffice:searchRecipe }

@@ -186,16 +186,25 @@ class FrontOfficeController extends Controller
 
     public function recipeJsonAction(Request $request)
     {
-        if ($request->isXmlHttpRequest())
-        {
-            $term = $request->request->get('motcle');
+            $term = $request->get('term');
             $em = $this->getDoctrine()->getManager();
-            $array = $em->getRepository('AppBundle:CookingRecipe')->getRecipeResultSearch($term);
+            $recipes = $em->getRepository('AppBundle:CookingRecipe')->getResultJsonRecipe($term);
 
-            $response = new Response(json_encode($array));
-            $response->headers->set('Content-Type', 'application/json');
+            $response = new Response(json_encode($recipes));
+
             return $response;
-        }
+    }
+
+    public function searchRecipeAction (Request $request)
+    {
+        $recipeName = $request->get('recipeName');
+        $em = $this->getDoctrine()->getManager();
+        $recipes = $em->getRepository('AppBundle:CookingRecipe')->getResultSearch($recipeName);
+
+        return $this->render('FrontOffice/resultSearch.html.twig', array(
+            'recipes'          => $recipes
+        ));
+
     }
 
 }
