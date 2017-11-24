@@ -14,7 +14,7 @@
                 <img class="col-md-12" src="{{ asset(specialtyCountry.image.webPath) }}" alt="{{ specialtyCountry.image.alt }}"/>
                 <figcaption class="col-md-10 col-md-offset-1">
                     <p class="col-md-12">{{ specialtyCountry.country }}</p>
-                    <a href="{{ path('front_office_country_specialty',{'id': specialtyCountry.id }) }}" class="col-md-6 col-md-offset-3 btn btn-info">Voir les recettes</a>
+                    <a href="{{ path('front_office_country_specialty',{'id': specialtyCountry.id, 'slug': specialtyCountry.slug }) }}" class="col-md-6 col-md-offset-3 btn btn-info">Voir les recettes</a>
                 </figcaption>
             </figure>
         {% endfor %}

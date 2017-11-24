@@ -21,7 +21,7 @@ front_office_part_menu:
         id:     \d+
 
 front_office_country_specialty:
-    path:       /recette-pays/{id}
+    path:       /recette-pays/{id}-{slug}
     defaults:   { _controller: AppBundle:FrontOffice:countrySpecialty }
     requirements:
         id:     \d+
@@ -31,7 +31,7 @@ front_office_add_recipe:
     defaults:   { _controller: AppBundle:FrontOffice:addRecipe }
 
 front_office_recipe:
-    path:       /recette/{id}/{slug}
+    path:       /recette/{id}-{slug}
     defaults:   { _controller: AppBundle:FrontOffice:recipe }
     requirements:
         id:     \d+

@@ -17,7 +17,7 @@
                 <img class="col-md-12" src="{{ asset(recipe.image.webPath) }}" />
                 <figcaption class="col-md-12">
                     <p class="col-md-12">Recette : {{ recipe.name }}</p>
-                    <a href="{{ path('front_office_recipe',{'id': recipe.id }) }}" class="col-md-6 col-md-offset-3 btn btn-info">Voir la recette</a>
+                    <a href="{{ path('front_office_recipe',{'id': recipe.id, 'slug': recipe.slug }) }}" class="col-md-6 col-md-offset-3 btn btn-info">Voir la recette</a>
                 </figcaption>
             </figure>
         </section>

@@ -5,6 +5,7 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Validator\Constraints as Assert;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * SpecialtyCountry
@@ -42,7 +43,12 @@ class SpecialtyCountry
      * @Assert\Valid()
      */
     private $image;
-    
+    /**
+     * @Gedmo\Slug(fields={"country"})
+     * @ORM\Column(unique=true)
+     */
+    private $slug;
+
     /**
      * Get id
      *
@@ -99,5 +105,29 @@ class SpecialtyCountry
     public function getImage()
     {
         return $this->image;
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     *
+     * @return SpecialtyCountry
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->slug;
     }
 }
