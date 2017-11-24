@@ -15,7 +15,7 @@ front_office_ingredient:
         id:     \d+
 
 front_office_part_menu:
-    path:       /part-menu/{id}
+    path:       /part-menu/{id}-{slug}
     defaults:   { _controller: AppBundle:FrontOffice:partMenu }
     requirements:
         id:     \d+
