@@ -5,13 +5,21 @@ section img
 }
 figcaption
 {
-    margin-top: -190px;
+    margin-top: -200px;
+    height: 200px;
     color:white;
-    height: 170px;
-    background-color: rgba(0,0,0,0.8);
+    background-color: rgba(0,0,0,0.5);
     opacity: 0;
     transition-property: opacity;
     transition-duration: 2s;
+}
+figcaption p
+{
+    font-weight: bold;
+}
+figcaption a
+{
+    top: 125px;
 }
 figcaption:hover
 {
@@ -21,6 +29,7 @@ figure
 {
     text-align: center;
 }
+
 figure p
 {
     font-size: 1.2em;
