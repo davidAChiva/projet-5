@@ -7,9 +7,9 @@ manage_ingredient_add:
     defaults:   { _controller: AppBundle:ManageIngredient:add }
 
 manage_ingredient_edit:
-    path:       /admin0081/ingredient/modifier/{id}
+    path:       /admin0081/ingredient/modifier/{id}-{slug}
     defaults:   { _controller: AppBundle:ManageIngredient:edit }
 
 manage_ingredient_delete:
-    path:       /admin0081/ingredient/supprimer/{id}
+    path:       /admin0081/ingredient/supprimer/{id}-{slug}
     defaults:   { _controller: AppBundle:ManageIngredient:delete }

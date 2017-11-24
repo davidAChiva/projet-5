@@ -9,7 +9,7 @@ front_office_ingredient_category:
         id:     \d+
 
 front_office_ingredient:
-    path:       /ingredient/{id}
+    path:       /ingredient/{id}-{slug}
     defaults:   { _controller: AppBundle:FrontOffice:ingredient}
     requirements:
         id:     \d+

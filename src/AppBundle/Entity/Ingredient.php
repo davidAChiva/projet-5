@@ -5,6 +5,7 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Validator\Constraints as Assert;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * Ingredient
@@ -48,12 +49,19 @@ class Ingredient
      * @Assert\Valid()
      */
     private $category;
-    
+
+    /**
+     * @Gedmo\Slug(fields={"name"})
+     * @ORM\Column(unique=true)
+     */
+    private $slug;
+
     /**
      * Get id
      *
      * @return int
      */
+
     public function getId()
     {
         return $this->id;
@@ -129,5 +137,29 @@ class Ingredient
     public function getCategory()
     {
         return $this->category;
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     *
+     * @return Ingredient
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->slug;
     }
 }

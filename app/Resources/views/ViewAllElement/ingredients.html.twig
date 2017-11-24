@@ -14,7 +14,7 @@
                 <img class="col-md-12" src="{{ asset(ingredient.image.webPath) }}" alt="{{ ingredient.image.alt }}"/>
                 <figcaption class="col-md-10 col-md-offset-1">
                     <p class="col-md-12">{{ ingredient.name }}</p>
-                    <a href="{{ path('front_office_ingredient',{'id': ingredient.id }) }}" class="col-md-6 col-md-offset-3 btn btn-info">Voir les recettes</a>
+                    <a href="{{ path('front_office_ingredient',{'id': ingredient.id, 'slug': ingredient.slug }) }}" class="col-md-6 col-md-offset-3 btn btn-info">Voir les recettes</a>
                 </figcaption>
             </figure>
         {% endfor %}
