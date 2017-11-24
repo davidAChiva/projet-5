@@ -9,7 +9,7 @@
         <h2>SUPPRIMER LA CATEGORIE D'INGREDIENT: {{ ingredientCategory.name }}</h2>
         <p>Voulez-vous confirmer la suppression de : {{ ingredientCategory.name }} ?</p>
         {# Formulaire pour supprimer la spécialité de pays #}
-        <form action="{{ path('manage_ingredient_category_delete', {'id': ingredientCategory.id}) }}" method="post">
+        <form action="{{ path('manage_ingredient_category_delete', {'id': ingredientCategory.id, 'slug': ingredientCategory.slug}) }}" method="post">
 
             <a href="{{ path('manage_ingredient_category_index') }}" class="btn btn-primary">Annuler</a>
             <input type="submit" value="Supprimer" class="btn btn-danger" />

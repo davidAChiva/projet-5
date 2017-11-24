@@ -3,7 +3,7 @@ front_office_index:
     defaults:   { _controller: AppBundle:FrontOffice:index }
 
 front_office_ingredient_category:
-    path:       /categorie-ingredient/{id}
+    path:       /categorie-ingredient/{id}-{slug}
     defaults:   { _controller: AppBundle:FrontOffice:categoryIngredient }
     requirements:
         id:     \d+
