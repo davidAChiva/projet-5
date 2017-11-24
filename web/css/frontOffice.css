@@ -29,7 +29,11 @@ figure
 {
     text-align: center;
 }
-
+figure h3
+{
+    font-size: 1.2em;
+    font-weight: bold;
+}
 figure p
 {
     font-size: 1.2em;
