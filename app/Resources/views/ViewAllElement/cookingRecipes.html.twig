@@ -15,7 +15,7 @@
                 <figcaption class="col-md-12">
                     <p class="col-md-6">Type : {{ cookingRecipe.partOfMenu.type }}</p>
                     <p class="col-md-6">Spécialité : {{ cookingRecipe.specialtyCountry.country }}</p>
-                    <a href="{{ path('front_office_recipe',{'id': cookingRecipe.id }) }}" class="col-md-6 col-md-offset-3 btn btn-info">Voir la recette</a>
+                    <a href="{{ path('front_office_recipe',{'id': cookingRecipe.id, 'slug': cookingRecipe.slug}) }}" class="col-md-6 col-md-offset-3 btn btn-info">Voir la recette</a>
                 </figcaption>
             </figure>
         {% endfor %}

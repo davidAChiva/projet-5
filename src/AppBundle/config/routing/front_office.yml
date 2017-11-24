@@ -31,7 +31,7 @@ front_office_add_recipe:
     defaults:   { _controller: AppBundle:FrontOffice:addRecipe }
 
 front_office_recipe:
-    path:       /recette/{id}
+    path:       /recette/{id}/{slug}
     defaults:   { _controller: AppBundle:FrontOffice:recipe }
     requirements:
         id:     \d+
