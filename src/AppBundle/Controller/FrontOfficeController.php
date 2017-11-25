@@ -122,17 +122,19 @@ class FrontOfficeController extends Controller
     public function recipeAction($id,Request $request)
     {
         $em = $this->getDoctrine()->getManager();
-
-
+        
         $cookingRecipe = $em->getRepository('AppBundle:CookingRecipe')->find($id);
         $ip = $request->getClientIp();
 
-        
-        $statistic = new Statistic();
-        $statistic->setIpVisitor($ip);
-        $statistic->setCookingRecipe($cookingRecipe);
-        $em->persist($statistic);
-        $em->flush();
+        $visit = $em->getRepository('AppBundle:Statistic')->getVisitRecipe($id,$ip);
+        if (count($visit) !== 1) {
+            $statistic = new Statistic();
+            $statistic->setIpVisitor($ip);
+            $statistic->setCookingRecipe($cookingRecipe);
+            $em->persist($statistic);
+            $em->flush();
+        }
+
         $comments = $em->getRepository('AppBundle:CommentRecipe')->getCommentsOfRecipe($id);
 
         $commentRecipe = new CommentRecipe();
@@ -151,7 +153,7 @@ class FrontOfficeController extends Controller
             'cookingRecipe' => $cookingRecipe,
             'comments'      => $comments,
             'form'          => $form->createView(),
-            'ip'            => $ip
+            'visit'         => $visit
         ));
     }
 
