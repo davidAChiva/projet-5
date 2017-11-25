@@ -119,6 +119,10 @@ class CookingRecipe
     private $image;
 
     /**
+     * @ORM\Column(name="nb_applications", type="integer")
+     */
+    private $nbVisit = 0;
+    /**
      * Constructor
      */
     public function __construct()
@@ -386,5 +390,29 @@ class CookingRecipe
     public function getImage()
     {
         return $this->image;
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     *
+     * @return CookingRecipe
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->slug;
     }
 }

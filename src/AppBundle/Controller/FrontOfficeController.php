@@ -5,6 +5,7 @@ namespace AppBundle\Controller;
 
 
 
+use AppBundle\Entity\Statistic;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -121,8 +122,17 @@ class FrontOfficeController extends Controller
     public function recipeAction($id,Request $request)
     {
         $em = $this->getDoctrine()->getManager();
-        $cookingRecipe = $em->getRepository('AppBundle:CookingRecipe')->find($id);
 
+
+        $cookingRecipe = $em->getRepository('AppBundle:CookingRecipe')->find($id);
+        $ip = $request->getClientIp();
+
+        
+        $statistic = new Statistic();
+        $statistic->setIpVisitor($ip);
+        $statistic->setCookingRecipe($cookingRecipe);
+        $em->persist($statistic);
+        $em->flush();
         $comments = $em->getRepository('AppBundle:CommentRecipe')->getCommentsOfRecipe($id);
 
         $commentRecipe = new CommentRecipe();
@@ -140,7 +150,8 @@ class FrontOfficeController extends Controller
         return $this->render('FrontOffice/recipe.html.twig',array (
             'cookingRecipe' => $cookingRecipe,
             'comments'      => $comments,
-            'form'          => $form->createView()
+            'form'          => $form->createView(),
+            'ip'            => $ip
         ));
     }
 

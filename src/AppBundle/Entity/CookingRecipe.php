@@ -119,6 +119,10 @@ class CookingRecipe
     private $image;
 
     /**
+     * @ORM\Column(name="nb_visit", type="integer")
+     */
+    private $nbVisit = 0;
+    /**
      * Constructor
      */
     public function __construct()
@@ -127,6 +131,10 @@ class CookingRecipe
         $this->ingredients = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
+    public function increaseNbVisit()
+    {
+        $this->nbVisit++;
+    }
 
     /**
      * Get id
@@ -410,5 +418,29 @@ class CookingRecipe
     public function getSlug()
     {
         return $this->slug;
+    }
+
+    /**
+     * Set nbVisit
+     *
+     * @param integer $nbVisit
+     *
+     * @return CookingRecipe
+     */
+    public function setNbVisit($nbVisit)
+    {
+        $this->nbVisit = $nbVisit;
+
+        return $this;
+    }
+
+    /**
+     * Get nbVisit
+     *
+     * @return integer
+     */
+    public function getNbVisit()
+    {
+        return $this->nbVisit;
     }
 }
