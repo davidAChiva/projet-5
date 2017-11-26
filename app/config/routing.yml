@@ -31,5 +31,8 @@ app_bundle_manage_contact:
 app_bundle_manage_comment_recipe:
     resource: "@AppBundle/config/routing/manage_comment_recipe.yml"
 
+app_bundle_statistic:
+    resource: "@AppBundle/config/routing/statistic.yml"
+
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"

@@ -122,4 +122,14 @@ class CookingRecipeRepository extends \Doctrine\ORM\EntityRepository
 
         return $recipes;
     }
+
+    public function getAllRecipeMostPopular()
+    {
+        $qb = $this->createQueryBuilder('c')
+            -> orderBy('c.nbVisit', 'DESC');
+
+        $recipesMostPopular = $qb->getQuery()->getResult();
+
+        return $recipesMostPopular;
+    }
 }

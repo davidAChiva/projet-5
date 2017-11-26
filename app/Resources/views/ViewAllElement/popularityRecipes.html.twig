@@ -1,0 +1,24 @@
+{% extends "FrontOffice/layout.html.twig" %}
+
+{% block title %}
+    Classement par popularité | {{ parent() }}
+{% endblock %}
+
+{% block body %}
+    <section class="row">
+        <h2 class="col-md-12">RECETTES LES PLUS POPULAIRES</h2>
+
+        {% for recipe in recipes %}
+            <figure class="col-md-4">
+                <h3 class="col-md-12">{{ recipe.name }}</h3>
+                <p class="col-md-12">Classement : {{ loop.index }}</p>
+                <img class="col-md-12" src="{{ asset(recipe.image.webPath) }}" alt="{{ recipe.image.alt }}"/>
+                <figcaption class="col-md-10 col-md-offset-1">
+                    <p class="col-md-12">{{ recipe.specialtyCountry.country }}</p>
+                    <a href="{{ path('front_office_recipe',{'id': recipe.id, 'slug': recipe.slug }) }}" class="col-md-6 col-md-offset-3 btn btn-info">Voir la recette</a>
+                </figcaption>
+            </figure>
+        {% endfor %}
+
+    </section>
+{% endblock %}

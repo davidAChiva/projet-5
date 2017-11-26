@@ -63,4 +63,15 @@ class FrontOfficeVerticalMenuController extends Controller
             'page'                 => $page
         ));
     }
+
+    public function popularityRecipesAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $recipes = $em->getRepository('AppBundle:CookingRecipe')->getAllRecipeMostPopular();
+
+        return $this->render('ViewAllElement/popularityRecipes.html.twig', array(
+            'recipes'           =>  $recipes
+        ));
+    }
 }

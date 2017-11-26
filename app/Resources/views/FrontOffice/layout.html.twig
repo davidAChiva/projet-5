@@ -53,9 +53,9 @@
 
 {% block nav_vertical %}
     <div class="btn-group btn-group-vertical col-md-3 nav_vertical">
-        <button class="btn btn-default">Recettes les plus populaires</button>
+        <a href="{{ path('front_office_vertical_menu_popularity_recipes') }}" class="btn btn-default">Recettes les plus populaires</a>
         <button class="btn btn-default">Recettes les mieux notés</button>
-        <a href="{{ path('front_office_vertical_menu_ingredients') }}"class="btn btn-default">Recettes par ingrédient</a>
+        <a href="{{ path('front_office_vertical_menu_ingredients') }}" class="btn btn-default">Recettes par ingrédient</a>
         <a href="{{ path('front_office_vertical_menu_parts_menu') }}" class="btn btn-default">Recettes par type</a>
         <a href="{{ path('front_office_vertical_menu_specialties_country') }}" class="btn btn-default">Recettes par pays</a>
         <a href="{{ path('front_office_vertical_menu_cooking_recipes') }}" class="btn btn-default">Voir toutes les recettes</a>

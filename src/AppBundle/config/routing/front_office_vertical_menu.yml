@@ -15,3 +15,7 @@ front_office_vertical_menu_cooking_recipes:
     defaults:   { _controller: AppBundle:FrontOfficeVerticalMenu:cookingRecipes, page: 1 }
     requirements:
         page:       \d*
+
+front_office_vertical_menu_popularity_recipes:
+    path:      /all/popularité-recettes/
+    defaults: { _controller: AppBundle:FrontOfficeVerticalMenu:popularityRecipes }
