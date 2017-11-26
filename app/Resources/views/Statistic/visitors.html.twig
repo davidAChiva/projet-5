@@ -1,0 +1,32 @@
+{% extends "BackOffice/layout.html.twig" %}
+
+{% block title %}
+    Statistique visiteurs{{ parent() }}
+{% endblock %}
+
+{% block body %}
+
+    <section class="row">
+        <h2 class="col-md-12">STATISTIQUE VISITEURS</h2>
+
+        <table class="table">
+            <thead class="thead-dark">
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Ip Visiteur</th>
+                <th scope="col">Recette visité</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for visit in visits %}
+                <tr>
+                    <th scope="row">{{ visit.id }}</th>
+                    <td>{{ visit.ipVisitor }}</td>
+                    <td><a href="{{ path('front_office_recipe',{'id': visit.cookingRecipe.id, 'slug': visit.cookingRecipe.slug}) }}">{{ visit.cookingRecipe.name }}</a></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </section>
+
+{% endblock %}

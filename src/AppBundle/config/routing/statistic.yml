@@ -1,3 +1,7 @@
 statistic_popularity_recipe:
     path:       /admin0081/statistique/popularite-recettes
     defaults:   { _controller: AppBundle:Statistic:popularityRecipe }
+
+statistic_visitors:
+    path:       /admin0081/statistique/visiteurs
+    defaults:   { _controller: AppBundle:Statistic:visitors}

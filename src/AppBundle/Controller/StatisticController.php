@@ -19,4 +19,15 @@ class StatisticController extends Controller
             'recipes'       => $recipes
         ));
     }
+
+    public function visitorsAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $visits = $em->getRepository('AppBundle:Statistic')->findAll();
+
+        return $this->render('Statistic/visitors.html.twig', array(
+            'visits'       => $visits
+        ));
+    }
 }
