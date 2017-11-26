@@ -109,4 +109,17 @@ class CookingRecipeRepository extends \Doctrine\ORM\EntityRepository
 
         return $recipes;
     }
+
+    public function getRecipeMostPopular($limit)
+    {
+        $limit = (int)$limit;
+        $qb = $this->createQueryBuilder('c')
+            ->orderBy('c.nbVisit', 'DESC')
+            ->setFirstResult(0)
+            ->setMaxResults($limit);
+
+        $recipes = $qb->getQuery()->getResult();
+
+        return $recipes;
+    }
 }

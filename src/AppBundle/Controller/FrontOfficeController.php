@@ -27,15 +27,17 @@ class FrontOfficeController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $ingredientCategories = $em->getRepository('AppBundle:IngredientCategory')->findAll();
+        $recipesMostPopular = $em->getRepository('AppBundle:CookingRecipe')->getRecipeMostPopular(9);
 
         $partsOfMenu = $em->getRepository('AppBundle:PartOfMenu')->findAll();
 
         $specialtiesCountries = $em->getRepository('AppBundle:SpecialtyCountry')->findAll();
 
         return $this->render('FrontOffice/index.html.twig', array(
-            'ingredientCategories' => $ingredientCategories,
-            'partsOfMenu' => $partsOfMenu,
-            'specialtiesCountries' => $specialtiesCountries
+            'ingredientCategories'      => $ingredientCategories,
+            'partsOfMenu'               => $partsOfMenu,
+            'specialtiesCountries'      => $specialtiesCountries,
+            'recipesMostPopular'        => $recipesMostPopular
         ));
     }
 
