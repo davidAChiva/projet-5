@@ -51,6 +51,19 @@ class CommentRecipe
     private $content;
 
     /**
+     * @var int
+     *
+     * @ORM\Column(name="note", type="integer")
+     * @Assert\Range(
+     *     min = 0,
+     *     max = 5,
+     *     minMessage ="La note minimum est de {{ limit }}",
+     *     maxMessage="La note maximum est de {{ limit }}"
+     * )
+     */
+    private $note;
+
+    /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\CookingRecipe")
      * @ORM\JoinColumn(nullable=false)
      */
@@ -169,5 +182,29 @@ class CommentRecipe
     public function getDate()
     {
         return $this->date;
+    }
+
+    /**
+     * Set note
+     *
+     * @param integer $note
+     *
+     * @return CommentRecipe
+     */
+    public function setNote($note)
+    {
+        $this->note = $note;
+
+        return $this;
+    }
+
+    /**
+     * Get note
+     *
+     * @return integer
+     */
+    public function getNote()
+    {
+        return $this->note;
     }
 }
