@@ -21,4 +21,16 @@ class CommentRecipeRepository extends \Doctrine\ORM\EntityRepository
 
         return $qb->getQuery()->getResult();
     }
+
+    public function getNotesRecipe($idRecipe)
+    {
+        $qb = $this->createQueryBuilder('co')
+            ->select('avg(co.note) as average')
+            ->innerJoin('co.cookingRecipe', 'cr');
+
+        $qb ->where('cr.id = :idRecipe')
+            ->setParameter('idRecipe', $idRecipe);
+
+        return $qb->getQuery()->getResult();
+    }
 }

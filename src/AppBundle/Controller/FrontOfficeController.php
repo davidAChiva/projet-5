@@ -138,7 +138,7 @@ class FrontOfficeController extends Controller
         }
 
         $comments = $em->getRepository('AppBundle:CommentRecipe')->getCommentsOfRecipe($id);
-
+        $average = $em->getRepository('AppBundle:CommentRecipe')->getNotesRecipe($id);
         $commentRecipe = new CommentRecipe();
         $form = $this->get('form.factory')->create(CommentRecipeType::class,$commentRecipe);
         $form->handleRequest($request);
@@ -155,7 +155,8 @@ class FrontOfficeController extends Controller
             'cookingRecipe' => $cookingRecipe,
             'comments'      => $comments,
             'form'          => $form->createView(),
-            'visit'         => $visit
+            'visit'         => $visit,
+            'average'       => $average
         ));
     }
 

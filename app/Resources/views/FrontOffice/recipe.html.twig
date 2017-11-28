@@ -6,12 +6,16 @@
 
 {% block body %}
     <div class="row">
-    <h2 class="col-md-12">{{ cookingRecipe.name }} <span>{{ cookingRecipe.dateCreation | date('d/m/Y')}}</span></h2>
-    <img class="col-md-8" src="{{ asset(cookingRecipe.image.webPath) }}" alt="{{ cookingRecipe.image.alt }}" />
+    <h2 class="col-md-6 col-md-offset-3">{{ cookingRecipe.name }} <span>{{ cookingRecipe.dateCreation | date('d/m/Y')}}</span></h2>
+    <img class="col-md-6 col-md-offset-3" src="{{ asset(cookingRecipe.image.webPath) }}" alt="{{ cookingRecipe.image.alt }}" />
     </div>
     <div class="row">
             <h3 class="col-md-6">Type de plat : {{ cookingRecipe.partOfMenu.type }}</h3>
             <h3 class="col-md-6">Spécialité pays : {{ cookingRecipe.specialtyCountry.country }}</h3>
+            {% for avg in average %}
+            <h3 class="col-md-12">{{ avg.average | round(2)}}</h3>
+            {% endfor %}
+
     </div>
     <h3>Liste des ingrédients</h3>
     <ul>
@@ -31,10 +35,11 @@
 
     <h3>LES COMMENTAIRES</h3>
     {# Liste des commentaires #}
+
     <section class="row">
         {% for comment in comments %}
             <div class="col-md-9">
-               <p class="col-md-3">{{ comment.author }}</p>
+               <p class="col-md-3">{{ comment.author }} | Note : {{ comment.note }} / 5</p>
                <p class="col-md-offset-6 col-md-3">{{ comment.date | date('d/m/Y') }}</p>
                <p class=" well col-md-12">{{ comment.content }}</p>
             </div>
