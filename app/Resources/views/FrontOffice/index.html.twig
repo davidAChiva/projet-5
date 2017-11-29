@@ -30,10 +30,10 @@
     {# Section -> Les mieux notées#}
     <section class="row">
         <h2 class="col-md-12">RECETTE LES MIEUX NOTEES</h2>
-        {% for specialtyCountry in specialtiesCountries %}
+        {% for recipe in recipesMostNote %}
         <figure class="col-md-4">
-            <h3 class="col-md-12">Nom de la recette</h3>
-            <img class="col-md-12" src="{{ asset(specialtyCountry.image.webPath) }}" />
+            <h3 class="col-md-12">{{ recipe.id }}</h3>
+            <img class="col-md-12" src="" />
             <figcaption class="col-md-10 col-md-offset-1">
                 <p class="col-md-12"> Pays : Nom du pays</p>
                 <p class="col-md-12">Type : plat</p>

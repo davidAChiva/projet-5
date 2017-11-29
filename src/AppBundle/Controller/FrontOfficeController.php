@@ -28,16 +28,16 @@ class FrontOfficeController extends Controller
 
         $ingredientCategories = $em->getRepository('AppBundle:IngredientCategory')->findAll();
         $recipesMostPopular = $em->getRepository('AppBundle:CookingRecipe')->getRecipeMostPopular(9);
-
         $partsOfMenu = $em->getRepository('AppBundle:PartOfMenu')->findAll();
-
         $specialtiesCountries = $em->getRepository('AppBundle:SpecialtyCountry')->findAll();
+        $recipesMostNote = $em->getRepository('AppBundle:CommentRecipe')->getRecipeWithAverageNote();
 
         return $this->render('FrontOffice/index.html.twig', array(
             'ingredientCategories'      => $ingredientCategories,
             'partsOfMenu'               => $partsOfMenu,
             'specialtiesCountries'      => $specialtiesCountries,
-            'recipesMostPopular'        => $recipesMostPopular
+            'recipesMostPopular'        => $recipesMostPopular,
+            'recipesMostNote'           => $recipesMostNote
         ));
     }
 
@@ -139,14 +139,19 @@ class FrontOfficeController extends Controller
 
         $comments = $em->getRepository('AppBundle:CommentRecipe')->getCommentsOfRecipe($id);
         $average = $em->getRepository('AppBundle:CommentRecipe')->getNotesRecipe($id);
+
         $commentRecipe = new CommentRecipe();
         $form = $this->get('form.factory')->create(CommentRecipeType::class,$commentRecipe);
         $form->handleRequest($request);
 
         if ($form->isValid() && $form->isSubmitted())
         {
+            $averageRecipe = $average[0];
+            $averageRecipe = $averageRecipe['average'];
+
             $commentRecipe->setCookingRecipe($cookingRecipe);
             $em->persist($commentRecipe);
+            $cookingRecipe->setAverageNotes($averageRecipe);
             $em->flush();
 
             return $this->redirectToRoute('front_office_index');

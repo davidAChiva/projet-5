@@ -33,4 +33,14 @@ class CommentRecipeRepository extends \Doctrine\ORM\EntityRepository
 
         return $qb->getQuery()->getResult();
     }
+
+    public function getRecipeWithAverageNote()
+    {
+        $qb = $this->createQueryBuilder('com')
+            ->select('avg(com.note) as average, coo.id')
+            ->innerJoin('com.cookingRecipe', 'coo');
+        $qb ->orderBy('average','DESC');
+
+        return $qb->getQuery()->getResult();
+    }
 }

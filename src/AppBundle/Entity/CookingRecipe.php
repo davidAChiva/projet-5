@@ -122,6 +122,12 @@ class CookingRecipe
      * @ORM\Column(name="nb_visit", type="integer")
      */
     private $nbVisit = 0;
+
+    /**
+     * @ORM\Column(name="average_note", type="integer")
+     */
+    private $averageNotes;
+
     /**
      * Constructor
      */
@@ -442,5 +448,29 @@ class CookingRecipe
     public function getNbVisit()
     {
         return $this->nbVisit;
+    }
+
+    /**
+     * Set averageNotes
+     *
+     * @param integer $averageNotes
+     *
+     * @return CookingRecipe
+     */
+    public function setAverageNotes($averageNotes)
+    {
+        $this->averageNotes = $averageNotes;
+
+        return $this;
+    }
+
+    /**
+     * Get averageNotes
+     *
+     * @return integer
+     */
+    public function getAverageNotes()
+    {
+        return $this->averageNotes;
     }
 }
