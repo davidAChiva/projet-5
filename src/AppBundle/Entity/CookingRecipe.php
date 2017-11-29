@@ -124,7 +124,7 @@ class CookingRecipe
     private $nbVisit = 0;
 
     /**
-     * @ORM\Column(name="average_note", type="integer")
+     * @ORM\Column(name="average_note", type="float")
      */
     private $averageNotes;
 

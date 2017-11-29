@@ -12,9 +12,7 @@
     <div class="row">
             <h3 class="col-md-6">Type de plat : {{ cookingRecipe.partOfMenu.type }}</h3>
             <h3 class="col-md-6">Spécialité pays : {{ cookingRecipe.specialtyCountry.country }}</h3>
-            {% for avg in average %}
-            <h3 class="col-md-12">Note de la recette : {{ avg.average | round(2)}}</h3>
-            {% endfor %}
+            <h3 class="col-md-12">Note de la recette : {{ cookingRecipe.averageNotes | round(2)}}</h3>
 
     </div>
     <h3>Liste des ingrédients</h3>

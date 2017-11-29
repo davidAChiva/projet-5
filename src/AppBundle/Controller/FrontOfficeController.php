@@ -138,7 +138,6 @@ class FrontOfficeController extends Controller
         }
 
         $comments = $em->getRepository('AppBundle:CommentRecipe')->getCommentsOfRecipe($id);
-        $average = $em->getRepository('AppBundle:CommentRecipe')->getNotesRecipe($id);
 
         $commentRecipe = new CommentRecipe();
         $form = $this->get('form.factory')->create(CommentRecipeType::class,$commentRecipe);
@@ -146,13 +145,17 @@ class FrontOfficeController extends Controller
 
         if ($form->isValid() && $form->isSubmitted())
         {
-            $averageRecipe = $average[0];
-            $averageRecipe = $averageRecipe['average'];
-
             $commentRecipe->setCookingRecipe($cookingRecipe);
             $em->persist($commentRecipe);
-            $cookingRecipe->setAverageNotes($averageRecipe);
             $em->flush();
+
+            $average = $em->getRepository('AppBundle:CommentRecipe')->getNotesRecipe($id);
+            $averageRecipe = $average[0];
+            $averageRecipe = $averageRecipe['average'];
+            $cookingRecipe->setAverageNotes($averageRecipe);
+            $em->persist($cookingRecipe);
+            $em->flush();
+
 
             return $this->redirectToRoute('front_office_index');
         }
@@ -160,8 +163,6 @@ class FrontOfficeController extends Controller
             'cookingRecipe' => $cookingRecipe,
             'comments'      => $comments,
             'form'          => $form->createView(),
-            'visit'         => $visit,
-            'average'       => $average
         ));
     }
 
