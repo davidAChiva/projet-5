@@ -5,3 +5,7 @@ statistic_popularity_recipe:
 statistic_visitors:
     path:       /admin0081/statistique/visiteurs
     defaults:   { _controller: AppBundle:Statistic:visitors}
+
+statistic_note_recipe:
+    path:       /admin0081/statistique/note-recette
+    defaults:   { _controller: AppBundle:Statistic:noteRecipe }

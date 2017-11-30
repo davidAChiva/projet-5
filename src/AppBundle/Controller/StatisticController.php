@@ -30,4 +30,15 @@ class StatisticController extends Controller
             'visits'       => $visits
         ));
     }
+
+    public function noteRecipeAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $recipes = $em->getRepository('AppBundle:CookingRecipe')->getRecipeMostAverageNotes();
+
+        return $this->render('Statistic/noteRecipe.html.twig', array(
+            'recipes'       => $recipes
+        ));
+
+    }
 }
