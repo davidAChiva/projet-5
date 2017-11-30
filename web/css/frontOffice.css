@@ -1,3 +1,15 @@
+.header_slider
+{
+    background-image: url("../images/hamburger-header.jpg");
+    background-size: cover;
+    height: 750px;
+    color: white;
+}
+.search_header
+{
+    top : 300px;
+    color: black;
+}
 section img
 {
     margin-top: 10px;

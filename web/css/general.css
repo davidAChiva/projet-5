@@ -7,13 +7,7 @@ h2
 {
     text-align: center;
 }
-.header_slider
-{
-    background-image: url("../images/hamburger-header.jpg");
-    background-size: cover;
-    height: 750px;
-    color: white;
-}
+
 .nav_header
 {
     height: 50px;
@@ -22,11 +16,7 @@ h2
 {
     font-size: 1.2em;
 }
-.search_header
-{
-    top : 300px;
-    color: black;
-}
+
 .nav_vertical
 {
     margin-top: 70px;

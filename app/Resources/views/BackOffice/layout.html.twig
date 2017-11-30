@@ -3,12 +3,14 @@
 {% block stylesheets %}
 {{ parent() }}
 <link rel="stylesheet" href="{{ asset('css/backOffice.css') }}" />
-
 {% endblock %}
 {% block title %}
    - Administration | {{ parent() }}
 {% endblock %}
 
+{% block header %}
+    <h1>PANNEAU D'ADMINISTRATION</h1>
+{% endblock %}
 {% block nav %}
     {{ parent() }}
     <div class="navbar-header"><a class="navbar-brand" href="{{ path('back_office_index') }}">Odelices Voyage</a>
