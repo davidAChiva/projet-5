@@ -132,4 +132,13 @@ class CookingRecipeRepository extends \Doctrine\ORM\EntityRepository
 
         return $recipesMostPopular;
     }
+
+    public function getRecipeMostAverageNotes()
+    {
+        $qb = $this->createQueryBuilder('c')
+            ->orderBy('c.averageNotes', 'DESC');
+        $recipesMostAverage = $qb->getQuery()->getResult();
+
+        return $recipesMostAverage;
+    }
 }

@@ -30,7 +30,7 @@ class FrontOfficeController extends Controller
         $recipesMostPopular = $em->getRepository('AppBundle:CookingRecipe')->getRecipeMostPopular(9);
         $partsOfMenu = $em->getRepository('AppBundle:PartOfMenu')->findAll();
         $specialtiesCountries = $em->getRepository('AppBundle:SpecialtyCountry')->findAll();
-        $recipesMostNote = $em->getRepository('AppBundle:CommentRecipe')->getRecipeWithAverageNote();
+        $recipesMostNote = $em->getRepository('AppBundle:CookingRecipe')->getRecipeMostAverageNotes();
 
         return $this->render('FrontOffice/index.html.twig', array(
             'ingredientCategories'      => $ingredientCategories,

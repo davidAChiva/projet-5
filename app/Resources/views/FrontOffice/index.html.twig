@@ -32,11 +32,18 @@
         <h2 class="col-md-12">RECETTE LES MIEUX NOTEES</h2>
         {% for recipe in recipesMostNote %}
         <figure class="col-md-4">
-            <h3 class="col-md-12">{{ recipe.id }}</h3>
-            <img class="col-md-12" src="" />
+            <h3 class="col-md-12">{{ recipe.name }}</h3>
+            <p class="col-md-12">
+                {% if recipe.averageNotes is not null %}
+                {{ recipe.averageNotes }}
+                {% else %}
+                Aucune note
+                {% endif %}
+            </p>
+            <img class="col-md-12" src="{{ asset(recipe.image.webPath) }}" />
             <figcaption class="col-md-10 col-md-offset-1">
-                <p class="col-md-12"> Pays : Nom du pays</p>
-                <p class="col-md-12">Type : plat</p>
+                <p class="col-md-12"> {{ recipe.specialtyCountry.country }}</p>
+                <p class="col-md-12"> {{ recipe.partOfMenu.type }}</p>
                 <button class="col-md-6 col-md-offset-3 btn btn-info">Voir la recette</button>
             </figcaption>
         </figure>
