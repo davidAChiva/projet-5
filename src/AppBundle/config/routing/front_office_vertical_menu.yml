@@ -19,3 +19,7 @@ front_office_vertical_menu_cooking_recipes:
 front_office_vertical_menu_popularity_recipes:
     path:      /all/popularité-recettes/
     defaults: { _controller: AppBundle:FrontOfficeVerticalMenu:popularityRecipes }
+
+front_office_vertical_menu_average_notes_recipes:
+    path:     /all/note-recettes/
+    defaults: { _controller: AppBundle:FrontOfficeVerticalMenu:averageNotesRecipes }

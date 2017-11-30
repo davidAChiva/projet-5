@@ -74,4 +74,14 @@ class FrontOfficeVerticalMenuController extends Controller
             'recipes'           =>  $recipes
         ));
     }
+
+    public function averageNotesRecipesAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $recipesMostNote = $em->getRepository('AppBundle:CookingRecipe')->getRecipeMostAverageNotes();
+
+        return $this->render('ViewAllElement/recipesMostNote.html.twig', array(
+            'recipesMostNote'           =>  $recipesMostNote
+        ));
+    }
 }

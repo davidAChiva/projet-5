@@ -44,7 +44,7 @@
             <figcaption class="col-md-10 col-md-offset-1">
                 <p class="col-md-12"> {{ recipe.specialtyCountry.country }}</p>
                 <p class="col-md-12"> {{ recipe.partOfMenu.type }}</p>
-                <button class="col-md-6 col-md-offset-3 btn btn-info">Voir la recette</button>
+                <a href="{{ path('front_office_recipe',{'id': recipe.id, 'slug': recipe.slug}) }}" class="col-md-6 col-md-offset-3 btn btn-info">Voir la recette</a>
             </figcaption>
         </figure>
         {% endfor %}
