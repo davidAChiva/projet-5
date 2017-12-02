@@ -26,7 +26,7 @@ class ManageAccountController extends Controller
     public function userModifyRoleAction($id,Request $request)
     {
         $em = $this->getDoctrine()->getManager();
-        $user = $em->getRepository('AppBundle:User')->find($id);
+        $user = $em->getRepository('AppBundle:User')->getUsers();
 
         // Formulaire qui contient juste le champ crsf pour la sécurité
         $form = $this->get('form.factory')->create();
@@ -55,7 +55,7 @@ class ManageAccountController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $admins = $em->getRepository('AppBundle:User')->findAll();
+        $admins = $em->getRepository('AppBundle:User')->getAdmins();
 
         return $this->render('ManageAccount/admin.html.twig', array(
             'admins'       => $admins
