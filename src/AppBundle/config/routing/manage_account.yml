@@ -11,11 +11,15 @@ manage_account_user_modify_role:
     defaults:   { _controller: AppBundle:ManageAccount:userModifyRole }
 
 manage_account_admin:
-    path:       /admin0081/Admin
+    path:       /admin0081/admin
     defaults:   { _controller: AppBundle:ManageAccount:admin }
 
+manage_account_admin_modify_role:
+    path:       /admin0081/admin/modifier-role/{id}
+    defaults:   { _controller: AppBundle:ManageAccount:adminModifyRole }
+
 manage_account_admin_delete:
-    path:       /admin0081/Admin/delete/{id}
+    path:       /admin0081/admin/delete/{id}
     defaults:   { _controller: AppBundle:ManageAccount:adminDelete }
 
 

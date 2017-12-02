@@ -1,0 +1,25 @@
+{% extends "BackOffice/layout.html.twig" %}
+
+{% block title %}
+    Retirer un role admin | {{ parent() }}
+{% endblock %}
+
+{% block body %}
+    <section class="row">
+        <h2>Retirer le role admin à  : {{ admin.username }}</h2>
+        <p>Role actuel :
+            {% for role in admin.roles %}
+                {{ role }}
+            {% endfor %}
+        </p>
+
+        {# Formulaire pour ajouter le role admin #}
+        <form action="{{ path('manage_account_admin_modify_role', {'id': admin.id}) }}" method="post">
+
+            <a href="{{ path('manage_account_admin') }}" class="btn btn-primary">Annuler</a>
+            <input type="submit" value="Retirer le role administrateur" class="btn btn-danger" />
+            {# Pour générer le champ CSRF #}
+            {{ form_rest(form) }}
+        </form>
+    </section>
+{% endblock %}

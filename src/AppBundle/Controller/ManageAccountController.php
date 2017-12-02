@@ -42,7 +42,7 @@ class ManageAccountController extends Controller
                 $em->persist($user);
                 $em->flush();
 
-                return $this->redirectToRoute('manage_cooking_recipe_index');
+                return $this->redirectToRoute('manage_account_user');
             }
         }
         return $this->render('ManageAccount/userModifyRole.html.twig', array(
@@ -59,6 +59,34 @@ class ManageAccountController extends Controller
 
         return $this->render('ManageAccount/admin.html.twig', array(
             'admins'       => $admins
+        ));
+    }
+
+    public function adminModifyRoleAction(Request $request,$id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $admin = $em->getRepository('AppBundle:User')->find($id);
+
+        // Formulaire qui contient juste le champ crsf pour la sécurité
+        $form = $this->get('form.factory')->create();
+
+        $form->handleRequest($request);
+
+        if ($request->isMethod('POST'))
+        {
+            if ($form->isValid() && $form->isSubmitted())
+            {
+                $role = 'ROLE_ADMIN';
+                $admin->removeRole($role);
+                $em->persist($admin);
+                $em->flush();
+
+                return $this->redirectToRoute('manage_account_admin');
+            }
+        }
+        return $this->render('ManageAccount/adminModifyRole.html.twig', array(
+            'admin'   => $admin,
+            'form'   => $form->createView()
         ));
     }
 
