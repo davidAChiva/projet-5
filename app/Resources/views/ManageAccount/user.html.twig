@@ -29,6 +29,7 @@
                 {% else %}
                     <td>Aucune</td>
                 {% endif %}
+                <td><a href="{{ path('manage_account_user_modify_role', {'id' : user.id}) }}" class="btn btn-primary">Ajouter un role</a></td>
                 <td><a href="{{ path('manage_account_user_delete', { 'id' : user.id }) }}" class="btn btn-danger">Supprimer</a></td>
             </tr>
             {% endfor %}

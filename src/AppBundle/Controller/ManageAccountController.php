@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use AppBundle\Entity\User;
+use AppBundle\Form\UserType;
 
 class ManageAccountController extends Controller
 
@@ -22,6 +23,34 @@ class ManageAccountController extends Controller
         ));
     }
 
+    public function userModifyRoleAction($id,Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $user = $em->getRepository('AppBundle:User')->find($id);
+
+        // Formulaire qui contient juste le champ crsf pour la sécurité
+        $form = $this->get('form.factory')->create();
+
+        $form->handleRequest($request);
+
+        if ($request->isMethod('POST'))
+        {
+            if ($form->isValid() && $form->isSubmitted())
+            {
+                $role = array('ROLE_ADMIN');
+                $user->setRoles($role);
+                $em->persist($user);
+                $em->flush();
+
+                return $this->redirectToRoute('manage_cooking_recipe_index');
+            }
+        }
+        return $this->render('ManageAccount/userModifyRole.html.twig', array(
+            'user'   => $user,
+            'form'   => $form->createView()
+        ));
+
+    }
     public function adminAction()
     {
         $em = $this->getDoctrine()->getManager();

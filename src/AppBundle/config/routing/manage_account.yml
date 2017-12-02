@@ -6,6 +6,10 @@ manage_account_user_delete:
     path:       /admin0081/user/delete/{id}
     defaults:   { _controller: AppBundle:ManageAccount:userDelete }
 
+manage_account_user_modify_role:
+    path:       /admin0081/utilisateur/modifier-role/{id}
+    defaults:   { _controller: AppBundle:ManageAccount:userModifyRole }
+
 manage_account_admin:
     path:       /admin0081/Admin
     defaults:   { _controller: AppBundle:ManageAccount:admin }

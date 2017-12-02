@@ -1,0 +1,25 @@
+{% extends "BackOffice/layout.html.twig" %}
+
+{% block title %}
+    Ajouter un role | {{ parent() }}
+{% endblock %}
+
+{% block body %}
+    <section class="row">
+        <h2>Ajouter le role admin à  : {{ user.username }}</h2>
+        <p>Role actuel :
+            {% for role in user.roles %}
+            {{ role }}
+            {% endfor %}
+        </p>
+
+        {# Formulaire pour ajouter le role admin #}
+        <form action="{{ path('manage_account_user_modify_role', {'id': user.id}) }}" method="post">
+
+            <a href="{{ path('manage_account_user') }}" class="btn btn-primary">Annuler</a>
+            <input type="submit" value="Ajouter le role administrateur" class="btn btn-danger" />
+            {# Pour générer le champ CSRF #}
+            {{ form_rest(form) }}
+        </form>
+    </section>
+{% endblock %}
