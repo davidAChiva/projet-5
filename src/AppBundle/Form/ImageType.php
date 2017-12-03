@@ -16,7 +16,7 @@ class ImageType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        // Evenement pour rendre obligatoire l'ajout d'image si on édite une entité
+        // Evenement pour rendre obligatoire l'ajout d'image quand on crée une entité
         $builder->addEventListener(
 
             FormEvents::PRE_SET_DATA,
@@ -24,22 +24,15 @@ class ImageType extends AbstractType
             function(FormEvent $event)
             {
                 $image = $event->getData();
-
+                // Si il n'y a pas encore d'image on le rend obligtoire
                 if (null === $image)
                 {
-                    return;
-                }
-
-                // Si il y a pas encore d'image alors on ajoute le formulaire obligatoire
-                if ( null === $image->getId())
-                {
-                    // Alors on ajoute le champ published
                     $event->getForm()->add('file', FileType::class);
                 }
+
                 // Sinon, on rend le champ pas obligatoire
                 else
                 {
-                    // Sinon, on le supprime
                     $event->getForm()->add('file', FileType::class, array('required'   => false));
                 }
             }

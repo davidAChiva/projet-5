@@ -40,7 +40,6 @@ class ManageIngredientCategoryController extends Controller
         }
 
         return $this->render('ManageIngredientCategory/add.html.twig', array(
-            'ingredientCategory'    => $ingredientCategory,
             'form'                  => $form->createView()
         ));
     }

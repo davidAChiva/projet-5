@@ -126,7 +126,12 @@ class CookingRecipe
     /**
      * @ORM\Column(name="average_note", type="float", nullable=true)
      */
-    private $averageNotes;
+    private $averageNotes = null;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
+     */
+    private $user;
 
     /**
      * Constructor

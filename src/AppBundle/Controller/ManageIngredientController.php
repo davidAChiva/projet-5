@@ -40,7 +40,6 @@ class ManageIngredientController extends Controller
         }
 
         return $this->render('ManageIngredient/add.html.twig', array(
-            'ingredient'            => $ingredient,
             'form'                  => $form->createView()
         ));
     }

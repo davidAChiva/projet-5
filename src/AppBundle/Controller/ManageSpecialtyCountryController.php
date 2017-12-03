@@ -40,7 +40,6 @@ class ManageSpecialtyCountryController extends Controller
         }
 
         return $this->render('ManageSpecialtyCountry/add.html.twig', array(
-            'specialtyCountry'      => $specialtyCountry,
             'form'                  => $form->createView()
         ));
     }

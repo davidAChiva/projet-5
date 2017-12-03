@@ -40,7 +40,6 @@ class ManagePartOfMenuController extends Controller
         }
 
         return $this->render('ManagePartOfMenu/add.html.twig', array(
-            'partOfMenu'      => $partOfMenu,
             'form'            => $form->createView()
         ));
     }

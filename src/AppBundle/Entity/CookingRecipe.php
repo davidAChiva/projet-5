@@ -129,6 +129,12 @@ class CookingRecipe
     private $averageNotes = null;
 
     /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
+     * @ORM\Column(nullable=false)
+     */
+    private $user;
+
+    /**
      * Constructor
      */
     public function __construct()
@@ -472,5 +478,29 @@ class CookingRecipe
     public function getAverageNotes()
     {
         return $this->averageNotes;
+    }
+
+    /**
+     * Set user
+     *
+     * @param \AppBundle\Entity\User $user
+     *
+     * @return CookingRecipe
+     */
+    public function setUser(\AppBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \AppBundle\Entity\User
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
 }

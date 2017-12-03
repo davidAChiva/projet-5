@@ -9,7 +9,7 @@
     {{ form_errors(form.type) }}
     {{ form_widget(form.type, {'attr': {'class': 'form-control'}}) }}
 
-    {% if form.image is defined %}
+    {% if partOfMenu is defined %}
         <div class="row">
             <img class="col-md-4" src="{{asset(partOfMenu.image.webPath)}}" alt="{{ partOfMenu.image.alt }}" />
         </div>

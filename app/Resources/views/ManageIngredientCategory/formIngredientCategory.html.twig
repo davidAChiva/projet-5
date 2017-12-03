@@ -9,7 +9,7 @@
     {{ form_errors(form.name) }}
     {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
 
-    {% if form.image is defined %}
+    {% if ingredientCategory is defined %}
         <div class="row">
             <img class="col-md-4" src="{{asset(ingredientCategory.image.webPath)}}" alt="{{ ingredientCategory.image.alt }}" />
         </div>
