@@ -147,6 +147,8 @@ class FrontOfficeController extends Controller
 
         if ($form->isValid() && $form->isSubmitted())
         {
+            $user = $this->getUser();
+            $commentRecipe->setUser($user);
             $commentRecipe->setCookingRecipe($cookingRecipe);
             $em->persist($commentRecipe);
             $em->flush();

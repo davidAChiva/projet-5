@@ -4,6 +4,7 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+
 /**
  * CommentRecipe
  *
@@ -30,17 +31,9 @@ class CommentRecipe
     private $date;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="author", type="string", length=255)
-     * @Assert\Length(
-     *      min = 3,
-     *      max = 15,
-     *      minMessage = "Votre pseudo doit contenir au moins {{ limit }} caractéres",
-     *      maxMessage = "Votre pseudo ne dois pas dépasser {{ limit }} caractéres"
-     * )
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
      */
-    private $author;
+    private $user;
 
     /**
      * @var string
@@ -85,30 +78,6 @@ class CommentRecipe
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set author
-     *
-     * @param string $author
-     *
-     * @return CommentRecipe
-     */
-    public function setAuthor($author)
-    {
-        $this->author = $author;
-
-        return $this;
-    }
-
-    /**
-     * Get author
-     *
-     * @return string
-     */
-    public function getAuthor()
-    {
-        return $this->author;
     }
 
     /**
@@ -182,5 +151,29 @@ class CommentRecipe
     public function getDate()
     {
         return $this->date;
+    }
+
+    /**
+     * Set note
+     *
+     * @param integer $note
+     *
+     * @return CommentRecipe
+     */
+    public function setNote($note)
+    {
+        $this->note = $note;
+
+        return $this;
+    }
+
+    /**
+     * Get note
+     *
+     * @return integer
+     */
+    public function getNote()
+    {
+        return $this->note;
     }
 }

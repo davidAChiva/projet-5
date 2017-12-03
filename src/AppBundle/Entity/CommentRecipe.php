@@ -31,17 +31,9 @@ class CommentRecipe
     private $date;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="author", type="string", length=255)
-     * @Assert\Length(
-     *      min = 3,
-     *      max = 15,
-     *      minMessage = "Votre pseudo doit contenir au moins {{ limit }} caractéres",
-     *      maxMessage = "Votre pseudo ne dois pas dépasser {{ limit }} caractéres"
-     * )
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
      */
-    private $author;
+    private $user;
 
     /**
      * @var string
@@ -86,30 +78,6 @@ class CommentRecipe
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set author
-     *
-     * @param string $author
-     *
-     * @return CommentRecipe
-     */
-    public function setAuthor($author)
-    {
-        $this->author = $author;
-
-        return $this;
-    }
-
-    /**
-     * Get author
-     *
-     * @return string
-     */
-    public function getAuthor()
-    {
-        return $this->author;
     }
 
     /**
@@ -207,5 +175,29 @@ class CommentRecipe
     public function getNote()
     {
         return $this->note;
+    }
+
+    /**
+     * Set user
+     *
+     * @param \AppBundle\Entity\User $user
+     *
+     * @return CommentRecipe
+     */
+    public function setUser(\AppBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \AppBundle\Entity\User
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
 }

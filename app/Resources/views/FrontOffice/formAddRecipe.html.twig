@@ -41,7 +41,7 @@
 
     {% if cookingRecipe is defined %}
         <div class="row">
-            <img class="col-md-4" src="{{asset('cookingRecipe.image.webPath')}}" alt="{{ cookingRecipe.image.alt }}" />
+            <img class="col-md-4" src="{{asset(cookingRecipe.image.webPath)}}" alt="{{ cookingRecipe.image.alt }}" />
         </div>
     {% endif %}
 

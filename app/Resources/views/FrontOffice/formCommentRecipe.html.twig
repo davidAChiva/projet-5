@@ -9,11 +9,6 @@
     {{ form_errors(form.note) }}
     {{ form_widget(form.note, {'attr': {'class': 'form-control'}}) }}
 
-    {# Champ author #}
-    {{ form_label(form.author,"Pseudo", {'label_attr': {'class': 'control-label'}}) }}
-    {{ form_errors(form.author) }}
-    {{ form_widget(form.author, {'attr': {'class': 'form-control'}}) }}
-
     {# Champ content #}
     {{ form_label(form.content,"Votre commentaire", {'label_attr': {'class': 'control-label'}}) }}
     {{ form_errors(form.content) }}

@@ -18,7 +18,6 @@ class CommentRecipeType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('author',                TextType::class)
             ->add('content',               TextareaType::class)
             ->add('note',                  IntegerType::class)
             ->add('save',                  SubmitType::class, array('label' => 'Envoyer le commentaire'))

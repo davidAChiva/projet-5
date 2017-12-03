@@ -12,6 +12,7 @@
     <div class="row">
             <h3 class="col-md-6">Type de plat : {{ cookingRecipe.partOfMenu.type }}</h3>
             <h3 class="col-md-6">Spécialité pays : {{ cookingRecipe.specialtyCountry.country }}</h3>
+            <p class="col-md-12">{{ cookingRecipe.user }}</p>
             <p class="col-md-12">Note de la recette :
                 {% if cookingRecipe.averageNotes is not null %}
                     {{ cookingRecipe.averageNotes }}
@@ -43,7 +44,7 @@
     <section class="row">
         {% for comment in comments %}
             <div class="col-md-9">
-               <p class="col-md-3">{{ comment.author }} | Note : {{ comment.note }} / 5</p>
+               <p class="col-md-3">{{ comment.user }} | Note : {{ comment.note }} / 5</p>
                <p class="col-md-offset-6 col-md-3">{{ comment.date | date('d/m/Y') }}</p>
                <p class=" well col-md-12">{{ comment.content }}</p>
             </div>

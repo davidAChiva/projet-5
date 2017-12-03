@@ -24,7 +24,7 @@
                 <tr>
                     <th scope="row">{{comment.id }}</th>
                     <td>{{ comment.date| date('d/m/Y') }}</td>
-                    <td>{{ comment.author }}</td>
+                    <td>{{ comment.user }}</td>
                     <td>{{ comment.content }}</td>
                     <td>{{ comment.cookingRecipe.name }}</td>
                     <td><a href="{{ path('manage_comment_recipe_delete', { 'id' : comment.id }) }}" class="btn btn-danger">Supprimer</a></td>
