@@ -32,7 +32,9 @@ class ManageCookingRecipeController extends Controller
 
         if ($form->isValid() && $form->isSubmitted())
         {
+            $user = $this->getUser();
             $em = $this->getDoctrine()->getManager();
+            $cookingRecipe->setUser($user);
             $em->persist($cookingRecipe);
             $em->flush();
 
