@@ -17,6 +17,7 @@ use AppBundle\Entity\Contact;
 use AppBundle\Form\ContactType;
 use AppBundle\Entity\CommentRecipe;
 use AppBundle\Form\CommentRecipeType;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 
 class FrontOfficeController extends Controller
@@ -100,6 +101,11 @@ class FrontOfficeController extends Controller
         ));
     }
 
+    /**
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
+     * @Security("has_role('ROLE_USER')")
+     */
     public function addRecipeAction(Request $request)
     {
         $cookingRecipe = new CookingRecipe();
