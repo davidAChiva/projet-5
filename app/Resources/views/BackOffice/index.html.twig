@@ -14,9 +14,9 @@
                 <h3 class="col-md-12">{{ lastRecipe.name }}</h3>
                 <img class="col-md-12" src="{{ asset(lastRecipe.image.webPath) }}" />
                 <figcaption class="col-md-10 col-md-offset-1">
-                    <p class="col-md-12"> Pays : Nom du pays</p>
-                    <p class="col-md-12">Type : plat</p>
-                    <button class="col-md-6 col-md-offset-3 btn btn-info">Voir la recette</button>
+                    <p class="col-md-12">{{ lastRecipe.specialtyCountry.country }}</p>
+                    <p class="col-md-12">{{ lastRecipe.partOfMenu.type }}</p>
+                    <a href="{{ path('front_office_recipe',{'id': lastRecipe.id, 'slug': lastRecipe.slug}) }}" class="col-md-6 col-md-offset-3 btn btn-info">Voir la recette</a>
                 </figcaption>
             </figure>
 
