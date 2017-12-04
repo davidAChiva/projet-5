@@ -130,7 +130,6 @@ class CookingRecipe
 
     /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
-     * @ORM\Column(nullable=false)
      */
     private $user;
 

@@ -32,7 +32,6 @@ class CommentRecipe
 
     /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
-     * @ORM\JoinColumn(nullable=false)
      */
     private $user;
 
