@@ -36,7 +36,7 @@ class ManageIngredientCategoryController extends Controller
             $em->persist($ingredientCategory);
             $em->flush();
 
-            return $this->redirectToRoute('manage_ingredientCategory_index');
+            return $this->redirectToRoute('manage_ingredient_category_index');
         }
 
         return $this->render('ManageIngredientCategory/add.html.twig', array(
