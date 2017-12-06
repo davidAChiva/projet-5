@@ -16,7 +16,11 @@ h2
 {
     font-size: 1.2em;
 }
+figure h3
+{
+    font-size: 1.2em;
 
+}
 .nav_vertical
 {
     margin-top: 70px;

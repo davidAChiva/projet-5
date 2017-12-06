@@ -102,12 +102,14 @@ class CookingRecipe
 
     /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\SpecialtyCountry")
+     * @ORM\joinColumn(onDelete="SET NULL")
      * @Assert\Valid()
      */
     private $specialtyCountry;
 
     /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\PartOfMenu")
+     * @ORM\joinColumn(onDelete="SET NULL")
      * @Assert\Valid()
      */
     private $partOfMenu;

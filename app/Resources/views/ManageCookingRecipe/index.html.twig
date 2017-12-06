@@ -17,12 +17,11 @@
                 <h3 class="col-md-12">{{ cookingRecipe.name }}</h3>
                 <img class="col-md-12" src="{{ asset(cookingRecipe.image.webPath) }}" />
                 <figcaption class="col-md-12">
-                    <h4 class="col-md-12">Gérer la recette: {{ cookingRecipe.name }}</h4>
+                    <h4 class="col-md-12">Gérer la recette</h4>
                     <a href="{{ path('manage_cooking_recipe_edit', {'id' : cookingRecipe.id}) }}" class="col-md-5 col-md-offset-1 btn btn-primary">Modifier</a>
                     <a href="{{ path('manage_cooking_recipe_delete', {'id' : cookingRecipe.id}) }}" class="col-md-5 col-md-offset-1 btn btn-danger">Supprimer</a>
                 </figcaption>
             </figure>
-
         {% endfor %}
     </section>
 

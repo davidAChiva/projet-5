@@ -37,7 +37,9 @@ class Image
      * @ORM\Column(name="alt", type="string", length=255)
      */
     private $alt;
-
+    /**
+     * @var UploadedFile
+     */
     private $file;
 
     private $tempFilename;
