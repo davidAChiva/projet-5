@@ -346,7 +346,7 @@ class CookingRecipe
      *
      * @return CookingRecipe
      */
-    public function setSpecialtyCountry(\AppBundle\Entity\SpecialtyCountry $specialtyCountry = null)
+    public function setSpecialtyCountry(\AppBundle\Entity\SpecialtyCountry $specialtyCountry)
     {
         $this->specialtyCountry = $specialtyCountry;
 
@@ -370,7 +370,7 @@ class CookingRecipe
      *
      * @return CookingRecipe
      */
-    public function setPartOfMenu(\AppBundle\Entity\PartOfMenu $partOfMenu = null)
+    public function setPartOfMenu(\AppBundle\Entity\PartOfMenu $partOfMenu)
     {
         $this->partOfMenu = $partOfMenu;
 

@@ -89,13 +89,25 @@ class ManageSpecialtyCountryController extends Controller
 
         // Formulaire qui contient juste le champ crsf pour la sécurité
         $form = $this->get('form.factory')->create();
-
         $form->handleRequest($request);
 
         if ($request->isMethod('POST'))
         {
             if ($form->isValid() && $form->isSubmitted())
             {
+                // On récupére la spécialité ' autre'
+                $categoryOtherCountry = $em->getRepository('AppBundle:SpecialtyCountry')->find(11);
+
+                // On récupére les recettes dont la spécialité correspond à celle qu'on va supprimer
+                $recipes = $em->getRepository('AppBundle:CookingRecipe')->getRecipesOfCountry($id);
+
+                // On bascule toutes les recettes dont la spécialité va être supprimer pour les mettres dans spécialité 'autre'
+                foreach ($recipes as $recipe)
+                {
+                    $recipe->setSpecialtyCountry($categoryOtherCountry);
+                    $em->persist($recipe);
+                }
+                // Puis on supprime la spécialité
                 $em->remove($specialtyCountry);
                 $em->flush();
 
