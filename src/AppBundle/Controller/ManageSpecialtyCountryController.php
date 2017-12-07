@@ -95,13 +95,13 @@ class ManageSpecialtyCountryController extends Controller
         {
             if ($form->isValid() && $form->isSubmitted())
             {
-                // On récupére la spécialité ' autre'
+                // On récupére la spécialité ' autre pays'
                 $categoryOtherCountry = $em->getRepository('AppBundle:SpecialtyCountry')->find(11);
 
                 // On récupére les recettes dont la spécialité correspond à celle qu'on va supprimer
                 $recipes = $em->getRepository('AppBundle:CookingRecipe')->getRecipesOfCountry($id);
 
-                // On bascule toutes les recettes dont la spécialité va être supprimer pour les mettres dans spécialité 'autre'
+                // On bascule toutes les recettes dont la spécialité va être supprimer pour les mettres dans spécialité 'autre pays'
                 foreach ($recipes as $recipe)
                 {
                     $recipe->setSpecialtyCountry($categoryOtherCountry);

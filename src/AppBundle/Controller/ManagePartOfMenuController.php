@@ -95,6 +95,19 @@ class ManagePartOfMenuController extends Controller
         {
             if ($form->isValid() && $form->isSubmitted())
             {
+                // On récupére la spécialité ' autre type'
+                $otherType = $em->getRepository('AppBundle:PartOfMenu')->find(7);
+
+                // On récupére les recettes dont la spécialité correspond à celle qu'on va supprimer
+                $recipes = $em->getRepository('AppBundle:CookingRecipe')->getRecipesOfTypeMenu($id);
+
+                // On bascule toutes les recettes dont la spécialité va être supprimer pour les mettres dans spécialité 'autre pays'
+                foreach ($recipes as $recipe)
+                {
+                    $recipe->setPartOfMenu($otherType);
+                    $em->persist($recipe);
+                }
+                // Puis on supprime la spécialité
                 $em->remove($partOfMenu);
                 $em->flush();
 
