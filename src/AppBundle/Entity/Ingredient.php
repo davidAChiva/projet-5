@@ -40,12 +40,14 @@ class Ingredient
 
     /**
      * @ORM\OneToOne(targetEntity="AppBundle\Entity\Image", cascade={"persist","remove"})
+     * @ORM\JoinColumn(nullable=false)
      * @Assert\Valid()
      */
     private $image;
 
     /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\IngredientCategory")
+     * @ORM\JoinColumn(nullable=false)
      * @Assert\Valid()
      */
     private $category;

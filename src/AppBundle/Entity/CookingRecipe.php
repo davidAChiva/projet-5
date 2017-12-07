@@ -102,20 +102,21 @@ class CookingRecipe
 
     /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\SpecialtyCountry")
-     * @ORM\joinColumn(onDelete="SET NULL")
+     * @ORM\joinColumn(nullable=false)
      * @Assert\Valid()
      */
     private $specialtyCountry;
 
     /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\PartOfMenu")
-     * @ORM\joinColumn(onDelete="SET NULL")
+     * @ORM\JoinColumn(nullable=false)
      * @Assert\Valid()
      */
     private $partOfMenu;
 
     /**
      * @ORM\OneToOne(targetEntity="AppBundle\Entity\Image", cascade={"persist", "remove"})
+     * @ORM\JoinColumn(nullable=false)
      * @Assert\Valid()
      */
     private $image;
@@ -132,6 +133,7 @@ class CookingRecipe
 
     /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $user;
 

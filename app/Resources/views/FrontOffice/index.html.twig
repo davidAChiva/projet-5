@@ -21,7 +21,13 @@
                              Aucune spécialité
                         {% endif %}
                     </p>
-                    <p class="col-md-12">{{ recipe.partOfMenu.type }}</p>
+                    <p class="col-md-12">
+                        {% if recipe.partOfMenu.type is defined %}
+                            {{ recipe.partOfMenu.type }}
+                        {% else %}
+                            Aucun type de menu
+                        {% endif %}
+                    </p>
                     <a href="{{ path('front_office_recipe',{'id': recipe.id, 'slug': recipe.slug}) }}" class="col-md-6 col-md-offset-3 btn btn-info">Voir la recette</a>
                 </figcaption>
             </figure>
@@ -55,7 +61,8 @@
                         Aucune spécialité
                     {% endif %}
                 </p>
-                <p class="col-md-12"> {{ recipe.partOfMenu.type }}</p>
+                <p class="col-md-12">
+                    {{ recipe.partOfMenu.type }}</p>
                 <a href="{{ path('front_office_recipe',{'id': recipe.id, 'slug': recipe.slug}) }}" class="col-md-6 col-md-offset-3 btn btn-info">Voir la recette</a>
             </figcaption>
         </figure>
