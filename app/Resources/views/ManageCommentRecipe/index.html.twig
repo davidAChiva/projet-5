@@ -15,6 +15,7 @@
                 <th scope="col">Id</th>
                 <th scope="col">Date</th>
                 <th scope="col">Auteur</th>
+                <th scope="col">Note</th>
                 <th scope="col">Contenu</th>
                 <th scope="col">Recette</th>
             </tr>
@@ -25,6 +26,7 @@
                     <th scope="row">{{comment.id }}</th>
                     <td>{{ comment.date| date('d/m/Y') }}</td>
                     <td>{{ comment.user }}</td>
+                    <td>{{ comment.note }}</td>
                     <td>{{ comment.content }}</td>
                     <td>{{ comment.cookingRecipe.name }}</td>
                     <td><a href="{{ path('manage_comment_recipe_delete', { 'id' : comment.id }) }}" class="btn btn-danger">Supprimer</a></td>

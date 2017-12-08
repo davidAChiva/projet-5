@@ -40,7 +40,19 @@ class ManageCommentRecipeController extends Controller
         {
             if ($form->isValid() && $form->isSubmitted())
             {
+                // On récupére l'id de la recette commenté pour l'utiliser ensuite
+                $idRecipe = $comment->getCookingRecipe()->getId();
                 $em->remove($comment);
+                // On recalcule la moyenne des notes de la recette
+                //
+                //Dans un premier temps on récupére les notes de la recette
+                $average = $em->getRepository('AppBundle:CommentRecipe')->getNotesRecipe($idRecipe);
+                $averageRecipe = $average[0];
+                $averageRecipe = $averageRecipe['average'];
+                // On récupére la recette
+                $cookingRecipe = $em->getRepository('AppBundle:CookingRecipe')->find($idRecipe);
+                $cookingRecipe->setAverageNotes($averageRecipe);
+                $em->persist($cookingRecipe);
                 $em->flush();
 
                 return $this->redirectToRoute('manage_comment_recipe_index');

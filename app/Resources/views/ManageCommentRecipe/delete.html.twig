@@ -6,8 +6,8 @@
 
 {% block body %}
     <section class="row">
-        <h2>SUPPRIMER LE COMMENTAIRE DE : {{ comment.author }}</h2>
-        <p>Voulez-vous confirmer la suppression du message de : {{ comment.author }} ?</p>
+        <h2>SUPPRIMER LE COMMENTAIRE DE : {{ comment.user }}</h2>
+        <p>Voulez-vous confirmer la suppression du message de : {{ comment.user }} ?</p>
         {# Formulaire pour supprimer la spécialité de pays #}
         <form action="{{ path('manage_comment_recipe_delete', {'id': comment.id}) }}" method="post">
 
