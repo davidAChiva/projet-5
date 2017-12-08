@@ -46,7 +46,7 @@ class ManageCommentRecipeController extends Controller
                 // On recalcule la moyenne des notes de la recette
                 //
                 //Dans un premier temps on récupére les notes de la recette
-                $average = $em->getRepository('AppBundle:CommentRecipe')->getNotesRecipe($idRecipe);
+                $average = $em->getRepository('AppBundle:CommentRecipe')->calculAverage($idRecipe);
                 $averageRecipe = $average[0];
                 $averageRecipe = $averageRecipe['average'];
                 // On récupére la recette

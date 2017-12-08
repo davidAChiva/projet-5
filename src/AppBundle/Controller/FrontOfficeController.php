@@ -159,7 +159,7 @@ class FrontOfficeController extends Controller
             $em->persist($commentRecipe);
             $em->flush();
 
-            $average = $em->getRepository('AppBundle:CommentRecipe')->getNotesRecipe($id);
+            $average = $em->getRepository('AppBundle:CommentRecipe')->calculAverage($id);
             $averageRecipe = $average[0];
             $averageRecipe = $averageRecipe['average'];
             $cookingRecipe->setAverageNotes($averageRecipe);

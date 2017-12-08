@@ -22,7 +22,7 @@ class CommentRecipeRepository extends \Doctrine\ORM\EntityRepository
         return $qb->getQuery()->getResult();
     }
 
-    public function getNotesRecipe($idRecipe)
+    public function calculAverage($idRecipe)
     {
         $qb = $this->createQueryBuilder('co')
             ->select('avg(co.note) as average')
