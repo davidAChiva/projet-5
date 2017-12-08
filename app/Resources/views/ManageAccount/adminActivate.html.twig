@@ -1,0 +1,20 @@
+{% extends "BackOffice/layout.html.twig" %}
+
+{% block title %}
+    Activer un administrateur | {{ parent() }}
+{% endblock %}
+
+{% block body %}
+    <section class="row">
+        <h2>ACTIVER L'ADMIN : {{ admin.username }}</h2>
+        <p>Voulez-vous activer le compte : {{ admin.username }} ?</p>
+        {# Formulaire pour supprimer la spécialité de pays #}
+        <form action="{{ path('manage_account_admin_activate', {'id': admin.id}) }}" method="post">
+
+            <a href="{{ path('manage_account_admin') }}" class="btn btn-primary">Annuler</a>
+            <input type="submit" value="Activer" class="btn btn-danger" />
+            {# Pour générer le champ CSRF #}
+            {{ form_rest(form) }}
+        </form>
+    </section>
+{% endblock %}

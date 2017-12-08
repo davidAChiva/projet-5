@@ -16,6 +16,7 @@
                 <th scope="col">Pseudo</th>
                 <th scope="col">Email</th>
                 <th scope="col">Derniére connexion</th>
+                <th scope="col">Activer</th>
             </tr>
             </thead>
             <tbody>
@@ -29,8 +30,14 @@
                     {% else %}
                         <td>Aucune</td>
                     {% endif %}
+                    {% if admin.enabled == 1 %}
+                        <td>Oui</td>
+                        <td><a href="{{ path('manage_account_admin_desactivate', { 'id' : admin.id }) }}" class="btn btn-danger">Désactiver</a></td>
+                    {% else %}
+                        <td>Non</td>
+                        <td><a href="{{ path('manage_account_admin_activate', { 'id' : admin.id }) }}" class="btn btn-success">Activer</a></td>
+                    {% endif %}
                     <td><a href="{{ path('manage_account_admin_modify_role', {'id' : admin.id}) }}" class="btn btn-primary">Enlever un role</a></td>
-                    <td><a href="{{ path('manage_account_admin_delete', { 'id' : admin.id }) }}" class="btn btn-danger">Supprimer</a></td>
                 </tr>
             {% endfor %}
             </tbody>

@@ -154,7 +154,7 @@ class ManageAccountController extends Controller
         ));
     }
 
-    public function deleteAdminAction(Request $request, $id)
+    public function adminActivateAction(Request $request, $id)
     {
         $em = $this->getDoctrine()->getManager();
         $admin = $em->getRepository('AppBundle:User')->find($id);
@@ -173,13 +173,46 @@ class ManageAccountController extends Controller
         {
             if ($form->isValid() && $form->isSubmitted())
             {
-                $em->remove($admin);
+                $admin->setEnabled(true);
+                $em->persist($admin);
                 $em->flush();
 
                 return $this->redirectToRoute('manage_account_admin');
             }
         }
-        return $this->render('ManageAccount/deleteAdmin.html.twig', array(
+        return $this->render('ManageAccount/adminActivate.html.twig', array(
+            'admin' => $admin,
+            'form'   => $form->createView(),
+        ));
+    }
+
+    public function adminDesactivateAction(Request $request, $id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $admin = $em->getRepository('AppBundle:User')->find($id);
+
+        if (null === $admin)
+        {
+            throw new NotFoundHttpException('L\'administrateur n\'existe pas !');
+        }
+
+        // Formulaire qui contient juste le champ crsf pour la sécurité
+        $form = $this->get('form.factory')->create();
+
+        $form->handleRequest($request);
+
+        if ($request->isMethod('POST'))
+        {
+            if ($form->isValid() && $form->isSubmitted())
+            {
+                $admin->setEnabled(false);
+                $em->persist($admin);
+                $em->flush();
+
+                return $this->redirectToRoute('manage_account_admin');
+            }
+        }
+        return $this->render('ManageAccount/adminDesactivate.html.twig', array(
             'admin' => $admin,
             'form'   => $form->createView(),
         ));

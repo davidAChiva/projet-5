@@ -18,12 +18,17 @@ manage_account_admin:
     path:       /admin0081/admin
     defaults:   { _controller: AppBundle:ManageAccount:admin }
 
+manage_account_admin_activate:
+    path:       /admin0081/admin/activer/{id}
+    defaults:   { _controller: AppBundle:ManageAccount:adminActivate }
+
+manage_account_admin_desactivate:
+    path:       /admin0081/admin/desactiver/{id}
+    defaults:   { _controller: AppBundle:ManageAccount:adminDesactivate }
+
 manage_account_admin_modify_role:
     path:       /admin0081/admin/modifier-role/{id}
     defaults:   { _controller: AppBundle:ManageAccount:adminModifyRole }
 
-manage_account_admin_delete:
-    path:       /admin0081/admin/delete/{id}
-    defaults:   { _controller: AppBundle:ManageAccount:adminDelete }
 
 
