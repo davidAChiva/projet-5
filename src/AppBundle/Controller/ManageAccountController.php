@@ -90,6 +90,38 @@ class ManageAccountController extends Controller
         ));
     }
 
+    public function userActivateAction(Request $request, $id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $user = $em->getRepository('AppBundle:User')->find($id);
+
+        if (null === $user)
+        {
+            throw new NotFoundHttpException('L\'utilisateur n\'existe pas !');
+        }
+
+        // Formulaire qui contient juste le champ crsf pour la sécurité
+        $form = $this->get('form.factory')->create();
+
+        $form->handleRequest($request);
+
+        if ($request->isMethod('POST'))
+        {
+            if ($form->isValid() && $form->isSubmitted())
+            {
+                $user->setEnabled(true);
+                $em->persist($user);
+                $em->flush();
+
+                return $this->redirectToRoute('manage_account_user');
+            }
+        }
+        return $this->render('ManageAccount/userActivate.html.twig', array(
+            'user' => $user,
+            'form'   => $form->createView(),
+        ));
+    }
+
     public function userDesactivateAction(Request $request, $id)
     {
         $em = $this->getDoctrine()->getManager();

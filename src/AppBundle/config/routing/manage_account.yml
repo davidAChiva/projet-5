@@ -2,6 +2,10 @@ manage_account_user:
     path:       /admin0081/user
     defaults:   { _controller: AppBundle:ManageAccount:user }
 
+manage_account_user_activate:
+    path:       /admin0081/utilisateur/activer/{id}
+    defaults:   { _controller: AppBundle:ManageAccount:userActivate }
+
 manage_account_user_desactivate:
     path:       /admin0081/user/desactiver/{id}
     defaults:   { _controller: AppBundle:ManageAccount:userDesactivate }

@@ -35,7 +35,7 @@
                     <td><a href="{{ path('manage_account_user_desactivate', { 'id' : user.id }) }}" class="btn btn-danger">Désactiver</a></td>
                 {% else %}
                     <td>Non</td>
-                    <td><a href="{{ path('manage_account_user_desactivate', { 'id' : user.id }) }}" class="btn btn-success">Activer</a></td>
+                    <td><a href="{{ path('manage_account_user_activate', { 'id' : user.id }) }}" class="btn btn-success">Activer</a></td>
                 {% endif %}
                 <td><a href="{{ path('manage_account_user_modify_role', {'id' : user.id}) }}" class="btn btn-primary">Ajouter un role</a></td>
 
