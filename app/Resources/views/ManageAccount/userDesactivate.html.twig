@@ -1,18 +1,18 @@
 {% extends "BackOffice/layout.html.twig" %}
 
 {% block title %}
-    Supprimer un utilisateur | {{ parent() }}
+    Désactiver un utilisateur | {{ parent() }}
 {% endblock %}
 
 {% block body %}
     <section class="row">
-        <h2>SUPPRIMER L'UTILISATEUR : {{ user.username }}</h2>
-        <p>Voulez-vous confirmer la suppression de : {{ user.username }} ?</p>
+        <h2>Désactiver : {{ user.username }}</h2>
+        <p>Voulez-vous désactiver le compte de : {{ user.username }} ?</p>
         {# Formulaire pour supprimer la spécialité de pays #}
-        <form action="{{ path('manage_account_user_delete', {'id': user.id}) }}" method="post">
+        <form action="{{ path('manage_account_user_desactivate', {'id': user.id}) }}" method="post">
 
             <a href="{{ path('manage_account_user') }}" class="btn btn-primary">Annuler</a>
-            <input type="submit" value="Supprimer" class="btn btn-danger" />
+            <input type="submit" value="Désactiver" class="btn btn-danger" />
             {# Pour générer le champ CSRF #}
             {{ form_rest(form) }}
         </form>

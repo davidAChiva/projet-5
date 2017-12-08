@@ -90,7 +90,7 @@ class ManageAccountController extends Controller
         ));
     }
 
-    public function userDeleteAction(Request $request, $id)
+    public function userDesactivateAction(Request $request, $id)
     {
         $em = $this->getDoctrine()->getManager();
         $user = $em->getRepository('AppBundle:User')->find($id);
@@ -109,13 +109,14 @@ class ManageAccountController extends Controller
         {
             if ($form->isValid() && $form->isSubmitted())
             {
-                $em->remove($user);
+                $user->setEnabled(false);
+                $em->persist($user);
                 $em->flush();
 
                 return $this->redirectToRoute('manage_account_user');
             }
         }
-        return $this->render('ManageAccount/deleteUser.html.twig', array(
+        return $this->render('ManageAccount/userDesactivate.html.twig', array(
             'user' => $user,
             'form'   => $form->createView(),
         ));

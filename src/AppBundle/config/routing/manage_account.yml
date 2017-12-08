@@ -2,9 +2,9 @@ manage_account_user:
     path:       /admin0081/user
     defaults:   { _controller: AppBundle:ManageAccount:user }
 
-manage_account_user_delete:
-    path:       /admin0081/user/delete/{id}
-    defaults:   { _controller: AppBundle:ManageAccount:userDelete }
+manage_account_user_desactivate:
+    path:       /admin0081/user/desactiver/{id}
+    defaults:   { _controller: AppBundle:ManageAccount:userDesactivate }
 
 manage_account_user_modify_role:
     path:       /admin0081/utilisateur/modifier-role/{id}
