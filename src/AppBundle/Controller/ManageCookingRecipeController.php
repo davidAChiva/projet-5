@@ -87,7 +87,6 @@ class ManageCookingRecipeController extends Controller
         {
             throw new NotFoundHttpException('La recette n\'existe pas !');
         }
-
         // Formulaire qui contient juste le champ crsf pour la sécurité
         $form = $this->get('form.factory')->create();
 
@@ -97,6 +96,29 @@ class ManageCookingRecipeController extends Controller
         {
             if ($form->isValid() && $form->isSubmitted())
             {
+                // On récupére les commentaires de la recette
+                $comments = $em->getRepository('AppBundle:CommentRecipe')->getCommentsOfRecipe($id);
+
+                //Si il y a des commetaires, alors on les supprime pour éviter d'avoir des commentaires orphelines
+                if (count($comments) > 0)
+                {
+                    foreach($comments as $comment)
+                    {
+                        $em->remove($comment);
+                    }
+                }
+
+                // On récupére les statistiques concernant la recette
+                $statisticsRecipe = $em->getRepository('AppBundle:Statistic')->findBy(array('cookingRecipe' => $cookingRecipe));
+
+                // Si il y a des statistiques, alors on les supprime
+                if (count($statisticsRecipe) > 0)
+                {
+                    foreach($statisticsRecipe as $statisticRecipe)
+                    {
+                        $em->remove($statisticRecipe);
+                    }
+                }
                 $em->remove($cookingRecipe);
                 $em->flush();
 

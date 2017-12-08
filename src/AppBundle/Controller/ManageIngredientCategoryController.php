@@ -93,6 +93,19 @@ class ManageIngredientCategoryController extends Controller
         {
             if ($form->isValid() && $form->isSubmitted())
             {
+                // On récupére la spécialité ' autre catégorie'
+                $otherCategory = $em->getRepository('AppBundle:IngredientCategory')->find(13);
+
+                // On récupére les ingrédients de la catégorie qui  correspond à celle qu'on va supprimer
+                $ingredients = $em->getRepository('AppBundle:Ingredient')->getIngredientsOfCategory($id);
+
+                // On bascule toutes les ingrédients dont la catégorie va être supprimer pour les mettre dans la catégorie 'autre catégorie'
+                foreach ($ingredients as $ingredient)
+                {
+                    $ingredient->setCategory($otherCategory);
+                    $em->persist($ingredient);
+                }
+                // Puis on supprime la spécialité
                 $em->remove($ingredientCategory);
                 $em->flush();
 
