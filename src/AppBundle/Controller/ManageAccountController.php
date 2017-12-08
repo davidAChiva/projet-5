@@ -26,7 +26,7 @@ class ManageAccountController extends Controller
     public function userModifyRoleAction($id,Request $request)
     {
         $em = $this->getDoctrine()->getManager();
-        $user = $em->getRepository('AppBundle:User')->getUsers();
+        $user = $em->getRepository('AppBundle:User')->find($id);
 
         // Formulaire qui contient juste le champ crsf pour la sécurité
         $form = $this->get('form.factory')->create();
