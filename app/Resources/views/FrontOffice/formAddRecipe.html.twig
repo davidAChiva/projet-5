@@ -9,6 +9,14 @@
     {{ form_errors(form.name) }}
     {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
 
+    {# Champ published#}
+    {% if form.published is defined %}
+        {{ form_label(form.published,"Publier", {'label_attr': {'class': 'control-label'}}) }}
+        {{ form_errors(form.published) }}
+        {{ form_widget(form.published) }}
+        <br>
+    {% endif %}
+
     {# Champ preparationTime #}
     {{ form_label(form.preparationTime,"Temps de préparation", {'label_attr': {'class': 'control-label'}}) }}
     {{ form_errors(form.preparationTime) }}

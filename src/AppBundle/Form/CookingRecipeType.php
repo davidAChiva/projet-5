@@ -8,10 +8,13 @@ use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\FormEvent;
+use Symfony\Component\Form\FormEvents;
 
 class CookingRecipeType extends AbstractType
 {
@@ -41,6 +44,29 @@ class CookingRecipeType extends AbstractType
             ->add('save',                   SubmitType::class, array('label' => 'Valider'))
 
         ;
+        $builder->addEventListener(
+
+            FormEvents::PRE_SET_DATA,
+
+            function(FormEvent $event)
+            {
+                $cookingRecipe = $event->getData();
+
+
+                // Si l'annonce n'est pas publiée, ou si elle n'existe pas encore en base
+                // (id est null)
+                if ( null !== $cookingRecipe->getId())
+                {
+                    // Alors on ajoute le champ published
+                    $event->getForm()->add('published', CheckboxType::class, array('required'  => false));
+                }
+                else
+                {
+                    // Sinon, on le supprime
+                    $event->getForm()->remove('published');
+                }
+            }
+        );
     }
 
     public function configureOptions(OptionsResolver $resolver)
@@ -48,5 +74,12 @@ class CookingRecipeType extends AbstractType
         $resolver->setDefaults(array(
             'data_class' => 'AppBundle\Entity\CookingRecipe'
         ));
+    }
+    /**
+     * {@inheritdoc}
+     */
+    public function getBlockPrefix()
+    {
+        return 'appbundle_cooking_recipe';
     }
 }
