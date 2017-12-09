@@ -18,7 +18,13 @@
                     Aucune spécialité
                 {% endif %}
             </h3>
-            <p class="col-md-12">{{ cookingRecipe.user }}</p>
+            <p class="col-md-12">
+                {% if cookingRecipe.user.enabled == false %}
+                    Compte désactivé
+                {% else %}
+                    {{ cookingRecipe.user }}
+                {% endif %}
+            </p>
             <p class="col-md-12">Note de la recette :
                 {% if cookingRecipe.averageNotes is not null %}
                     {{ cookingRecipe.averageNotes }}
