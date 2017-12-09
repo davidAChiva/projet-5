@@ -12,8 +12,11 @@ class BackOfficeController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $lastRecipes = $em->getRepository('AppBundle:CookingRecipe')->getLastRecipes(5);
+        $recipesNotPublished = $em->getRepository('AppBundle:CookingRecipe')->getRecipesNotPublished();
+
         return $this->render('BackOffice/index.html.twig', array(
-            'lastRecipes'       => $lastRecipes
+            'lastRecipes'               => $lastRecipes,
+            'recipesNotPublished'       => $recipesNotPublished
         ));
     }
 }

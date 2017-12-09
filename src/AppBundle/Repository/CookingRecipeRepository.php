@@ -141,4 +141,12 @@ class CookingRecipeRepository extends \Doctrine\ORM\EntityRepository
 
         return $recipesMostAverage;
     }
+
+    public function getRecipesNotPublished()
+    {
+        $qb = $this->createQueryBuilder('c')
+            ->where('c.published = false');
+
+        return $qb->getQuery()->getResult();
+    }
 }
