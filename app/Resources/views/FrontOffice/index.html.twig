@@ -10,20 +10,20 @@
     <section class="row">
         <h2 class="col-md-12">RECETTES LES PLUS POPULAIRES</h2>
         {% for recipe in recipesMostPopular %}
-            <figure class="col-md-4">
+            <figure class="col-lg-4 col-md-5 col-offset-md-1 ">
                 <h3 class="col-md-12">{{ recipe.name }}</h3>
                 <img class="col-md-12" src="{{ asset(recipe.image.webPath) }}" />
                 <figcaption class="col-md-10 col-md-offset-1">
                     <p class="col-md-12">
                         {% if recipe.specialtyCountry.country is defined %}
-                             {{ recipe.specialtyCountry.country }}
+                            Spécialité : {{ recipe.specialtyCountry.country }}
                         {% else %}
                              Aucune spécialité
                         {% endif %}
                     </p>
                     <p class="col-md-12">
                         {% if recipe.partOfMenu.type is defined %}
-                            {{ recipe.partOfMenu.type }}
+                            Type :{{ recipe.partOfMenu.type }}
                         {% else %}
                             Aucun type de menu
                         {% endif %}
@@ -36,14 +36,14 @@
     </section>
 
     <div class="row">
-        <button class="col-md-3 col-md-offset-5 btn btn-info">Plus de recettes</button>
+        <button class="col-md-3 col-md-offset-5 col-xs-offset-3  btn btn-info">Plus de recettes</button>
     </div>
 
     {# Section -> Les mieux notées#}
     <section class="row">
         <h2 class="col-md-12">RECETTE LES MIEUX NOTEES</h2>
         {% for recipe in recipesMostNote %}
-        <figure class="col-md-4">
+        <figure class="col-lg-4 col-md-5 col-offset-md-1">
             <h3 class="col-md-12">{{ recipe.name }}</h3>
             <p class="col-md-12">
                 {% if recipe.averageNotes is not null %}
@@ -77,7 +77,7 @@
     <section class="row">
         <h2 class="col-md-12">RECETTES PAR INGREDIENT</h2>
         {% for ingredientCategory in ingredientCategories %}
-            <figure class="col-md-4">
+            <figure class="col-lg-4 col-md-5 col-offset-md-1">
                 <h3 class="col-md-12">{{ ingredientCategory.name }}</h3>
                 <img class="col-md-12" src="{{ asset(ingredientCategory.image.webPath) }}" />
                 <figcaption class="col-md-10 col-md-offset-1">
@@ -92,7 +92,7 @@
     <section class="row">
         <h2 class="col-md-12">RECETTES PAR TYPE</h2>
         {% for partOfMenu in partsOfMenu %}
-            <figure class="col-md-4">
+            <figure class="col-lg-4 col-md-5 col-offset-md-1">
                 <h3 class="col-md-12">{{ partOfMenu.type }}</h3>
                 <img class="col-md-12" src="{{ asset(partOfMenu.image.webPath) }}" />
                 <figcaption class="col-md-10 col-md-offset-1">
@@ -106,7 +106,7 @@
     <section class="row">
         <h2 class="col-md-12">RECETTES PAR PAYS</h2>
         {% for specialtyCountry in specialtiesCountries%}
-        <figure class="col-md-4">
+        <figure class="col-lg-4 col-md-5 col-offset-md-1">
             <h3 class="col-md-12">{{ specialtyCountry.country }}</h3>
             <img class="col-md-12" src="{{ asset(specialtyCountry.image.webPath) }}" />
             <figcaption class="col-md-10 col-md-offset-1">

@@ -7,12 +7,12 @@
 
 {% block header %}
     <div class="header_slider">
-        <form class=" search_header col-xs-8 col-xs-offset-2" action="{{ path('front_office_search_recipe') }}" method="get">
-            <div class="col-xs-6">
+        <form class=" search_header col-xs-12 col-md-8 col-md-offset-2" action="{{ path('front_office_search_recipe') }}" method="get">
+            <div class="col-xs-9">
                 <input name="recipeName" type="text" id="search" class="form-control" placeholder="Rechercher une recette" />
             </div>
 
-            <input type="submit" class=" btn btn-default col-xs-2" value="Rechercher" />
+            <input type="submit" class=" btn btn-default col-xs-3" value="Rechercher" />
         </form>
     </div>
 {% endblock %}
@@ -31,9 +31,9 @@
                 <a href="{{ path('front_office_index') }}"><span class="fa fa-home icone_fontawesome_header" aria-hidden="true"></span>Accueil</a>
             </li>
             {% if is_granted('ROLE_ADMIN') %}
-            <li>
-               <a href="{{ path('back_office_index') }}" ><span class="fa fa-home icone_fontawesome_header" aria-hidden="true"></span>Panneau administration</a>
-            </li>
+                <li>
+                    <a href="{{ path('back_office_index') }}" ><span class="fa fa-home icone_fontawesome_header" aria-hidden="true"></span>Panneau administration</a>
+                </li>
             {% endif %}
             <li>
                 <a href="{{ path('front_office_add_recipe') }}"><span class="fa fa-plus icone_fontawesome_header" aria-hidden="true"></span>Ajouter une recette</a>
@@ -68,7 +68,7 @@
 {% endblock %}
 
 {% block nav_vertical %}
-    <div class="btn-group btn-group-vertical col-md-3 nav_vertical">
+    <div class="btn-group btn-group-vertical  col-md-3  nav_vertical">
         <a href="{{ path('front_office_vertical_menu_popularity_recipes') }}" class="btn btn-default">Recettes les plus populaires</a>
         <a href="{{ path('front_office_vertical_menu_average_notes_recipes') }}" class="btn btn-default">Recettes les mieux notés</a>
         <a href="{{ path('front_office_vertical_menu_ingredients') }}" class="btn btn-default">Recettes par ingrédient</a>

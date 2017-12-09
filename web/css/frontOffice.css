@@ -31,7 +31,7 @@ figcaption p
 }
 figcaption a
 {
-    top: 125px;
+    top: 75px;
 }
 figcaption:hover
 {
@@ -49,4 +49,32 @@ figure h3
 figure p
 {
     font-size: 1.2em;
+}
+
+/** Support téléphone mobile **/
+@media all and (max-width: 767px)
+{
+    .header_slider
+    {
+        background-image: none;
+        height: 50px;
+        color: white;
+    }
+    .search_header
+    {
+        top: 50px;
+        color: black;
+    }
+}
+
+/** Support tablette **/
+@media all and (min-width: 768px) and (max-width: 991px)
+{
+
+}
+
+/** Support petit écran **/
+@media all and (min-width: 992px) and (max-width: 1200px)
+{
+
 }
