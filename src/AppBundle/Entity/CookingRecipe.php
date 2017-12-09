@@ -91,7 +91,7 @@ class CookingRecipe
      *     message="La valeur {{ value }} doit être vrai où faux"
      * )
      */
-    private $published = true;
+    private $published = false;
 
     /**
      * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Ingredient", cascade={"persist"})
