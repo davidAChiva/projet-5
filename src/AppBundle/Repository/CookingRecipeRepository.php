@@ -16,6 +16,7 @@ class CookingRecipeRepository extends \Doctrine\ORM\EntityRepository
     public function getAllRecipes($page, $nbPerPage)
     {
         $qb = $this->createQueryBuilder('c')
+            ->where('c.published = true')
             ->getQuery();
 
         $qb ->setFirstResult(($page-1) * $nbPerPage)
@@ -30,8 +31,9 @@ class CookingRecipeRepository extends \Doctrine\ORM\EntityRepository
             ->innerJoin('c.ingredients','i')
             ->addSelect('i');
 
-        $qb ->where('i.category = :idCategory')
+        $qb ->andWhere('i.category = :idCategory', 'c.published = true')
             ->setParameter('idCategory',$idCategory);
+
 
         return $qb->getQuery()->getResult();
     }
@@ -42,7 +44,7 @@ class CookingRecipeRepository extends \Doctrine\ORM\EntityRepository
             ->innerJoin('c.ingredients','i')
             ->addSelect('i');
 
-        $qb ->where('i.id = :idIngredient')
+        $qb ->andWhere('i.id = :idIngredient', 'c.published = true')
             ->setParameter('idIngredient', $idIngredient);
 
         return $qb->getQuery()->getResult();
@@ -54,7 +56,7 @@ class CookingRecipeRepository extends \Doctrine\ORM\EntityRepository
             ->innerJoin('c.partOfMenu', 'p')
             ->addSelect('p');
 
-        $qb ->where('p.id = :idPartOfMenu')
+        $qb ->andWhere('p.id = :idPartOfMenu', 'c.published = true')
             ->setParameter('idPartOfMenu', $idPartOfMenu);
 
         return $qb->getQuery()->getResult();
@@ -66,7 +68,7 @@ class CookingRecipeRepository extends \Doctrine\ORM\EntityRepository
             ->innerJoin('c.specialtyCountry','s')
             ->addSelect('s');
 
-        $qb ->where('s.id = :idCountry')
+        $qb ->andWhere('s.id = :idCountry', 'c.published = true')
             ->setParameter('idCountry', $idCountry);
 
         return $qb->getQuery()->getResult();
@@ -88,7 +90,7 @@ class CookingRecipeRepository extends \Doctrine\ORM\EntityRepository
     {
         $qb = $this->createQueryBuilder('c')
             ->select('c.name', 'c.id')
-            ->where('c.name LIKE :term')
+            ->andwhere('c.name LIKE :term', 'c.published = true')
             ->setParameter('term', '%'.$term.'%');
         $recipes = $qb->getQuery()->getArrayResult();
 
@@ -103,7 +105,7 @@ class CookingRecipeRepository extends \Doctrine\ORM\EntityRepository
     public function getResultSearch($recipeName)
     {
         $qb = $this->createQueryBuilder('c')
-            ->where('c.name LIKE :term')
+            ->where('c.name LIKE :term', 'c.published = true')
             ->setParameter('term', '%'.$recipeName.'%');
         $recipes = $qb->getQuery()->getResult();
 
@@ -114,6 +116,7 @@ class CookingRecipeRepository extends \Doctrine\ORM\EntityRepository
     {
         $limit = (int)$limit;
         $qb = $this->createQueryBuilder('c')
+            ->where('c.published = true')
             ->orderBy('c.nbVisit', 'DESC')
             ->setFirstResult(0)
             ->setMaxResults($limit);
@@ -126,6 +129,7 @@ class CookingRecipeRepository extends \Doctrine\ORM\EntityRepository
     public function getAllRecipeMostPopular()
     {
         $qb = $this->createQueryBuilder('c')
+            ->where('c.published = true')
             -> orderBy('c.nbVisit', 'DESC');
 
         $recipesMostPopular = $qb->getQuery()->getResult();
@@ -136,6 +140,7 @@ class CookingRecipeRepository extends \Doctrine\ORM\EntityRepository
     public function getRecipeMostAverageNotes()
     {
         $qb = $this->createQueryBuilder('c')
+            ->where('c.published = true')
             ->orderBy('c.averageNotes', 'DESC');
         $recipesMostAverage = $qb->getQuery()->getResult();
 
