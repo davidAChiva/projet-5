@@ -27,7 +27,10 @@ class ManageAccountController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $user = $em->getRepository('AppBundle:User')->find($id);
-
+        if (null === $user)
+        {
+            throw new NotFoundHttpException("Ce compte est inexistant");
+        }
         // Formulaire qui contient juste le champ crsf pour la sécurité
         $form = $this->get('form.factory')->create();
 
@@ -66,7 +69,10 @@ class ManageAccountController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $admin = $em->getRepository('AppBundle:User')->find($id);
-
+        if (null === $admin)
+        {
+            throw new NotFoundHttpException("Ce compte n\'existe pas !");
+        }
         // Formulaire qui contient juste le champ crsf pour la sécurité
         $form = $this->get('form.factory')->create();
 

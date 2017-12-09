@@ -18,6 +18,7 @@ use AppBundle\Form\ContactType;
 use AppBundle\Entity\CommentRecipe;
 use AppBundle\Form\CommentRecipeType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 
 class FrontOfficeController extends Controller
@@ -50,6 +51,11 @@ class FrontOfficeController extends Controller
 
         $category = $em->getRepository('AppBundle:IngredientCategory')->find($id);
 
+        if (null === $category)
+        {
+            throw new NotFoundHttpException("La catégorie n\'existe pas !");
+        }
+
         $recipesOfCategory = $em->getRepository('AppBundle:CookingRecipe')->getRecipesOfCategoryIngredient($id);
 
         return $this->render('FrontOffice/ingredientCategory.html.twig', array(
@@ -64,6 +70,10 @@ class FrontOfficeController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $ingredient = $em->getRepository('AppBundle:Ingredient')->find($id);
+        if (null === $ingredient)
+        {
+            throw new NotFoundHttpException("L'ingrédient n\'existe pas !");
+        }
 
         $recipes = $em->getRepository('AppBundle:CookingRecipe')->getRecipesOfIngredient($id);
 
@@ -79,6 +89,11 @@ class FrontOfficeController extends Controller
 
         $partOfMenu = $em->getRepository('AppBundle:PartOfMenu')->find($id);
 
+        if (null === $partOfMenu)
+        {
+            throw new NotFoundHttpException("Le type de menu n\'existe pas !");
+        }
+
         $recipes = $em->getRepository('AppBundle:CookingRecipe')->getRecipesOfTypeMenu($id);
 
         return $this->render('FrontOffice/partMenu.html.twig', array(
@@ -92,6 +107,10 @@ class FrontOfficeController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $specialtyCountry = $em->getRepository('AppBundle:SpecialtyCountry')->find($id);
+        if (null === $specialtyCountry)
+        {
+            throw new NotFoundHttpException("La spécialité n\'existe pas !");
+        }
 
         $recipes = $em->getRepository('AppBundle:CookingRecipe')->getRecipesOfCountry($id);
 
@@ -134,6 +153,10 @@ class FrontOfficeController extends Controller
         $em = $this->getDoctrine()->getManager();
         
         $cookingRecipe = $em->getRepository('AppBundle:CookingRecipe')->find($id);
+        if (null === $cookingRecipe)
+        {
+            throw new NotFoundHttpException("La recette n\'existe pas !");
+        }
         $ip = $request->getClientIp();
 
         $visit = $em->getRepository('AppBundle:Statistic')->getVisitRecipe($id,$ip);
