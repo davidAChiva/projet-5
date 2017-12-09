@@ -29,6 +29,3 @@ manage_account_admin_desactivate:
 manage_account_admin_modify_role:
     path:       /admin0081/admin/modifier-role/{id}
     defaults:   { _controller: AppBundle:ManageAccount:adminModifyRole }
-
-
-
