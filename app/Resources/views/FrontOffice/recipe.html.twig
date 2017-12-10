@@ -6,7 +6,7 @@
 
 {% block body %}
     <div class="row">
-        <div class="col-md-4 list_ingredient_recipe">
+        <div class="col-md-3 list_ingredient_recipe">
             <h3 class="col-md-12">Liste des ingrédients</h3>
             <ul class="col-md-12">
                 {% for ingredient in cookingRecipe.ingredients  %}
@@ -14,7 +14,7 @@
                 {% endfor %}
             </ul>
         </div>
-        <div class="col-md-8">
+        <div class="col-md-7">
             <h2 class="col-md-12 title_recipe">{{ cookingRecipe.name }}</h2>
             <p class="col-md-12 author_recipe">Auteur :
                 {% if cookingRecipe.user.enabled == false %}
@@ -30,7 +30,7 @@
                     Aucune note
                 {% endif %}
             </p>
-            <img class="col-md-12 col-sm-8 col-sm-offset-2 col-xs-8 col-xs-offset-2" src="{{ asset(cookingRecipe.image.webPath) }}" alt="{{ cookingRecipe.image.alt }}" />
+            <img class=" col-sm-8 col-sm-offset-2 col-xs-8 col-xs-offset-2 col-md-10" src="{{ asset(cookingRecipe.image.webPath) }}" alt="{{ cookingRecipe.image.alt }}" />
         </div>
     </div>
     <div class="row">

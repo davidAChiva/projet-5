@@ -116,6 +116,8 @@ class CookingRecipeRepository extends \Doctrine\ORM\EntityRepository
     {
         $limit = (int)$limit;
         $qb = $this->createQueryBuilder('c')
+            ->innerJoin('c.image','i')
+            ->addSelect('i')
             ->where('c.published = true')
             ->orderBy('c.nbVisit', 'DESC')
             ->setFirstResult(0)
@@ -130,7 +132,7 @@ class CookingRecipeRepository extends \Doctrine\ORM\EntityRepository
     {
         $qb = $this->createQueryBuilder('c')
             ->where('c.published = true')
-            -> orderBy('c.nbVisit', 'DESC');
+            ->orderBy('c.nbVisit', 'DESC');
 
         $recipesMostPopular = $qb->getQuery()->getResult();
 
@@ -140,6 +142,8 @@ class CookingRecipeRepository extends \Doctrine\ORM\EntityRepository
     public function getRecipeMostAverageNotes()
     {
         $qb = $this->createQueryBuilder('c')
+            ->innerJoin('c.image','i')
+            ->addSelect('i')
             ->where('c.published = true')
             ->orderBy('c.averageNotes', 'DESC');
         $recipesMostAverage = $qb->getQuery()->getResult();

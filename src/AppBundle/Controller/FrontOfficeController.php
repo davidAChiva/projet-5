@@ -17,6 +17,7 @@ use AppBundle\Entity\Contact;
 use AppBundle\Form\ContactType;
 use AppBundle\Entity\CommentRecipe;
 use AppBundle\Form\CommentRecipeType;
+use AppBundle\Entity\IngredientCategory;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
@@ -28,10 +29,10 @@ class FrontOfficeController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $ingredientCategories = $em->getRepository('AppBundle:IngredientCategory')->findAll();
+        $ingredientCategories = $em->getRepository('AppBundle:IngredientCategory')->getAllIngredientCategory();
         $recipesMostPopular = $em->getRepository('AppBundle:CookingRecipe')->getRecipeMostPopular(9);
-        $partsOfMenu = $em->getRepository('AppBundle:PartOfMenu')->findAll();
-        $specialtiesCountries = $em->getRepository('AppBundle:SpecialtyCountry')->findAll();
+        $partsOfMenu = $em->getRepository('AppBundle:PartOfMenu')->getAllPartOfMenu();
+        $specialtiesCountries = $em->getRepository('AppBundle:SpecialtyCountry')->getAllSpecialtyCountry();
         $recipesMostNote = $em->getRepository('AppBundle:CookingRecipe')->getRecipeMostAverageNotes();
 
         return $this->render('FrontOffice/index.html.twig', array(

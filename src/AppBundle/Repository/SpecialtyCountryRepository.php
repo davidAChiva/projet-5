@@ -10,4 +10,13 @@ namespace AppBundle\Repository;
  */
 class SpecialtyCountryRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function getAllSpecialtyCountry()
+    {
+        $qb = $this->createQueryBuilder('sc')
+            ->innerJoin('sc.image','i')
+            ->addSelect('i');
+
+        return $qb->getQuery()->getResult();
+
+    }
 }

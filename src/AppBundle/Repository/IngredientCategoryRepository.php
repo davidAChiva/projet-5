@@ -10,4 +10,13 @@ namespace AppBundle\Repository;
  */
 class IngredientCategoryRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function getAllIngredientCategory()
+    {
+        $qb = $this->createQueryBuilder('ic')
+            ->innerJoin('ic.image','im')
+            ->addSelect('im');
+
+         return $qb->getQuery()->getResult();
+
+    }
 }

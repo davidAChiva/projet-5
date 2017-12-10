@@ -10,4 +10,13 @@ namespace AppBundle\Repository;
  */
 class PartOfMenuRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function getAllPartOfMenu()
+    {
+        $qb = $this->createQueryBuilder('p')
+            ->innerJoin('p.image','i')
+            ->addSelect('i');
+
+        return $qb->getQuery()->getResult();
+
+    }
 }
