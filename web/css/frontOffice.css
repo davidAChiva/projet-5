@@ -5,6 +5,28 @@
     height: 600px;
     color: white;
 }
+.title_recipe
+{
+    font-size : 3em;
+    font-weight: bold;
+}
+.note_recipe
+{
+    font-size: 2em;
+}
+.list_ingredient_recipe h3
+{
+    font-size: 2em;
+    font-weight: bold;
+}
+.list_ingredient_recipe li
+{
+    font-size: 1.5em;
+}
+.author_recipe
+{
+    font-size: 1.5em;
+}
 .search_header
 {
     top : 300px;
