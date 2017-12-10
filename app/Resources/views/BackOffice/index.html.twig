@@ -18,7 +18,7 @@
             {% for recipe in recipesNotPublished %}
                 <figure class="col-md-4">
                     <h3 class="col-md-12">{{ recipe.name }}</h3>
-                    <img class="col-md-12" src="{{ asset(recipe.image.webPath) }}" />
+                    <img class="col-md-12 col-xs-12" src="{{ asset(recipe.image.webPath) }}" />
                     <figcaption class="col-md-10 col-md-offset-1">
                         <p class="col-md-12">
                             {% if recipe.specialtyCountry is not null %}
@@ -40,7 +40,7 @@
             {% for lastRecipe in lastRecipes %}
                 <figure class="col-md-4">
                     <h3 class="col-md-12">{{ lastRecipe.name }}</h3>
-                    <img class="col-md-12" src="{{ asset(lastRecipe.image.webPath) }}" />
+                    <img class="col-md-12 col-xs-12" src="{{ asset(lastRecipe.image.webPath) }}" />
                     <figcaption class="col-md-10 col-md-offset-1">
                         <p class="col-md-12">
                             {% if lastRecipe.specialtyCountry is not null %}

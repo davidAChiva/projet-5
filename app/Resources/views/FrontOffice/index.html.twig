@@ -12,7 +12,7 @@
         {% for recipe in recipesMostPopular %}
             <figure class="col-lg-4 col-md-5 col-offset-md-1 ">
                 <h3 class="col-md-12">{{ recipe.name }}</h3>
-                <img class="col-md-12" src="{{ asset(recipe.image.webPath) }}" />
+                <img class="col-md-12 col-xs-12" src="{{ asset(recipe.image.webPath) }}" />
                 <figcaption class="col-md-10 col-md-offset-1">
                     <p class="col-md-12">
                         {% if recipe.specialtyCountry.country is defined %}
@@ -52,7 +52,7 @@
                 Aucune note
                 {% endif %}
             </p>
-            <img class="col-md-12" src="{{ asset(recipe.image.webPath) }}" />
+            <img class="col-md-12 col-xs-12" src="{{ asset(recipe.image.webPath) }}" />
             <figcaption class="col-md-10 col-md-offset-1">
                 <p class="col-md-12">
                     {% if recipe.specialtyCountry.country is defined %}
@@ -79,7 +79,7 @@
         {% for ingredientCategory in ingredientCategories %}
             <figure class="col-lg-4 col-md-5 col-offset-md-1">
                 <h3 class="col-md-12">{{ ingredientCategory.name }}</h3>
-                <img class="col-md-12" src="{{ asset(ingredientCategory.image.webPath) }}" />
+                <img class="col-md-12 col-xs-12" src="{{ asset(ingredientCategory.image.webPath) }}" />
                 <figcaption class="col-md-10 col-md-offset-1">
                     <p class="col-md-12">Liste de la catégorie : {{ ingredientCategory.name }}</p>
                     <a href="{{ path('front_office_ingredient_category',{'id': ingredientCategory.id, 'slug': ingredientCategory.slug }) }}" class="col-md-6 col-md-offset-3 btn btn-info">Voir les ingrédients</a>
@@ -94,7 +94,7 @@
         {% for partOfMenu in partsOfMenu %}
             <figure class="col-lg-4 col-md-5 col-offset-md-1">
                 <h3 class="col-md-12">{{ partOfMenu.type }}</h3>
-                <img class="col-md-12" src="{{ asset(partOfMenu.image.webPath) }}" />
+                <img class="col-md-12 col-xs-12" src="{{ asset(partOfMenu.image.webPath) }}" />
                 <figcaption class="col-md-10 col-md-offset-1">
                     <a href="{{ path('front_office_part_menu',{'id': partOfMenu.id, 'slug': partOfMenu.slug }) }}" class="col-md-6 col-md-offset-3 btn btn-info">Voir les recettes</a>
                 </figcaption>
@@ -108,7 +108,7 @@
         {% for specialtyCountry in specialtiesCountries%}
         <figure class="col-lg-4 col-md-5 col-offset-md-1">
             <h3 class="col-md-12">{{ specialtyCountry.country }}</h3>
-            <img class="col-md-12" src="{{ asset(specialtyCountry.image.webPath) }}" />
+            <img class="col-md-12 col-xs-12" src="{{ asset(specialtyCountry.image.webPath) }}" />
             <figcaption class="col-md-10 col-md-offset-1">
                 <p>Spécialité {{ specialtyCountry.country }}</p>
                 <a href="{{ path('front_office_country_specialty',{'id':specialtyCountry.id, 'slug': specialtyCountry.slug }) }}" class="col-md-6 col-md-offset-3 btn btn-info">Voir les recettes</a>

@@ -15,7 +15,7 @@
         {% for ingredientCategory in ingredientCategories %}
             <figure class="col-md-4">
                 <h3 class="col-md-12">{{ ingredientCategory.name }}</h3>
-                <img class="col-md-12" src="{{ asset(ingredientCategory.image.webPath) }}" />
+                <img class="col-md-12 col-xs-12" src="{{ asset(ingredientCategory.image.webPath) }}" />
                 <figcaption class="col-md-12">
                     <h4 class="col-md-12">Gérer la spécialité: {{ ingredientCategory.name }}</h4>
                     <a href="{{ path('manage_ingredient_category_edit',{'id' : ingredientCategory.id, 'slug': ingredientCategory.slug}) }}" class="col-md-5 col-md-offset-1 btn btn-primary">Modifier</a>

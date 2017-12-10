@@ -11,7 +11,7 @@
         {% for cookingRecipe in cookingRecipes %}
             <figure class="col-md-4 col-sm-5 col-sm-offset-1">
                 <h3 class="col-md-12">{{ cookingRecipe.name }}</h3>
-                <img class="col-md-12" src="{{ asset(cookingRecipe.image.webPath) }}" alt="{{ cookingRecipe.image.alt }}"/>
+                <img class="col-md-12 col-xs-12" src="{{ asset(cookingRecipe.image.webPath) }}" alt="{{ cookingRecipe.image.alt }}"/>
                 <figcaption class="col-md-10 col-md-offset-1 col-xs-6 col-xs-offset-3">
                     <p class="col-md-6">Type : {{ cookingRecipe.partOfMenu.type }}</p>
                     <p class="col-md-6">Spécialité : {{ cookingRecipe.specialtyCountry.country }}</p>

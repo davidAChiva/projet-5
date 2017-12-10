@@ -15,7 +15,7 @@
         {% for partOfMenu in partsOfMenu %}
             <figure class="col-md-4">
                 <h3 class="col-md-12">{{ partOfMenu.type }}</h3>
-                <img class="col-md-12" src="{{ asset(partOfMenu.image.webPath) }}" />
+                <img class="col-md-12 col-xs-12" src="{{ asset(partOfMenu.image.webPath) }}" />
                 <figcaption class="col-md-12">
                     <h4 class="col-md-12">Gérer la spécialité: {{ partOfMenu.type }}</h4>
                     <a href="{{ path('manage_part_of_menu_edit', {'id' : partOfMenu.id, 'slug' : partOfMenu.slug}) }}" class="col-md-5 col-md-offset-1 btn btn-primary">Modifier</a>
