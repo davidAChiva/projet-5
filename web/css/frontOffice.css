@@ -73,6 +73,10 @@ figure p
     font-size: 1.2em;
 }
 
+.button-more
+{
+    margin-top: 10px;
+}
 /** Support téléphone mobile **/
 @media all and (max-width: 767px)
 {

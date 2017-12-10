@@ -78,6 +78,10 @@ class CookingRecipeRepository extends \Doctrine\ORM\EntityRepository
     {
         $limit = (int)$limit;
         $qb = $this->createQueryBuilder('c')
+            ->innerJoin('c.image','i')
+            ->innerJoin('c.partOfMenu','p')
+            ->innerJoin('c.specialtyCountry','s')
+            ->addSelect('i','p','s')
             ->orderBy('c.id', 'DESC')
             ->setFirstResult(0)
             ->setMaxResults($limit);
@@ -154,6 +158,8 @@ class CookingRecipeRepository extends \Doctrine\ORM\EntityRepository
     public function getRecipesNotPublished()
     {
         $qb = $this->createQueryBuilder('c')
+            ->innerJoin('c.image','i')
+            ->addSelect('i')
             ->where('c.published = false');
 
         return $qb->getQuery()->getResult();
