@@ -77,6 +77,11 @@ figure p
 {
     margin-top: 10px;
 }
+.message-comment
+{
+    font-size: 2em;
+    font-weight: bold;
+}
 /** Support téléphone mobile **/
 @media all and (max-width: 767px)
 {
