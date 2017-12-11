@@ -37,28 +37,7 @@ section img
     margin-top: 10px;
     height: 200px;
 }
-figcaption
-{
-    margin-top: -200px;
-    height: 200px;
-    color:white;
-    background-color: rgba(0,0,0,0.5);
-    opacity: 0;
-    transition-property: opacity;
-    transition-duration: 2s;
-}
-figcaption p
-{
-    font-weight: bold;
-}
-figcaption a
-{
-    top: 75px;
-}
-figcaption:hover
-{
-    opacity: 1;
-}
+
 figure
 {
     text-align: center;
@@ -82,6 +61,7 @@ figure p
     font-size: 2em;
     font-weight: bold;
 }
+
 /** Support téléphone mobile **/
 @media all and (max-width: 767px)
 {
@@ -91,11 +71,13 @@ figure p
         height: 50px;
         color: white;
     }
+
     .search_header
     {
         top: 50px;
         color: black;
     }
+
 }
 
 /** Support tablette **/
@@ -103,7 +85,6 @@ figure p
 {
 
 }
-
 /** Support petit écran **/
 @media all and (min-width: 992px) and (max-width: 1200px)
 {

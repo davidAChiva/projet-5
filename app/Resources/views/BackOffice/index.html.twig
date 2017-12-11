@@ -16,7 +16,7 @@
         {% endif %}
         {% if recipesNotPublished | length >= 1 %}
             {% for recipe in recipesNotPublished %}
-                <figure class="col-md-4">
+                <figure class="col-xs-11 col-sm-6 col-md-5 col-lg-4">
                     <h3 class="col-md-12">{{ recipe.name }}</h3>
                     <img class="col-md-12 col-xs-12" src="{{ asset(recipe.image.webPath) }}" />
                     <figcaption class="col-md-10 col-md-offset-1">
@@ -38,7 +38,7 @@
             <h2>Il y a aucune recette non publié</h2>
             <h3>LES DERNIERES RECETTES</h3>
             {% for lastRecipe in lastRecipes %}
-                <figure class="col-md-4">
+                <figure class="col-xs-11 col-sm-6 col-md-5 col-lg-4">
                     <h3 class="col-md-12">{{ lastRecipe.name }}</h3>
                     <img class="col-md-12 col-xs-12" src="{{ asset(lastRecipe.image.webPath) }}" />
                     <figcaption class="col-md-10 col-md-offset-1">
