@@ -74,14 +74,17 @@
         {% endfor %}
     </section>
     <h3>AJOUTER UN COMMENTAIRE</h3>
-    {% for comment in comments %}
+
     {% if app.user is null %}
         <p class="message-comment">Vous devez être connecter pour commenter une recette</p>
-    {% elseif comment.user != app.user %}
+    {% endif %}
+    {% for comment in comments %}
+    {% if comment.user != app.user and app.user is not null %}
             {# Formulaire du commentaire #}
             {{ include('FrontOffice/formCommentRecipe.html.twig') }}
-        {% else %}
+        {% elseif comment.user == app.user %}
             <p class="message-comment"> Vous avez déjà commenter la recette</p>
+
         {% endif %}
     {% endfor %}
 
