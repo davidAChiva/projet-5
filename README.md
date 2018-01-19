@@ -1,72 +1,41 @@
-Symfony Standard Edition
-========================
+Notes pour le jury:
 
-Welcome to the Symfony Standard Edition - a fully-functional Symfony
-application that you can use as the skeleton for your new applications.
+ Lien du site en ligne : http://david-alfaro.com/parcours-dev/projet-5/web
 
-For details on how to download and get started with Symfony, see the
-[Installation][1] chapter of the Symfony Documentation.
+lien administration :
+http://david-alfaro.com/parcours-dev/projet-5/web/admin0081
 
-What's inside?
---------------
+connexion admin:
 
-The Symfony Standard Edition is configured with the following defaults:
+Identifiant : D.Alfaro.chiva
 
-  * An AppBundle you can use to start coding;
+mdp: delices
 
-  * Twig as the only configured template engine;
+<h1>PROJET 5 FORMATION DEVELOPPEUR WEB JUNIOR OPENCLASSROOM</h1>
 
-  * Doctrine ORM/DBAL;
+Projet libre réunissant toutes les connaissances acquises
 
-  * Swiftmailer;
+<h2>LANGAGE</h2>
 
-  * Annotations enabled for everything.
+HTML CSS JAVASCRIPT PHP SQL 
 
-It comes pre-configured with the following bundles:
+<h2>FRAMEWORK</h2>
 
-  * **FrameworkBundle** - The core Symfony framework bundle
+JQUERY SYMFONY 3 BOOTSTRAP
 
-  * [**SensioFrameworkExtraBundle**][6] - Adds several enhancements, including
-    template and routing annotation capability
+<h2>A PROPOS</h2>
 
-  * [**DoctrineBundle**][7] - Adds support for the Doctrine ORM
+Le projet a été réalisé sous symfony 3.
 
-  * [**TwigBundle**][8] - Adds support for the Twig templating engine
+L'application permet de visionner et d'ajouter des recettes provenant du monde entier .
 
-  * [**SecurityBundle**][9] - Adds security by integrating Symfony's security
-    component
+<h3>FONCTIONNALITES PRINCIPALES</h3>
 
-  * [**SwiftmailerBundle**][10] - Adds support for Swiftmailer, a library for
-    sending emails
-
-  * [**MonologBundle**][11] - Adds support for Monolog, a logging library
-
-  * **WebProfilerBundle** (in dev/test env) - Adds profiling functionality and
-    the web debug toolbar
-
-  * **SensioDistributionBundle** (in dev/test env) - Adds functionality for
-    configuring and working with Symfony distributions
-
-  * [**SensioGeneratorBundle**][13] (in dev env) - Adds code generation
-    capabilities
-
-  * [**WebServerBundle**][14] (in dev env) - Adds commands for running applications
-    using the PHP built-in web server
-
-  * **DebugBundle** (in dev/test env) - Adds Debug and VarDumper component
-    integration
-
-All libraries and bundles included in the Symfony Standard Edition are
-released under the MIT or BSD license.
-
-Enjoy!
-
-[1]:  https://symfony.com/doc/3.3/setup.html
-[6]:  https://symfony.com/doc/current/bundles/SensioFrameworkExtraBundle/index.html
-[7]:  https://symfony.com/doc/3.3/doctrine.html
-[8]:  https://symfony.com/doc/3.3/templating.html
-[9]:  https://symfony.com/doc/3.3/security.html
-[10]: https://symfony.com/doc/3.3/email.html
-[11]: https://symfony.com/doc/3.3/logging.html
-[13]: https://symfony.com/doc/current/bundles/SensioGeneratorBundle/index.html
-[14]: https://symfony.com/doc/current/setup/built_in_web_server.html
+<ul>
+    <li> Un compte utilisateur peut ajouter une recette, celle-ci sera ajoutée après validation d'un administrateur</li>
+    <li> Classification des recettes les plus populaires "compteur de visite unique par ip"</li>
+    <li> Classification des recettes les mieux notés </li>
+    <li> Classification des recettes par ingrédient </li>
+    <li> Classification des recettes par type de meny </li>
+    <li> Classification des recettes par pays</li>
+</ul>    
