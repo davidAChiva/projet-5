@@ -11,6 +11,8 @@ Identifiant : D.Alfaro.chiva
 
 mdp: delices
 
+export sql : fichier inclus dans la racine du repository
+
 <h1>PROJET 5 FORMATION DEVELOPPEUR WEB JUNIOR OPENCLASSROOM</h1>
 
 Projet libre réunissant toutes les connaissances acquises
