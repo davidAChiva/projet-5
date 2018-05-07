@@ -1,15 +1,5 @@
-Notes pour le jury:
 
  Lien du site en ligne : http://david-alfaro.com/parcours-dev/projet-5/web
-
-lien administration :
-http://david-alfaro.com/parcours-dev/projet-5/web/admin0081
-
-connexion admin:
-
-Identifiant : D.Alfaro.chiva
-
-mdp: delices
 
 export sql : fichier inclus dans la racine du repository
 
